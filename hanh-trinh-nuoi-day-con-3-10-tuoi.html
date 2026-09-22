@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hành Trình Nuôi Dạy Con 3–10 Tuổi</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<style>
+:root {
+  --bg: #ECEAE2;
+  --card: #F8F7F3;
+  --card2: #FFFFFF;
+  --text: #1E2B26;
+  --muted: #6A7A75;
+  --border: #D8D5CB;
+  --sage: #3D6E5E;
+  --sage-light: #E4EDE9;
+  --radius: 12px;
+  --s1: #B56560; --s1-bg: #F9EDEC; --s1-soft: #F2D9D7;
+  --s2: #A8892A; --s2-bg: #FAF5E3; --s2-soft: #EFE3B4;
+  --s3: #35806A; --s3-bg: #E6F1EC; --s3-soft: #C0DDD3;
+  --s4: #376091; --s4-bg: #E6EEF6; --s4-soft: #BAD0E8;
+  font-family: 'Nunito', sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #191E1C; --card: #222926; --card2: #2A332F;
+    --text: #DCE8E2; --muted: #7A9A90; --border: #2E3C36;
+    --sage: #5A9E8A; --sage-light: #1C2E28;
+    --s1-bg: #2A1918; --s1-soft: #3A2220;
+    --s2-bg: #251E0E; --s2-soft: #352B12;
+    --s3-bg: #14261E; --s3-soft: #1C3428;
+    --s4-bg: #141C2C; --s4-soft: #1C2A3E;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #191E1C; --card: #222926; --card2: #2A332F;
+  --text: #DCE8E2; --muted: #7A9A90; --border: #2E3C36;
+  --sage: #5A9E8A; --sage-light: #1C2E28;
+  --s1-bg: #2A1918; --s1-soft: #3A2220;
+  --s2-bg: #251E0E; --s2-soft: #352B12;
+  --s3-bg: #14261E; --s3-soft: #1C3428;
+  --s4-bg: #141C2C; --s4-soft: #1C2A3E;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); padding-inline: 18px; padding-block: 28px; }
+.wrap { max-width: 900px; margin: 0 auto; }
+
+/* ── HEADER ── */
+.page-intro { text-align: center; margin-bottom: 36px; }
+.eyebrow {
+  display: inline-block;
+  font-size: 11px; font-weight: 800;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--sage); border: 1.5px solid var(--sage);
+  padding: 3px 12px; border-radius: 4px; margin-bottom: 14px;
+}
+.page-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.7rem, 5vw, 2.6rem);
+  font-weight: 700; line-height: 1.15;
+  color: var(--text); text-wrap: balance;
+  margin-bottom: 12px;
+}
+.page-sub {
+  font-size: 15px; color: var(--muted);
+  max-width: 560px; margin: 0 auto 20px;
+  line-height: 1.65;
+}
+.theory-note {
+  display: inline-flex; gap: 16px; flex-wrap: wrap;
+  justify-content: center;
+  font-size: 12px; color: var(--muted);
+}
+.theory-note span { display: flex; align-items: center; gap: 5px; }
+.theory-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--sage); display: inline-block; }
+
+/* ── TIMELINE ── */
+.timeline-wrap {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin-bottom: 32px;
+  overflow-x: auto;
+}
+.timeline-label { font-size: 11px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+.timeline-bar {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 2fr;
+  gap: 4px;
+  min-width: 480px;
+}
+.tl-seg {
+  border-radius: 6px;
+  padding: 10px 12px;
+  position: relative;
+}
+.tl-age { font-size: 11px; font-weight: 800; opacity: .75; margin-bottom: 2px; }
+.tl-name { font-size: 13px; font-weight: 700; }
+.tl-theme { font-size: 11px; opacity: .7; margin-top: 2px; }
+.tl-seg.s1 { background: var(--s1-soft); color: var(--s1); }
+.tl-seg.s2 { background: var(--s2-soft); color: var(--s2); }
+.tl-seg.s3 { background: var(--s3-soft); color: var(--s3); }
+.tl-seg.s4 { background: var(--s4-soft); color: var(--s4); }
+
+/* ── STAGE SECTIONS ── */
+.stage { margin-bottom: 28px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
+.stage-header {
+  padding: 18px 22px 16px;
+  display: flex; align-items: flex-start; gap: 14px;
+}
+.stage-number {
+  width: 40px; height: 40px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 18px; font-weight: 700;
+  flex-shrink: 0; color: #fff;
+}
+.stage-meta { flex: 1; }
+.stage-age { font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; opacity: .8; margin-bottom: 3px; }
+.stage-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.25rem; font-weight: 700; line-height: 1.2;
+  margin-bottom: 5px;
+}
+.stage-piaget {
+  font-size: 12px; opacity: .75;
+  display: flex; gap: 10px; flex-wrap: wrap;
+}
+.stage-piaget b { opacity: .9; }
+.stage-body {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr 1fr;
+  gap: 0;
+  border-top: 1px solid var(--border);
+}
+.stage-col { padding: 18px 20px; }
+.stage-col + .stage-col { border-left: 1px solid var(--border); }
+
+.col-label {
+  font-size: 10.5px; font-weight: 800;
+  letter-spacing: .09em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 12px;
+  padding-bottom: 8px; border-bottom: 1px solid var(--border);
+}
+
+.psych-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.psych-list li {
+  font-size: 13px; line-height: 1.5; color: var(--text);
+  padding-left: 14px; position: relative;
+}
+.psych-list li::before {
+  content: '';
+  position: absolute; left: 0; top: 7px;
+  width: 5px; height: 5px; border-radius: 50%;
+}
+
+.domain-rows { display: flex; flex-direction: column; gap: 6px; }
+.domain-row {
+  display: flex; gap: 10px; align-items: flex-start;
+  padding: 8px 10px; border-radius: 7px;
+}
+.domain-icon-wrap {
+  font-size: 13px; flex-shrink: 0;
+  width: 24px; text-align: center;
+  margin-top: 1px;
+}
+.domain-content { flex: 1; }
+.domain-name { font-size: 11px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 2px; }
+.domain-goals { font-size: 12.5px; color: var(--muted); line-height: 1.45; }
+
+.skill-chips { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.skill-chip {
+  font-size: 12.5px; font-weight: 700;
+  padding: 6px 10px; border-radius: 6px;
+  line-height: 1.4;
+}
+.rhythm-box {
+  border-radius: 7px;
+  padding: 10px 12px;
+}
+.rhythm-label { font-size: 10px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.rhythm-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+.rhythm-key { font-size: 12px; color: var(--muted); }
+.rhythm-val { font-size: 12.5px; font-weight: 700; }
+.rhythm-total { font-size: 12px; font-weight: 800; margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); }
+
+.stage.s1 .stage-header { background: var(--s1-bg); }
+.stage.s1 .stage-number { background: var(--s1); }
+.stage.s1 .stage-age { color: var(--s1); }
+.stage.s1 .psych-list li::before { background: var(--s1); }
+.stage.s1 .domain-row { background: var(--s1-bg); }
+.stage.s1 .domain-name { color: var(--s1); }
+.stage.s1 .skill-chip { background: var(--s1-bg); color: var(--s1); }
+.stage.s1 .rhythm-box { background: var(--s1-soft); }
+
+.stage.s2 .stage-header { background: var(--s2-bg); }
+.stage.s2 .stage-number { background: var(--s2); }
+.stage.s2 .stage-age { color: var(--s2); }
+.stage.s2 .psych-list li::before { background: var(--s2); }
+.stage.s2 .domain-row { background: var(--s2-bg); }
+.stage.s2 .domain-name { color: var(--s2); }
+.stage.s2 .skill-chip { background: var(--s2-bg); color: var(--s2); }
+.stage.s2 .rhythm-box { background: var(--s2-soft); }
+
+.stage.s3 .stage-header { background: var(--s3-bg); }
+.stage.s3 .stage-number { background: var(--s3); }
+.stage.s3 .stage-age { color: var(--s3); }
+.stage.s3 .psych-list li::before { background: var(--s3); }
+.stage.s3 .domain-row { background: var(--s3-bg); }
+.stage.s3 .domain-name { color: var(--s3); }
+.stage.s3 .skill-chip { background: var(--s3-bg); color: var(--s3); }
+.stage.s3 .rhythm-box { background: var(--s3-soft); }
+
+.stage.s4 .stage-header { background: var(--s4-bg); }
+.stage.s4 .stage-number { background: var(--s4); }
+.stage.s4 .stage-age { color: var(--s4); }
+.stage.s4 .psych-list li::before { background: var(--s4); }
+.stage.s4 .domain-row { background: var(--s4-bg); }
+.stage.s4 .domain-name { color: var(--s4); }
+.stage.s4 .skill-chip { background: var(--s4-bg); color: var(--s4); }
+.stage.s4 .rhythm-box { background: var(--s4-soft); }
+
+.girl-note {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 11.5px; font-weight: 700;
+  padding: 3px 10px; border-radius: 4px; margin-top: 6px;
+  letter-spacing: .01em;
+}
+.s1 .girl-note { background: var(--s1-soft); color: var(--s1); }
+.s2 .girl-note { background: var(--s2-soft); color: var(--s2); }
+.s3 .girl-note { background: var(--s3-soft); color: var(--s3); }
+.s4 .girl-note { background: var(--s4-soft); color: var(--s4); }
+
+.role-callout {
+  margin: 0 0 14px;
+  padding: 9px 14px;
+  border-radius: 7px;
+  border-left: 3px solid var(--s3);
+  background: var(--s3-bg);
+  font-size: 12.5px; color: var(--text); line-height: 1.55;
+}
+.role-callout b { color: var(--s3); }
+
+.principles {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  margin-top: 12px;
+}
+.principles-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem; font-weight: 700;
+  margin-bottom: 14px; color: var(--sage);
+}
+.principles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+.pcard { padding: 12px 14px; background: var(--card2); border-radius: 8px; border: 1px solid var(--border); }
+.pcard-title { font-size: 13px; font-weight: 800; margin-bottom: 4px; color: var(--text); }
+.pcard-body { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+
+@media (max-width: 680px) {
+  .stage-body { grid-template-columns: 1fr; }
+  .stage-col + .stage-col { border-left: none; border-top: 1px solid var(--border); }
+  .stage-header { flex-direction: column; gap: 10px; }
+  .timeline-bar { grid-template-columns: 1fr 1fr; gap: 5px; }
+  .tl-seg.s3, .tl-seg.s4 { display: none; }
+}
+@media (max-width: 420px) {
+  body { padding-inline: 14px; }
+  .stage-col { padding: 14px 15px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="page-intro">
+    <span class="eyebrow">Nhà giáo dục &amp; Tâm lý học trẻ em</span>
+    <h1 class="page-title">Hành Trình Nuôi Dạy Con<br>Từ 3 Đến 10 Tuổi</h1>
+    <p class="page-sub">Khung chương trình dài hơi dựa trên tâm sinh lý học phát triển — 4 giai đoạn, 5 lĩnh vực, kỹ năng sống tích hợp — dành cho bé gái học tại nhà cùng mẹ.</p>
+    <div class="theory-note">
+      <span><span class="theory-dot"></span>Jean Piaget — Lý thuyết phát triển nhận thức</span>
+      <span><span class="theory-dot"></span>Erik Erikson — Phát triển tâm lý xã hội</span>
+      <span><span class="theory-dot"></span>Lev Vygotsky — Vùng phát triển gần (ZPD)</span>
+    </div>
+  </div>
+
+  <div class="timeline-wrap">
+    <div class="timeline-label">Tổng quan 4 giai đoạn phát triển</div>
+    <div class="timeline-bar">
+      <div class="tl-seg s1">
+        <div class="tl-age">3–4 tuổi</div>
+        <div class="tl-name">Khám Phá Bản Thân</div>
+        <div class="tl-theme">Tiền thao tác · Chủ động</div>
+      </div>
+      <div class="tl-seg s2">
+        <div class="tl-age">4–6 tuổi</div>
+        <div class="tl-name">Xây Nền Tri Thức</div>
+        <div class="tl-theme">Chuẩn bị lớp 1 · Tưởng tượng</div>
+      </div>
+      <div class="tl-seg s3">
+        <div class="tl-age">6–8 tuổi</div>
+        <div class="tl-name">Tư Duy Logic</div>
+        <div class="tl-theme">Thao tác cụ thể · Chuyên cần</div>
+      </div>
+      <div class="tl-seg s4">
+        <div class="tl-age">8–10 tuổi</div>
+        <div class="tl-name">Tư Duy Độc Lập</div>
+        <div class="tl-theme">Tiền hình thức · Bản sắc</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GIAI ĐOẠN 1 -->
+  <div class="stage s1">
+    <div class="stage-header">
+      <div class="stage-number">I</div>
+      <div class="stage-meta">
+        <div class="stage-age">Giai đoạn 1 · 3–4 tuổi</div>
+        <div class="stage-name">Khám Phá Bản Thân</div>
+        <div class="stage-piaget">
+          <span><b>Piaget:</b> Tiền thao tác — học qua giác quan &amp; bắt chước</span>
+          <span><b>Erikson:</b> Chủ động vs Tội lỗi — cần được thử và được khuyến khích</span>
+          <span class="girl-note">♀ Bé gái: ngôn ngữ phát triển sớm hơn 3–4 tháng — có thể nâng mục tiêu câu sớm; học qua trò chuyện và nhập vai hiệu quả hơn trò cạnh tranh</span>
+        </div>
+      </div>
+    </div>
+    <div class="stage-body">
+      <div class="stage-col">
+        <div class="col-label">Đặc điểm tâm sinh lý</div>
+        <ul class="psych-list">
+          <li><b>Tư duy tự trung tâm:</b> chưa hiểu quan điểm người khác — đây là bình thường, không phải ích kỷ</li>
+          <li><b>Ngôn ngữ bùng nổ:</b> học 5–10 từ mới/ngày, câu dài dần từ 3 → 6 từ</li>
+          <li><b>Học qua thử–sai:</b> lặp lại là cách não bộ ghi nhớ, không phải cố tình</li>
+          <li><b>Chú ý ngắn:</b> 10–15 phút/hoạt động — dừng khi con mất hứng là đúng</li>
+          <li><b>Cảm xúc biến đổi nhanh:</b> chưa có khả năng tự điều tiết, cần mẹ làm "neo cảm xúc"</li>
+          <li><b>An toàn là nền:</b> con học tốt nhất khi cảm thấy được yêu thương và an toàn</li>
+        </ul>
+      </div>
+      <div class="stage-col">
+        <div class="col-label">Mục tiêu 5 lĩnh vực phát triển</div>
+        <div class="domain-rows">
+          <div class="domain-row">
+            <div class="domain-icon-wrap">🧠</div>
+            <div class="domain-content">
+              <div class="domain-name">Nhận thức</div>
+              <div class="domain-goals">Đếm 1–10, nhận biết 8 màu + 5 hình dạng, phân loại theo 1 tiêu chí, hiểu "to–nhỏ, cao–thấp"</div>
+            </div>
+          </div>
+          <div class="domain-row">
+            <div class="domain-icon-wrap">🎨</div>
+            <div class="domain-content">
+              <div class="domain-name">Thẩm mỹ</div>
+              <div class="domain-goals">Vẽ nét thẳng/cong/tròn, tô màu (không cần chính xác), thuộc 5–8 bài hát thiếu nhi, nhảy theo nhạc</div>
+            </div>
+          </div>
+          <div class="domain-row">
+            <div class="domain-icon-wrap">💬</div>
+            <div class="domain-content">
+              <div class="domain-name">Ngôn ngữ</div>
+              <div class="domain-goals">Nói câu 5–7 từ, kể lại chuyện 3–4 câu, nhận biết 15–20 chữ cái, hỏi "Cái này là gì?"</div>
+            </div>
+          </div>
+          <div class="domain-row">
+            <div class="domain-icon-wrap">🏃</div>
+            <div class="domain-content">
+              <div class="domain-name">Thể chất</div>
+              <div class="domain-goals">Đi thăng bằng, nhảy 2 chân, tự rửa tay và ăn, cầm bút bằng 3 ngón, leo bậc thang</div>
+            </div>
+          </div>
+          <div class="domain-row">
+            <div class="domain-icon-wrap">❤️</div>
+            <div class="domain-content">
+              <div class="domain-name">Tình cảm – Xã hội</div>
+              <div class="domain-goals">Nhận biết 4 cảm xúc cơ bản (vui/buồn/tức/sợ), nói "cảm ơn/xin lỗi", chờ đến lượt, chơi cạnh bạn</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="stage-col">
+        <div class="col-label">Kỹ năng sống trọng tâm</div>
+        <div class="skill-chips">
+          <div class="skill-chip">🌱 Tự chăm sóc sinh hoạt: ăn, rửa tay, thay quần áo đơn giản</div>
+          <div class="skill-chip">😊 Đặt tên cảm xúc của mình: "Con đang tức vì..."</div>
+          <div class="skill-chip">📏 Tuân theo quy tắc đơn giản: dừng khi mẹ nói, dọn đồ chơi</div>
+          <div class="skill-chip">🔁 Kiên trì thử lại khi khó — không bỏ cuộc ngay</div>
+          <div class="skill-chip">🛡️ An toàn thân thể: vùng riêng tư là của con, biết nói KHÔNG và kể mẹ nghe nếu ai chạm vào</div>
+        </div>
+        <div class="rhythm-box">
+          <div class="rhythm-label">Nhịp tuần khuyến nghị</div>
+          <div class="rhythm-row"><span class="rhythm-key">Tối thứ 2–6</span><span class="rhythm-val">30–35 phút</span></div>
+          <div class="rhythm-row"><span class="rhythm-key">Sáng cuối tuần</span><span class="rhythm-val">60–90 phút</span></div>
+          <div class="rhythm-row"><span class="rhythm-key">Mỗi hoạt động</span><span class="rhythm-val">10–15 phút</span></div>
+          <div class="rhythm-total">Tổng ~4–5 giờ/tuần</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GIAI ĐOẠN 2 -->
+  <div class="stage s2">
+    <div class="stage-header">
+      <div class="stage-number">II</div>
+      <div class="stage-meta">
+        <div class="stage-age">Giai đoạn 2 · 4–6 tuổi</div>
+        <div class="stage-name">Xây Nền Tri Thức</div>
+        <div class="stage-piaget">
+          <span><b>Piaget:</b> Tiền thao tác muộn — bắt đầu hiểu nguyên nhân–kết quả, câu hỏi "Tại sao?"</span>
+          <span><b>Mục tiêu chiến lược:</b> School Readiness — chuẩn bị vào lớp 1</span>
+          <span class="girl-note">♀ Bé gái: học qua hợp tác và kể chuyện tốt hơn cạnh tranh; tưởng tượng phong phú — đây là lợi thế, hãy khai thác qua đóng vai và truyện tranh</span>
+        </div>
+      </div>
+    </div>
+    <div class="stage-body">
+      <div class="stage-col">
+        <div class="col-label">Đặc điểm tâm sinh lý</div>
+        <ul class="psych-list">
+          <li><b>"Tại sao?" không ngừng:</b> tư duy nhân–quả đang hình thành — hãy trả lời thật sự, không qua loa</li>
+          <li><b>Trí tưởng tượng cực mạnh:</b> ranh giới thực–ảo còn mờ — đây là lợi thế học qua kể chuyện</li>
+          <li><b>Bắt đầu hiểu quy tắc:</b> muốn tuân theo và muốn người khác cũng tuân theo</li>
+          <li><b>Chơi hợp tác xuất hiện:</b> từ "chơi song song" chuyển sang "chơi cùng nhau"</li>
+          <li><b>Chú ý dài hơn:</b> 15–20 phút, có thể ngồi nghe kể chuyện 20 phút</li>
+          <li><b>Cảm xúc ổn định hơn:</b> bắt đầu dùng lời nói thay vì hành động bột phát</li>
+        </ul>
+      </div>
+      <div class="stage-col">
+        <div class="col-label">Mục tiêu 5 lĩnh vực phát triển</div>
+        <div class="domain-rows">
+          <div class="domain-row">
+            <div class="domain-icon-wrap">🧠</div>
+            <div class="domain-content">
+              <div class="domain-name">Nhận thức</div>
+              <div class="domain-goals">Đếm đến 20, cộng/trừ trong phạm vi 10, nhận biết 29 chữ cái và ghép âm đơn giản, phân loại 2 tiêu chí</div>
+            </div>
+          </div>
+          <div class="domain-row">
+            <div class="domain-icon-wrap">🎨</div>
+            <div class="domain-content">
+              <div class="domain-name">Thẩm mỹ</div>
+              <div class="domain-goals">Vẽ hình người/nhà/cây nhận ra được, hát đúng giai điệu, cắt theo đường thẳng, làm đồ thủ công 3 bước</div>
+            </div>
+          </div>
+          <div class="domain-row">
+            <div class="domain-icon-wrap">💬</div>
+            <div class="domain-content">
+              <div class="domain-name">Ngôn ngữ</div>
+              <div class="domain-goals">Đọc được từ đơn (1 âm tiết), tập viết tên mình, kể chuyện có đầu–giữa–cuối, dùng câu phức · <b>Tiếng Anh:</b> 20–30 từ qua bài hát &amp; hình ảnh (màu sắc, con vật, số 1–10)</div>
+            </div>
+          </div>
+          <div class="domain-row">
+            <div class="domain-icon-wrap">🏃</div>
+            <div class="domain-content">
+              <div class="domain-name">Thể chất</div>
+              <div class="domain-goals">Nhảy lò cò 5–6 bước, đi xe đạp 3 bánh, tự mặc quần áo hoàn toàn, cầm kéo đầu tròn đúng cách</div>
+            </div>
+          </div>
+          <div class="domain-row">
+            <div class="domain-icon-wrap">❤️</div>
+            <div class="domain-content">
+              <div class="domain-name">Tình cảm – Xã hội</div>
+              <div class="domain-goals">Chơi nhóm 3–4 bạn, nhường nhịn có ý thức, xin phép trước khi lấy, bắt đầu hiểu khái niệm "tốt bụng"</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="stage-col">
+        <div class="col-label">Kỹ năng sống trọng tâm</div>
+        <div class="skill-chips">
+          <div class="skill-chip">💪 Kiên trì (Grit): thử lại sau thất bại, không được bỏ cuộc ngay</div>
+          <div class="skill-chip">🎒 Chuẩn bị lớp 1: ngồi yên 20 phút, theo dõi chỉ dẫn, giữ đồ dùng</div>
+          <div class="skill-chip">🗣️ Giải quyết xung đột bằng lời: "Mình không thích điều đó vì..."</div>
+          <div class="skill-chip">🧹 Tự quản lý đồ dùng cá nhân: biết đồ mình ở đâu</div>
+          <div class="skill-chip">🛡️ An toàn ngoài đời: không đi theo người lạ, kêu cứu đúng cách, nhớ số điện thoại mẹ</div>
+        </div>
+        <div class="rhythm-box">
+          <div class="rhythm-label">Nhịp tuần khuyến nghị</div>
+          <div class="rhythm-row"><span class="rhythm-key">Tối thứ 2–6</span><span class="rhythm-val">35–40 phút</span></div>
+          <div class="rhythm-row"><span class="rhythm-key">Cuối tuần</span><span class="rhythm-val">90–120 phút</span></div>
+          <div class="rhythm-row"><span class="rhythm-key">Mỗi hoạt động</span><span class="rhythm-val">15–20 phút</span></div>
+          <div class="rhythm-total">Tổng ~5–6 giờ/tuần</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GIAI ĐOẠN 3 -->
+  <div class="stage s3">
+    <div class="stage-header">
+      <div class="stage-number">III</div>
+      <div class="stage-meta">
+        <div class="stage-age">Giai đoạn 3 · 6–8 tuổi</div>
+        <div class="stage-name">Tư Duy Logic</div>
+        <div class="stage-piaget">
+          <span><b>Piaget:</b> Thao tác cụ thể — tư duy logic nhưng cần đồ vật cụ thể để kiểm chứng</span>
+          <span><b>Erikson:</b> Chuyên cần vs Tự ti — cần trải nghiệm thành công thực sự</span>
+          <span class="girl-note">♀ Bé gái: nhạy cảm với nhận xét của bạn bè và người lớn; cần lời khen cụ thể về nỗ lực, tránh so sánh; thiên về học nhóm và thảo luận</span>
+        </div>
+      </div>
+    </div>
+    <div class="stage-body">
+      <div class="stage-col">
+        <div class="role-callout"><b>📌 Thay đổi vai trò của mẹ:</b> Từ giai đoạn này con đã đi học — mẹ chuyển từ "giáo viên" sang <b>huấn luyện viên học tập</b>. Không dạy trước chương trình, mà giúp con hiểu sâu hơn và giữ ngọn lửa tò mò.</div>
+        <div class="col-label">Đặc điểm tâm sinh lý</div>
+        <ul class="psych-list">
+          <li><b>Logic nhân–quả rõ ràng:</b> hiểu "nếu...thì...", bắt đầu tranh luận có lý lẽ</li>
+          <li><b>Đọc viết trở thành công cụ:</b> ngôn ngữ viết mở ra thế giới tư duy mới hoàn toàn</li>
+          <li><b>Bạn bè quan trọng nhất:</b> muốn được chấp nhận và có địa vị trong nhóm</li>
+          <li><b>So sánh bản thân:</b> "Con có giỏi không?" — nguy cơ tự ti nếu thiếu hỗ trợ</li>
+          <li><b>Cần cảm giác có năng lực:</b> thành công nhỏ mỗi ngày là nhiên liệu tinh thần</li>
+          <li><b>Bắt đầu có ý kiến riêng:</b> tôn trọng ý kiến con ngay cả khi con sai</li>
+        </ul>
+      </div>
+      <div class="stage-col">
+        <div class="col-label">Mục tiêu 5 lĩnh vực phát triển</div>
+        <div class="domain-rows">
+          <div class="domain-row">
+            <div class="domain-icon-wrap">🧠</div>
+            <div class="domain-content">
+              <div class="domain-name">Nhận thức</div>
+              <div class="domain-goals">Đọc hiểu đoạn văn ngắn, cộng/trừ có nhớ, bảng cửu chương 2–5, quan sát khoa học cơ bản, so sánh và phân tích</div>
+            </div>
+          </div>
+          <div class="domain-row">
+            <div class="domain-icon-wrap">🎨</div>
+            <div class="domain-content">
+              <div class="domain-name">Thẩm mỹ</div>
+              <div class="domain-goals">Vẽ có phối cảnh đơn giản, học nhạc cụ cơ bản, thủ công đòi hỏi nhiều bước, cảm nhận và bàn luận về âm nhạc/hội họa</div>
+            </div>
+          </div>
+          <div class="domain-row">
+            <div class="domain-icon-wrap">💬</div>
+            <div class="domain-content">
+              <div class="domain-name">Ngôn ngữ</div>
+              <div class="domain-goals">Viết đoạn 4–5 câu có cấu trúc, đọc truyện dài tự lập, tiếng Anh 100–200 từ, thuyết trình nhỏ trước mẹ</div>
+            </div>
+          </div>
+          <div class="domain-row">
+            <div class="domain-icon-wrap">🏃</div>
+            <div class="domain-content">
+              <div class="domain-name">Thể chất</div>
+              <div class="domain-goals">Bơi cơ bản, đạp xe 2 bánh, thể thao có luật (cầu lông, đá bóng nhỏ), tự chăm sóc vệ sinh hoàn toàn tự chủ</div>
+            </div>
+          </div>
+          <div class="domain-row">
+            <div class="domain-icon-wrap">❤️</div>
+            <div class="domain-content">
+              <div class="domain-name">Tình cảm – Xã hội</div>
+              <div class="domain-goals">Tình bạn bền vững hơn, hiểu công bằng/bất công, đồng cảm thực sự, nhận biết và kiểm soát tức giận</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="stage-col">
+        <div class="col-label">Kỹ năng sống trọng tâm</div>
+        <div class="skill-chips">
+          <div class="skill-chip">📚 Tự quản lý bài vở và dụng cụ học tập</div>
+          <div class="skill-chip">🤔 Tư duy phê phán đơn giản: đặt câu hỏi trước khi tin</div>
+          <div class="skill-chip">🤝 Tinh thần đồng đội: hỗ trợ bạn bè và chịu được thua cuộc</div>
+          <div class="skill-chip">🏠 Trách nhiệm việc nhà được giao: dọn bàn, tưới cây...</div>
+        </div>
+        <div class="rhythm-box">
+          <div class="rhythm-label">Nhịp tuần khuyến nghị</div>
+          <div class="rhythm-row"><span class="rhythm-key">Học + bài tập/ngày</span><span class="rhythm-val">45–60 phút</span></div>
+          <div class="rhythm-row"><span class="rhythm-key">Cuối tuần mỗi buổi</span><span class="rhythm-val">90–120 phút</span></div>
+          <div class="rhythm-row"><span class="rhythm-key">Ngoại khóa/thể thao</span><span class="rhythm-val">1–2 buổi/tuần</span></div>
+          <div class="rhythm-total">Tổng ~8–10 giờ/tuần</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GIAI ĐOẠN 4 -->
+  <div class="stage s4">
+    <div class="stage-header">
+      <div class="stage-number">IV</div>
+      <div class="stage-meta">
+        <div class="stage-age">Giai đoạn 4 · 8–10 tuổi</div>
+        <div class="stage-name">Tư Duy Độc Lập</div>
+        <div class="stage-piaget">
+          <span><b>Piaget:</b> Thao tác cụ thể giai đoạn cuối — logic vững, tư duy trừu tượng bắt đầu nảy mầm (Formal Operations chưa bắt đầu đến 11–12 tuổi)</span>
+          <span><b>Erikson:</b> Chuyên cần vs Tự ti giai đoạn cuối — bản sắc cá nhân bắt đầu hình thành "Mình là ai? Mình giỏi gì?"</span>
+          <span class="girl-note">♀ Bé gái: áp lực về hình thể và "được chấp nhận" xuất hiện sớm từ 7–8 tuổi — xây dựng body image tích cực và giá trị bản thân không phụ thuộc ngoại hình là ưu tiên hàng đầu</span>
+        </div>
+      </div>
+    </div>
+    <div class="stage-body">
+      <div class="stage-col">
+        <div class="col-label">Đặc điểm tâm sinh lý</div>
+        <ul class="psych-list">
+          <li><b>Tư duy trừu tượng nảy mầm:</b> có thể suy luận về điều chưa thấy, đặt giả thuyết</li>
+          <li><b>Bạn bè là "thế giới":</b> áp lực đồng trang lứa xuất hiện — cần mẹ là neo vững chắc, không phải là kiểm soát</li>
+          <li><b>Nhận thức giới tính &amp; ngoại hình:</b> nhạy cảm với lời nhận xét về ngoại hình, không so sánh</li>
+          <li><b>Cần tự chủ:</b> "Con muốn tự quyết định" — hãy trao quyền có kiểm soát</li>
+          <li><b>Bắt đầu nghĩ về tương lai:</b> "Con muốn làm gì sau này?" — nuôi dưỡng, không định hướng sẵn</li>
+          <li><b>Tranh luận logic:</b> con có thể lập luận và phản bác — tôn trọng, không trấn áp</li>
+        </ul>
+      </div>
+      <div class="stage-col">
+        <div class="col-label">Mục tiêu 5 lĩnh vực phát triển</div>
+        <div class="domain-rows">
+          <div class="domain-row">
+            <div class="domain-icon-wrap">🧠</div>
+            <div class="domain-content">
+              <div class="domain-name">Nhận thức</div>
+              <div class="domain-goals">Tư duy phê phán, toán chia có dư/phân số đơn giản, khoa học thực nghiệm, hiểu lịch sử–địa lý cơ bản, lập kế hoạch nhỏ</div>
+            </div>
+          </div>
+          <div class="domain-row">
+            <div class="domain-icon-wrap">🎨</div>
+            <div class="domain-content">
+              <div class="domain-name">Thẩm mỹ</div>
+              <div class="domain-goals">Phát triển sở thích nghệ thuật riêng, luyện nhạc cụ kiên định (không ép), đọc sách dày 100–200 trang, viết nhật ký</div>
+            </div>
+          </div>
+          <div class="domain-row">
+            <div class="domain-icon-wrap">💬</div>
+            <div class="domain-content">
+              <div class="domain-name">Ngôn ngữ</div>
+              <div class="domain-goals">Viết bài văn có luận điểm, đọc đa thể loại tự chủ, tiếng Anh giao tiếp A1, thuyết trình 3–5 phút trước nhóm nhỏ</div>
+            </div>
+          </div>
+          <div class="domain-row">
+            <div class="domain-icon-wrap">🏃</div>
+            <div class="domain-content">
+              <div class="domain-name">Thể chất</div>
+              <div class="domain-goals">Chọn 1 môn thể thao chính luyện tập đều, hiểu dinh dưỡng cơ bản, tự quản lý giấc ngủ, vệ sinh cá nhân hoàn toàn tự chủ</div>
+            </div>
+          </div>
+          <div class="domain-row">
+            <div class="domain-icon-wrap">❤️</div>
+            <div class="domain-content">
+              <div class="domain-name">Tình cảm – Xã hội</div>
+              <div class="domain-goals">Đồng cảm sâu sắc, nhận biết và quản lý áp lực bạn bè, tự nhận biết điểm mạnh/yếu của bản thân, giải quyết mâu thuẫn phức tạp</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="stage-col">
+        <div class="col-label">Kỹ năng sống trọng tâm</div>
+        <div class="skill-chips">
+          <div class="skill-chip">⏰ Tự quản lý thời gian: lập thời khóa biểu cá nhân có sự hỗ trợ</div>
+          <div class="skill-chip">🔍 Tư duy độc lập: phân tích thông tin trước khi tin theo bạn bè</div>
+          <div class="skill-chip">💰 Tài chính cơ bản: tiền tiêu vặt, tiết kiệm cho mục tiêu nhỏ</div>
+          <div class="skill-chip">🎯 Đặt mục tiêu và theo dõi: con tự đặt mục tiêu tuần/tháng</div>
+        </div>
+        <div class="rhythm-box">
+          <div class="rhythm-label">Nhịp tuần khuyến nghị</div>
+          <div class="rhythm-row"><span class="rhythm-key">Tự học/ngày</span><span class="rhythm-val">60–90 phút</span></div>
+          <div class="rhythm-row"><span class="rhythm-key">Ngoại khóa/thể thao</span><span class="rhythm-val">2–3 buổi/tuần</span></div>
+          <div class="rhythm-row"><span class="rhythm-key">Thư giãn có cấu trúc</span><span class="rhythm-val">Cuối tuần</span></div>
+          <div class="rhythm-total">Tổng ~12–15 giờ/tuần</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRINCIPLES -->
+  <div class="principles">
+    <div class="principles-title">Nguyên tắc xuyên suốt — Không thay đổi theo giai đoạn</div>
+    <div class="principles-grid">
+      <div class="pcard">
+        <div class="pcard-title">Mối quan hệ là nền tảng</div>
+        <div class="pcard-body">Não trẻ học tốt nhất khi cảm thấy an toàn và được yêu thương. Không có phương pháp nào hiệu quả trong môi trường căng thẳng.</div>
+      </div>
+      <div class="pcard">
+        <div class="pcard-title">Lặp lại là học, không phải lười biếng</div>
+        <div class="pcard-body">Trẻ cần đọc cùng 1 cuốn sách 10 lần, chơi cùng 1 trò 5 ngày. Não bộ ghi nhớ qua lặp lại — đừng vội "nâng cấp".</div>
+      </div>
+      <div class="pcard">
+        <div class="pcard-title">So sánh con với chính con ngày hôm qua</div>
+        <div class="pcard-body">"Tuần trước con chưa làm được, hôm nay con làm được rồi" — câu này tốt hơn mọi điểm số hay so sánh với bạn bè.</div>
+      </div>
+      <div class="pcard">
+        <div class="pcard-title">Thất bại là bài học, không phải thất bại</div>
+        <div class="pcard-body">Phản ứng của mẹ khi con sai quyết định con có dám thử hay không. Tò mò thay vì phán xét: "Lần sau con sẽ thử cách nào?"</div>
+      </div>
+      <div class="pcard">
+        <div class="pcard-title">Chơi tự do không thể thay thế</div>
+        <div class="pcard-body">Chơi không có mục đích là nơi trẻ học sáng tạo, giải quyết vấn đề và điều tiết cảm xúc. Đừng lấp đầy mọi khoảng trống bằng hoạt động có cấu trúc.</div>
+      </div>
+      <div class="pcard">
+        <div class="pcard-title">Mẹ không cần là giáo viên hoàn hảo</div>
+        <div class="pcard-body">Học cùng con, thừa nhận "mẹ cũng không biết, mình cùng tìm hiểu nhé" — đây là bài học tư duy mạnh mẽ nhất mẹ có thể truyền.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
