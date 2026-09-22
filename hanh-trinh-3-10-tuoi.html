@@ -1,0 +1,343 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<title>HÃ nh TrÃ¬nh 3â€“10 Tuá»•i.v1</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<style>
+:root {
+  --bg: #ECEAE2;
+  --card: #F8AwF3;
+  --card2: #FFFFFF;
+  --text: #1E2B26;
+  --muted: #6A7A75;
+  --border: #D8D5CB;
+  --sage: #3D6E5E;
+  --sage-light: #E4EDE9;
+  --radius: 12px;
+  --s1: #B56560; --s1-bg: #F9EDEC; --s1-soft: #F2D9D7;
+  --s2: #A8892A; --s2-bg: #FAF5E3; --s2-soft: #EFE3B4;
+  --s3: #35806A; --s3-bg: #E6F1EC; --s3-soft: #C0DDD3;
+  --s4: #376091; --s4-bg: #E6EEF6; --s4-soft: #BAD0E8;
+  font-family: 'Nunito', sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); padding-inline: 18px; padding-block: 28px; }
+.wrap { max-width: 900px; margin: 0 auto; }
+
+.page-intro { text-align: center; margin-bottom: 36px; }
+.eyebrow {
+  display: inline-block;
+  font-size: 11px; font-weight: 800;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--sage); border: 1.5px solid var(--sage);
+  padding: 3px 12px; border-radius: 4px; margin-bottom: 14px;
+}
+.page-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.7rem, 5vw, 2.6rem);
+  font-weight: 700; line-height: 1.15;
+  color: var(--text); margin-bottom: 12px;
+}
+.page-sub {
+  font-size: 15px; color: var(--muted);
+  max-width: 560px; margin: 0 auto 20px;
+  line-height: 1.65;
+}
+.theory-note {
+  display: inline-flex; gap: 16px; flex-wrap: wrap;
+  justify-content: center;
+  font-size: 12px; color: var(--muted);
+}
+.theory-note span { display: flex; align-items: center; gap: 5px; }
+.theory-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--sage); display: inline-block; }
+
+.timeline-wrap {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin-bottom: 32px;
+}
+.timeline-label { font-size: 11px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+.timeline-bar {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 2fr;
+  gap: 4px;
+}
+.tl-seg { border-radius: 6px; padding: 10px 12px; }
+.tl-age { font-size: 11px; font-weight: 800; opacity: .75; margin-bottom: 2px; }
+.tl-name { font-size: 13px; font-weight: 700; }
+.tl-theme { font-size: 11px; opacity: .7; margin-top: 2px; }
+.tl-seg.s1 { background: var(--s1-soft); color: var(--s1); }
+.tl-seg.s2 { background: var(--s2-soft); color: var(--s2); }
+.tl-seg.s3 { background: var(--s3-soft); color: var(--s3); }
+.tl-seg.s4 { background: var(--s4-soft); color: var(--s4); }
+
+.stage { margin-bottom: 28px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
+.stage-header { padding: 18px 22px 16px; display: flex; align-items: flex-start; gap: 14px; }
+.stage-number {
+  width: 40px; height: 40px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 18px; font-weight: 700;
+  flex-shrink: 0; color: #fff;
+}
+.stage-meta { flex: 1; }
+.stage-age { font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; opacity: .8; margin-bottom: 3px; }
+.stage-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.25rem; font-weight: 700; line-height: 1.2; margin-bottom: 5px;
+}
+.stage-piaget { font-size: 12px; opacity: .75; display: flex; gap: 10px; flex-wrap: wrap; }
+.stage-piaget b { opacity: .9; }
+.stage-body {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr 1fr;
+  border-top: 1px solid var(--border);
+}
+.stage-col { padding: 18px 20px; }
+.stage-col + .stage-col { border-left: 1px solid var(--border); }
+.col-label {
+  font-size: 10.5px; font-weight: 800;
+  letter-spacing: .09em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 12px;
+  padding-bottom: 8px; border-bottom: 1px solid var(--border);
+}
+.psych-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.psych-list li { font-size: 12.5px; line-height: 1.5; color: var(--text); padding-left: 14px; position: relative; }
+.psych-list li::before { content: ''; position: absolute; left: 0; top: 7px; width: 5px; height: 5px; border-radius: 50%; }
+.domain-rows { display: flex; flex-direction: column; gap: 6px; }
+.domain-row { display: flex; gap: 10px; align-items: flex-start; padding: 8px 10px; border-radius: 7px; }
+.domain-icon-wrap { font-size: 13px; flex-shrink: 0; width: 24px; text-align: center; margin-top: 1px; }
+.domain-content { flex: 1; }
+.domain-name { font-size: 11px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 2px; }
+.domain-goals { font-size: 12px; color: var(--muted); line-height: 1.45; }
+.skill-chips { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.skill-chip { font-size: 12px; font-weight: 700; padding: 6px 10px; border-radius: 6px; line-height: 1.4; }
+.rhythm-box { border-radius: 7px; padding: 10px 12px; }
+.rhythm-label { font-size: 10px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.rhythm-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+.rhythm-key { font-size: 12px; color: var(--muted); }
+.rhythm-val { font-size: 12.5px; font-weight: 700; }
+.rhythm-total { font-size: 12px; font-weight: 800; margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); }
+.girl-note {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 11px; font-weight: 700;
+  padding: 3px 10px; border-radius: 4px; margin-top: 6px;
+}
+.s1 .girl-note { background: var(--s1-soft); color: var(--s1); }
+.s2 .girl-note { background: var(--s2-soft); color: var(--s2); }
+.s3 .girl-note { background: var(--s3-soft); color: var(--s3); }
+.s4 .girl-note { background: var(--s4-soft); color: var(--s4); }
+.role-callout {
+  margin: 0 0 14px; padding: 9px 14px; border-radius: 7px;
+  border-left: 3px solid var(--s3); background: var(--s3-bg);
+  font-size: 12.5px; color: var(--text); line-height: 1.55;
+}
+.role-callout b { color: var(--s3); }
+
+/* Stage colors */
+.stage.s1 .stage-header { background: var(--s1-bg); }
+.stage.s1 .stage-number { background: var(--s1); }
+.stage.s1 .stage-age { color: var(--s1); }
+.stage.s1 .psych-list li::before { background: var(--s1); }
+.stage.s1 .domain-row { background: var(--s1-bg); }
+.stage.s1 .domain-name { color: var(--s1); }
+.stage.s1 .skill-chip { background: var(--s1-bg); color: var(--s1); }
+.stage.s1 .rhythm-box { background: var(--s1-soft); }
+.stage.s2 .stage-header { background: var(--s2-bg); }
+.stage.s2 .stage-number { background: var(--s2); }
+.stage.s2 .stage-age { color: var(--s2); }
+.stage.s2 .psych-list li::before { background: var(--s2); }
+.stage.s2 .domain-row { background: var(--s2-bg); }
+.stage.s2 .domain-name { color: var(--s2); }
+.stage.s2 .skill-chip { background: var(--s2-bg); color: var(--s2); }
+.stage.s2 .rhythm-box { background: var(--s2-soft); }
+.stage.s3 .stage-header { background: var(--s3-bg); }
+.stage.s3 .stage-number { background: var(--s3); }
+.stage.s3 .stage-age { color: var(--s3); }
+.stage.s3 .psych-list li::before { background: var(--s3); }
+.stage.s3 .domain-row { background: var(--s3-bg); }
+.stage.s3 .domain-name { color: var(--s3); }
+.stage.s3 .skill-chip { background: var(--s3-bg); color: var(--s3); }
+.stage.s3 .rhythm-box { background: var(--s3-soft); }
+.stage.s4 .stage-header { background: var(--s4-bg); }
+.stage.s4 .stage-number { background: var(--s4); }
+.stage.s4 .stage-age { color: var(--s4); }
+.stage.s4 .psych-list li::before { background: var(--s4); }
+.stage.s4 .domain-row { background: var(--s4-bg); }
+.stage.s4 .domain-name { color: var(--s4); }
+.stage.s4 .skill-chip { background: var(--s4-bg); color: var(--s4); }
+.stage.s4 .rhythm-box { background: var(--s4-soft); }
+
+.principles { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 24px; margin-top: 12px; }
+.principles-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; margin-bottom: 14px; color: var(--sage); }
+.principles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.pcard { padding: 12px 14px; background: var(--card2); border-radius: 8px; border: 1px solid var(--border); }
+.pcard-title { font-size: 13px; font-weight: 800; margin-bottom: 4px; color: var(--text); }
+.pcard-body { font-size: 12px; color: var(--muted); line-height: 1.5; }
+</style>
+
+<div class="wrap">
+  <div class="page-intro">
+    <span class="eyebrow">NhÃ  giÃ¡o dá»¥c &amp; TÃ¢m lÃ½ há»c tráº» em</span>
+    <h1 class="page-title">HÃ nh TrÃ¬nh NuÃ´i Dáº¡y Con<br>Tá»« 3 Äáº¿n 10 Tuá»•i</h1>
+    <p class="page-sub">Khung chÆ°Æ¡ng trÃ¬nh dÃ i hÆ¡i dá»±a trÃªn tÃ¢m sinh lÃ½ há»c phÃ¡t triá»ƒn â€” 4 giai Ä‘oáº¡n, 5 lÄ©nh vá»±c, ká»¹ nÄƒng sá»‘ng tÃ­ch há»£p â€” dÃ nh cho bÃ© gÃ¡i há»c táº¡i nhÃ  cÃ¹ng máº¹.</p>
+    <div class="theory-note">
+      <span><span class="theory-dot"></span>Jean Piaget â€” LÃ½ thuyáº¿t phÃ¡t triá»ƒn nháº­n thá»©c</span>
+      <span><span class="theory-dot"></span>Erik Erikson â€” PhÃ¡t triá»ƒn tÃ¢m lÃ½ xÃ£ há»™i</span>
+      <span><span class="theory-dot"></span>Lev Vygotsky â€” VÃ¹ng phÃ¡t triá»ƒn gáº§n (ZPD)</span>
+    </div>
+  </div>
+
+  <div class="timeline-wrap">
+    <div class="timeline-label">Tá»•ng quan 4 giai Ä‘oáº¡n phÃ¡t triá»ƒn</div>
+    <div class="timeline-bar">
+      <div class="tl-seg s1"><div class="tl-age">3â€“4 tuá»•i</div><div class="tl-name">KhÃ¡m PhÃ¡ Báº£n ThÃ¢n</div><div class="tl-theme">Tiá»n thao tÃ¡c Â· Chá»§ Ä‘á»™ng</div></div>
+      <div class="tl-seg s2"><div class="tl-age">4â€“6 tuá»•i</div><div class="tl-name">XÃ¢y Ná»n Tri Thá»©c</div><div class="tl-theme">Chuáº©n bá»‹ lá»›p 1 Â· TÆ°á»Ÿng tÆ°á»£ng</div></div>
+      <div class="tl-seg s3"><div class="tl-age">6â€“8 tuá»•i</div><div class="tl-name">TÆ° Duy Logic</div><div class="tl-theme">Thao tÃ¡c cá»¥ thá»ƒ Â· ChuyÃªn cáº§n</div></div>
+      <div class="tl-seg s4"><div class="tl-age">8â€“10 tuá»•i</div><div class="tl-name">TÆ° Duy Äá»™c Láº­p</div><div class="tl-theme">Tiá»n hÃ¬nh thá»©c Â· Báº£n sáº¯c</div></div>
+    </div>
+  </div>
+
+  <!-- GÄ 1 -->
+  <div class="stage s1">
+    <div class="stage-header">
+      <div class="stage-number">I</div>
+      <div class="stage-meta">
+        <div class="stage-age">Giai Ä‘oáº¡n 1 Â· 3â€“4 tuá»•i</div>
+        <div class="stage-name">KhÃ¡m PhÃ¡ Báº£n ThÃ¢n</div>
+        <div class="stage-piaget">
+          <span><b>Piaget:</b> Tiá»n thao tÃ¡c â€” há»c qua giÃ¡c quan &amp; báº¯t chÆ°á»›c</span>
+          <span><b>Erikson:</b> Chá»§ Ä‘á»™ng vs Tá»™i lá»—i â€” cáº§n Ä‘Æ°á»£c thá»­ vÃ  Ä‘Æ°á»£c khuyáº¿n khÃ­ch</span>
+          <span class="girl-note">â™€ BÃ© gÃ¡i: ngÃ´n ngá»¯ phÃ¡t triá»ƒn sá»›m hÆ¡n 3â€“4 thÃ¡ng â€” cÃ³ thá»ƒ nÃ¢ng má»¥c tiÃªu cÃ¢u sá»›m; há»c qua trÃ² chuyá»‡n vÃ  nháº­p vai hiá»‡u quáº£ hÆ¡n trÃ² cáº¡nh tranh</span>
+        </div>
+      </div>
+    </div>
+    <div class="stage-body">
+      <div class="stage-col">
+        <div class="col-label">Äáº·c Ä‘iá»ƒm tÃ¢m sinh lÃ½</div>
+        <ul class="psych-list">
+          <li><b>TÆ° duy tá»± trung tÃ¢m:</b> chÆ°a hiá»ƒu quan Ä‘iá»ƒm ngÆ°á»i khÃ¡c â€” Ä‘Ã¢y lÃ  bÃ¬nh thÆ°á»ng</li>
+          <li><b>NgÃ´n ngá»¯ bÃ¹ng ná»•:</b> há»c 5â€“10 tá»« má»›i/ngÃ y, cÃ¢u dÃ i dáº§n tá»« 3 â†’ 6 tá»«</li>
+          <li><b>Há»c qua thá»­â€“sai:</b> láº·p láº¡i lÃ  cÃ¡ch nÃ£o bá»™ ghi nhá»›</li>
+          <li><b>ChÃº Ã½ ngáº¯n:</b> 10â€“15 phÃºt/hoáº¡t Ä‘á»™ng</li>
+          <li><b>Cáº£m xÃºc biáº¿n Ä‘á»•i nhanh:</b> cáº§n máº¹ lÃ m "neo cáº£m xÃºc"</li>
+          <li><b>An toÃ n lÃ  ná»n:</b> con há»c tá»‘t nháº¥t khi cáº£m tháº¥y Ä‘Æ°á»£c yÃªu thÆ°Æ¡ng</li>
+        </ul>
+      </div>
+      <div class="stage-col">
+        <div class="col-label">Má»¥c tiÃªu 5 lÄ©nh vá»±c phÃ¡t triá»ƒn</div>
+        <div class="domain-rows">
+          <div class="domain-row"><div class="domain-icon-wrap">ğŸ§ </div><div class="domain-content"><div class="domain-name">Nháº­n thá»©c</div><div class="domain-goals">Äáº¿m 1â€“10, nháº­n biáº¿t 8 mÃ u + 5 hÃ¬nh dáº¡ng, phÃ¢n loáº¡i theo 1 tiÃªu chÃ­, hiá»ƒu "toâ€“nhá», caoâ€“tháº¥p"</div></div></div>
+          <div class="domain-row"><div class="domain-icon-wrap">ğŸ¨</div><div class="domain-content"><div class="domain-name">Tháº©m má»¹</div><div class="domain-goals">Váº½ nÃ©t tháº³ng/cong/trÃ²n, tÃ´ mÃ u, thuá»™c 5â€“8 bÃ i hÃ¡t thiáº¿u nhi, nháº£y theo nháº¡c</div></div></div>
+          <div class="domain-row"><div class="domain-icon-wrap">ğŸ’¬</div><div class="domain-content"><div class="domain-name">NgÃ´n ngá»¯</div><div class="domain-goals">NÃ³i cÃ¢u 5â€“7 tá»«, ká»ƒ láº¡i chuyá»‡n 3â€“4 cÃ¢u, nháº­n biáº¿t 15â€“20 chá»¯ cÃ¡i</div></div></div>
+          <div class="domain-row"><div class="domain-icon-wrap">ğŸƒ</div><div class="domain-content"><div class="domain-name">Thá»ƒ cháº¥t</div><div class="domain-goals">Äi thÄƒng báº±ng, nháº£y 2 chÃ¢n, tá»± rá»­a tay vÃ  Äƒn, cáº§m bÃºt báº±ng 3 ngÃ³n</div></div></div>
+          <div class="domain-row"><div class="domain-icon-wrap">â¤ï¸</div><div class="domain-content"><div class="domain-name">TÃ¬nh cáº£m â€“ XÃ£ há»™i</div><div class="domain-goals">Nháº­n biáº¿t 4 cáº£m xÃºc cÆ¡ báº£n, nÃ³i "cáº£m Æ¡n/xin lá»—i", chá» Ä‘áº¯n lÆ°á»£t, chÆ¡i cáº¡nh báº¡n</div></div></div>
+        </div>
+      </div>
+      <div class="stage-col">
+        <div class="col-label">Ká»¹ nÄƒng sá»‘ng trá»ng tÃ¢m</div>
+        <div class="skill-chips">
+          <div class="skill-chip">ğŸŒ± Tá»± chÄƒm sÃ³c: Äƒn, rá»­a tay, thay quáº§n Ã¡o Ä‘Æ¡n giáº£n</div>
+          <div class="skill-chip">ğŸ˜Š Äáº·t tÃªn cáº£m xÃºc: "Con Ä‘ang tá»©c vÃ¬..."</div>
+          <div class="skill-chip">ğŸ“ TuÃ¢n theo quy táº¯c Ä‘Æ¡n giáº£n</div>
+          <div class="skill-chip">ğŸ” KiÃªn trÃ¬ thá»­ láº¡i khi khÃ³</div>
+          <div class="skill-chip">ğŸ›¡ï¸ An toÃ n thÃ¢n thá»ƒ: vÃ¹ng riÃªng tÆ°, biáº¿t nÃ³i KHÃ”NG</div>
+        </div>
+        <div class="rhythm-box">
+          <div class="rhythm-label">Nhá»‹p tuáº§n khuyáº¿n nghá»‹</div>
+          <div class="rhythm-row"><span class="rhythm-key">Tá»‘i thá»© 2â€“6</span><span class="rhythm-val">30â€“35 phÃºt</span></div>
+          <div class="rhythm-row"><span class="rhythm-key">SÃ¡ng cuá»‘i tuáº§n</span><span class="rhythm-val">60â€“90 phÃºt</span></div>
+          <div class="rhythm-row"><span class="rhythm-key">Má»—i hoáº¡t Ä‘á»™ng</span><span class="rhythm-val">10â€“15 phÃºt</span></div>
+          <div class="rhythm-total">Tá»•ng ~4â€“5 giá»/tuáº§n</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GÄ 2 -->
+  <div class="stage s2">
+    <div class="stage-header">
+      <div class="stage-number">II</div>
+      <div class="stage-meta">
+        <div class="stage-age">Giai Ä‘oáº¡n 2 Â· 4â€“6 tuá»•i</div>
+        <div class="stage-name">XÃ¢y Ná»n Tri Thá»©c</div>
+        <div class="stage-piaget">
+          <span><b>Piaget:</b> Tiá»n thao tÃ¡c muá»™n â€” báº¯t Ä‘áº§u hiá»ƒu nguyÃªn nhÃ¢nâ€“káº½t quáº£, cÃ¢u há»i "Táº¡i sao?"</span>
+          <span><b>Má»¥c tiÃªu:</b> School Readiness â€” chuáº©n bá»‹ vÃ o lá»›p 1</span>
+          <span class="girl-note">â™€ BÃ© gÃ¡i: há»c qua há»£p tÃ¡c vÃ  ká»ƒ chuyá»‡n7 4Æ°á»Ÿng tÆ°á»£ng phong phÃº â€” khai thÃ¡c qua Ä‘Ã³ng vai vÃ  truyá»‡n tranh</span>
+        </div>
+      </div>
+    </div>
+    <div class="stage-body">
+      <div class="stage-col">
+        <div class="col-label">Äáº·c Ä‘iá»ƒm tÃ¢m sinh lÃ½</div>
+        <ul class="psych-list">
+          <li><b>"Táº¡i sao?" khÃ´ng ngá»«ng:</b> tÆ° duy nhÃ¢nâ€“quáº£ Ä‘ang hÃ¬nh thÃ nh</li>
+          <li><b>TrÃ­ tÆ°á»Ÿng tÆ°á»£ng cá»±c máº¡nh:</b> ranh giá»›i thá»±câ€“áº£o cÃ²n má»</li>
+          <li><b>Báº¯t Ä‘áº§u hiá»ƒu quy táº¯c:</b> muá»‘n tuÃ¢n theo vÃ  muá»‘n ngÆ°á»i khÃ¡c cÅ©ng tuÃ¢n theo</li>
+          <li><b>ChÆ¡i há»£p tÃ¡c xuáº¥t hiá»‡n:</b> tá»« "chÆ¡i song song" â†’ "chÆ¡i cÃ¹ng nhau"</li>
+          <li><b>ChÃº Ã½ dÃ i hÆ¡n:</b> 15â€“20 phÃºt</li>
+          <li><b>Cáº£m xÃºc á»•n Ä‘á»‹nh hÆ¡n:</b> báº¯t Ä‘áº§u dÃ¹ng lá»i nÃ³i thay vÃ¬ h¹ ƒG†îe¹œ‹†îeĞÁ£…Ğğ½±¤ø(€€€€€€€€ğ½Õ°ø(€€€€€€ğ½‘¥Øø(€€€€€€ñ‘¥Ø±…ÍÌô‰ÍÑ…”µ½°ˆø(€€€€€€€€ñ‘¥Ø±…ÍÌô‰½°µ±…‰•°ˆù7†î•ŒÑ§©Ô€Ô³¥¹ Ù×†îÅŒÁ£…ĞÑÉ§†î¸ğ½‘¥Øø(€€€€€€€€ñ‘¥Ø±…ÍÌô‰‘½µ…¥¸µÉ½İÌˆø(€€€€€€€€€€ñ‘¥Ø±…ÍÌô‰‘½µ…¥¸µÉ½Üˆøñ‘¥Ø±…ÍÌô‰‘½µ…¥¸µ¥½¸µİÉ…ÀˆûÂ~€ğ½‘¥Øøñ‘¥Ø±…ÍÌô‰‘½µ…¥¸µ½¹Ñ•¹Ğˆøñ‘¥Ø±…ÍÌô‰‘½µ…¥¸µ¹…µ”ˆù9£†êµ¸Ñ£†î¥Œğ½‘¥Øøñ‘¥Ø±…ÍÌô‰‘½µ…¥¸µ½…±ÌˆûC†êı´ƒG†êı¸€ÈÀ°†îe¹œ½ÑË†î¬ÑÉ½¹œÁ£†ê…´Ù¤€ÄÀ°¹£†êµ¸‰§†êıĞ€Èä£†î¼…¤Û€£¥Àƒ‰´ƒG…¸§†ê¸ğ½‘¥Øøğ½‘¥Øøğ½‘¥Øø(€€€€€€€€€€ñ‘¥Ø±…ÍÌô‰‘½µ…¥¸µÉ½Üˆøñ‘¥Ø±…ÍÌô‰‘½µ…¥¸µ¥½¸µİÉ…ÀˆûÂ~: ğ½‘¥Øøñ‘¥Ø±…ÍÌô‰‘½µ…¥¸µ½¹Ñ•¹Ğˆøñ‘¥Ø±…ÍÌô‰‘½µ…¥¸µ¹…µ”ˆùQ£†ê¥´·†îäğ½‘¥Øøñ‘¥Ø±…ÍÌô‰‘½µ…¥¸µ½…±Ìˆù[†êô£±¹ ¹ŸÃ†îu¤½¹£€½‰ä¹£†êµ¸É„ƒGÃ†îŒ°£…ĞƒGé¹œ¥…¤ƒE§†îÔ°†ê½ĞÑ¡•¼ƒGÃ†îu¹œÑ£†êÍ¹œğ½‘¥Øøğ½‘¥Øøğ½‘¥Øø(€€€€€€€€€€ñ‘¥Ø±…ÍÌô‰‘½µ…¥¸µÉ½Üˆøñ‘¥Ø±…ÍÌô‰‘½µ…¥¸µ¥½¸µİÉ…ÀˆûÂ~J°ğ½‘¥Øøñ‘¥Ø±…ÍÌô‰‘½µ…¥¸µ½¹Ñ•¹Ğˆøñ‘¥Ø±…ÍÌô‰‘½µ…¥¸µ¹…µ”ˆù9ŸÑ¸¹Ÿ†î¼ğ½‘¥Øøñ‘¥Ø±…ÍÌô‰‘½µ…¥¸µ½…±ÌˆûC†î5ŒƒGÃ†îŒÓ†î¬ƒG…¸°Ó†êµÀÙ§†êıĞÓ©¸·±¹ °¯†î¡Õç†î¸ÌƒG†ê×ŠM§†î½‡ŠM×†îE¤ƒ
+Ü€ñˆùQèğ½ˆø€ÈÃŠLÌÀÓ†î¬ÅÕ„‹¤£…Ğğ½‘¥Øøğ½‘¥Øøğ½‘¥Øø(€€€€€€€€€€ñ‘¥Ø±…ÍÌô‰‘½µ…¥¸µÉ½Üˆøñ‘¥Ø±…ÍÌô‰‘½µ…¥¸µ¥½¸µİÉ…ÀˆûÂ~>ğ½‘¥Øøñ‘¥Ø±…ÍÌô‰‘½µ…¥¸µ½¹Ñ•¹Ğˆøñ‘¥Ø±…ÍÌô‰‘½µ…¥¸µ¹…µ”ˆùQ£†î£†ê•Ğğ½‘¥Øøñ‘¥Ø±…ÍÌô‰‘½µ…¥¸µ½…±Ìˆù9£†êä³ÈÈ€×ŠLØ‹Ã†îmŒ°ƒE¤á”ƒG†ê…À€Ì‹†ê…¹ °Ó†îÄ·†êÜÅ×†ê¸…¼£½¸©Ñ¿…¸ğ½ÍÁ…xÙ]Ù]Ù]‚ˆ]ˆÛ\ÜÏH™ÛXZ[‹\›İÈ]ˆÛ\ÜÏH™ÛXZ[‹ZXÛÛ‹]Ü˜\¸§i;î#ÏÙ]]ˆÛ\ÜÏH™ÛXZ[‹XÛÛ[]ˆÛ\ÜÏH™ÛXZ[‹[˜[YH•0ëšøn¨ÛH8 $È0èÈ8næZOÙ]]ˆÛ\ÜÏH™ÛXZ[‹YÛØ[ÈÚ1¨ZHš0ìÛHø $Í¸n¨[‹š1¬8nç[™Èš8nâÛˆğìÈ0ïH8nêXË¸n«İ1$xn©İHxnàİHÚ0èZHšxnáÛH8nä]¸né[™ÈÙ]Ù]Ù]‚ˆÙ]‚ˆÙ]‚ˆ]ˆÛ\ÜÏHœİYÙKXÛÛ‚ˆ]ˆÛ\ÜÏH˜ÛÛ[X™[’ønîH± Û™Èønä[™È¸nã[™È0è›OÙ]‚ˆ]ˆÛ\ÜÏHœÚÚ[XÚ\È‚ˆ]ˆÛ\ÜÏHœÚÚ[XÚ\¼'äªˆÚpê›ˆ°ë
+Üš]
+Nˆ8nëH8n¨ZHØ]H8n©]¸n¨ZOÙ]‚ˆ]ˆÛ\ÜÏHœÚÚ[XÚ\¼'ã¤ˆÚxnª[ˆ¸nâÈ8næÜLˆ™ønäÚHpê›ˆŒ0î[È1$píZHÚ8nâH8nªÛÙ]‚ˆ]ˆÛ\ÜÏHœÚÚ[XÚ\¼'åèûî#ÈÚxn¨ÚH]^xn¯][™È1$xnæ]¸n¬[™È8nçZH°ìÚOÙ]‚ˆ]ˆÛ\ÜÏHœÚÚ[XÚ\¼'éîH8nìH]xn¨Û›0ïH1$xnäÈ0î[™ÈğèHš0è›Ù]‚ˆ]ˆÛ\ÜÏHœÚÚ[XÚ\¼'æè{î#È[ˆğèˆ™ÛğèH1$xnçZNˆÚ0í™È1$ZH[È™ñ¬8nçZH8n¨Kš8næÈønäH1$ZxnáÛˆøn¨ZHxn®OÙ]‚ˆÙ]‚ˆ]ˆÛ\ÜÏHœš]KX›Ş‚ˆ]ˆÛ\ÜÏHœš]K[X™[“š8nâÜxn©ÛˆÚ^xn¯Ûˆ™Ú8nâÏÙ]‚ˆ]ˆÛ\ÜÏHœš]K\›İÈÜ[ˆÛ\ÜÏHœš]KZÙ^H•8näZH8nêH¸ $ÍÜÜ[Ü[ˆÛ\ÜÏHœš]K]˜[ŒÍx $Í0îÜÜ[Ù]‚ˆ]ˆÛ\ÜÏHœš]K\›İÈÜ[ˆÛ\ÜÏHœš]KZÙ^HİxnäZHxn©ÛÜÜ[Ü[ˆÛ\ÜÏHœš]K]˜[L8 $ÌLŒ0îÜÜ[Ù]‚ˆ]ˆÛ\ÜÏHœš]K\›İÈÜ[ˆÛ\ÜÏHœš]KZÙ^H“xnåÚHøn¨]1$xnæ[™ÏÜÜ[Ü[ˆÛ\ÜÏHœš]K]˜[ŒMx $ÌŒ0îÜÜ[Ù]‚ˆ]ˆÛ\ÜÏHœš]K]İ[•8nå[™Èx $ÍˆÚxnçKİxn©ÛÙ]‚ˆÙ]‚ˆÙ]‚ˆÙ]‚ˆÙ]‚‚ˆKKHñ$ÈKO‚ˆ]ˆÛ\ÜÏHœİYÙHÌÈ‚ˆ]ˆÛ\ÜÏHœİYÙKZXY\ˆ‚ˆ]ˆÛ\ÜÏHœİYÙK[[X™\ˆ’RROÙ]‚ˆ]ˆÛ\ÜÏHœİYÙK[Y]H‚ˆ]ˆÛ\ÜÏHœİYÙKXYÙH‘ÚXZH1$[øn¨[ˆÈ0­È¸ $ÎxnåZOÙ]‚ˆ]ˆÛ\ÜÏHœİYÙK[˜[YH•1¬^HÙÚXÏÙ]‚ˆ]ˆÛ\ÜÏHœİYÙK\XYÙ]‚ˆÜ[”XYÙ]Øˆ[È0èXÈønéH8nàÈ8 %1¬^HÙÚXÈš1¬™Èøn©Ûˆ1$xnäÈ¸n«]ønéH8nàÈ1$xnàÈÚxnàÛHÚ8nê[™ÏÜÜ[‚ˆÜ[‘\šZÜÛÛØˆÚ^pê›ˆøn©ÛˆœÈ8nìHH8 %øn©Ûˆ¸n¨ÚH™ÚxnáÛH0èšğí™È8nìXÈønìOÜÜ[‚ˆÜ[ˆÛ\ÜÏH™Ú\›[›İH¸¦`°êHğèZNˆš8n¨^Høn¨ÛH¸næÚHš8n«[ˆ0ê]ønéØH¸n¨[ˆ°êÈøn©Ûˆ8nçZHÚ[ˆønéH8nàÈ¸nàH¸nåÈ8nìXË°è[šÛÈğè[šÈpê›ˆ¸nàH8nãXÈš0ìÛH°è8n¨ÛÈxn«[ÜÜ[‚ˆÙ]‚ˆÙ]‚ˆÙ]‚ˆ]ˆÛ\ÜÏHœİYÙKX›ÙH‚ˆ]ˆÛ\ÜÏHœİYÙKXÛÛ‚ˆ]ˆÛ\ÜÏHœ›ÛKXØ[İ]¼'äã^H1$xnåZH˜ZH°ìˆønéØHxn®NØˆ8nêÈÚXZH1$[øn¨[ˆ°èHÛÛˆ1$pèÈ1$ZH8nãXÈ8 %xn®HÚ^xnàÛˆ8nêÈ™Úpè[Èšpê›ˆˆØ[™Èšxn©[ˆ^xnáÛˆšpê›ˆ8nãXÈ8n«\Ø‹ˆÚ0í™È8n¨^H±¬8næØÈÚ1¬1¨[š°ëšpèÚpîœÛÛˆxnàİHğèH1¨[ˆ°èÚxnëÈ™ønã[ˆ8nëXH0ìˆpì‹Ù]‚ˆ]ˆÛ\ÜÏH˜ÛÛ[X™[±$8n­ØÈ1$ZxnàÛH0è›HÚ[š0ïOÙ]‚ˆ[Û\ÜÏHœŞXÚ[\İ‚ˆO“ÙÚXÈš0è›¸ $Ü]xn¨È°íH°è™ÎØˆxnàİH›¸n¯İK‹‹0ë‹‹ˆ‹¸n«İ1$xn©İH˜[šxn«[ˆğìÈ0ïH8n¯OÛO‚ˆO±$8nãXÈšxn¯İ¸nçÈ0èšğí™ÈønéNØˆ™ğíˆ™ønëÈšxn¯İxnçÈ˜H8n¯ÈÚxnæÚH1¬^HxnæÚOÛO‚ˆO¸n¨[ˆ°ê]X[ˆ¸nã[™Èš8n©]Øˆ]xnä[ˆ1$q¬8nèØÈÚ8n©\š8n«[ˆ°èğìÈ1$xnâØH¸nâÈ›Û™Èš0ìÛOÛO‚ˆO”ÛÈğè[š¸n¨Ûˆ0è›Øˆ™İ^Hñ¨H8nìHH¸n¯İHxn¯İH8nåÈ¸nèÏÛO‚ˆOøn©Ûˆøn¨ÛHÚpèXÈğìÈ± Û™È8nìXÎØˆ0èšğí™Èš8nãÈxnåÚH™ğèH0èšpê›ˆxnáİOÛO‚ˆO¸n«İ1$xn©İHğìÈ0ïHÚxn¯Ûˆšpê›™ÎØˆ0íˆ¸nã[™È0ïHÚxn¯ÛˆÛÛˆ™Ø^Høn¨ÈÚHÛÛˆØZOÛO‚ˆİ[‚ˆÙ]‚ˆ]ˆÛ\ÜÏHœİYÙKXÛÛ‚ˆ]ˆÛ\ÜÏH˜ÛÛ[X™[“xnéXÈpêHH1*[š¸nìXÈ0è]šxnàÛÙ]‚ˆ]ˆÛ\ÜÏH™ÛXZ[‹\›İÜÈ‚ˆ]ˆÛ\ÜÏH™ÛXZ[‹\›İÈ]ˆÛ\ÜÏH™ÛXZ[‹ZXÛÛ‹]Ü˜\¼'éèÙ]]ˆÛ\ÜÏH™ÛXZ[‹XÛÛ[]ˆÛ\ÜÏH™ÛXZ[‹[˜[YH“š8n«[ˆ8nêXÏÙ]]ˆÛ\ÜÏH™ÛXZ[‹YÛØ[È±$8nãXÈxnàİH1$[øn¨[ˆ± Ûˆ™øn«Û‹ønæ[™Ëİ¸nêÈğìÈš8næË¸n¨Û™Èønë]HÚ1¬1¨[™È¸ $ÍK]X[ˆğè]ÚØH8nãXÈñ¨H¸n¨ÛÙ]Ù]Ù]‚ˆ]ˆÛ\ÜÏH™ÛXZ[‹\›İÈ]ˆÛ\ÜÏH™ÛXZ[‹ZXÛÛ‹]Ü˜\¼'ãªÙ]]ˆÛ\ÜÏH™ÛXZ[‹XÛÛ[]ˆÛ\ÜÏH™ÛXZ[‹[˜[YH•8nª[HxnîOÙ]]ˆÛ\ÜÏH™ÛXZ[‹YÛØ[È•¸n¯HğìÈ8näZHøn¨Ûš1$q¨[ˆÚxn¨Û‹8nãXÈš8n¨XÈønéHñ¨H¸n¨Û‹8néÈğí™Èšxnà]H±¬8næØËøn¨ÛHš8n«[ˆ0è›Hš8n¨XËÚ8næZH8nãXOÙ]Ù]Ù]‚ˆ]ˆÛ\ÜÏH™ÛXZ[‹\›İÈ]ˆÛ\ÜÏH™ÛXZ[‹ZXÛÛ‹]Ü˜\¼'ä«Ù]]ˆÛ\ÜÏH™ÛXZ[‹XÛÛ[]ˆÛ\ÜÏH™ÛXZ[‹[˜[YH“™ğíˆ™ønëÏÙ]]ˆÛ\ÜÏH™ÛXZ[‹YÛØ[È•šxn¯İ1$[øn¨[ˆ8 $ÍHğèHğìÈøn©]H°î˜Ë1$xnãXÈ^xnáÛˆ0èH8nìH8n«\xn¯Û™È[šL8 $ÌŒ8nêÏÙ]Ù]Ù]‚ˆ]ˆÛ\ÜÏH™ÛXZ[‹\›İÈ]ˆÛ\ÜÏH™ÛXZ[‹ZXÛÛ‹]Ü˜\¼'ãàÏÙ]]ˆÛ\ÜÏH™ÛXZ[‹XÛÛ[]ˆÛ\ÜÏH™ÛXZ[‹[˜[YH•8nàÈÚ8n©]Ù]]ˆÛ\ÜÏH™ÛXZ[‹YÛØ[È±¨ZHñ¨H¸n¨Û‹1$xn¨\Hˆ°è[š8nàÈ[ÈğìÈxn«]
+á¨™Ë1$pèH°ìÛ™Èš8nãÊOÙ]Ù]Ù]‚ˆ]ˆÛ\ÜÏH™ÛXZ[‹\›İÈ]ˆÛ\ÜÏH™ÛXZ[‹ZXÛÛ‹]Ü˜\¸§i;î#ÏÙ]]ˆÛ\ÜÏH™ÛXZ[‹XÛÛ[]ˆÛ\ÜÏH™ÛXZ[‹[˜[YH•0ëšøn¨ÛH8 $È0èÈ8næZOÙ]]ˆÛ\ÜÏH™ÛXZ[‹YÛØ[È•0ëš¸n¨[ˆ¸nà[ˆ{™ÙËxnàİHğí™È¸n¬[™ËØ¸n©]ğí™Ë1$xnäÛ™Èøn¨ÛH8nìXÈønìKÚxnàÛHÛğè]8nêXÈÚxn«[Ù]Ù]Ù]‚ˆÙ]‚ˆÙ]‚ˆ]ˆÛ\ÜÏHœİYÙKXÛÛ‚ˆ]ˆÛ\ÜÏH˜ÛÛ[X™[’ønîH± Û™Èønä[™È¸nã[™È0è›OÙ]‚ˆ]ˆÛ\ÜÏHœÚÚ[XÚ\È‚ˆ]ˆÛ\ÜÏHœÚÚ[XÚ\¼'äæˆ8nìH]xn¨Ûˆ0ïH°èH¸nåÒHè8né[™ÈønéH8nãXÈ8n«\Ù]‚ˆ]ˆÛ\ÜÏHœÚÚ[XÚ\¼'é%1¬^H0êˆ0è[ˆ1$xn­İğèH8nãÚH±¬8næØÈÚH[Ù]‚ˆ]ˆÛ\ÜÏHœÚÚ[XÚ\¼'é'H[š8n©Ûˆ1$xnäÛ™È1$xnæZNˆ8nåÈ¸nèÈ¸n¨[ˆ°èÚ8nâİH1$q¬8nèØÈXOÙ]‚ˆ]ˆÛ\ÜÏHœÚÚ[XÚ\¼'ãè°èXÚšxnáÛHšxnáØÈš0èˆ8nã[ˆ°è‹1¬8næÚHğèK‹‹Ù]‚ˆÙ]‚ˆ]ˆÛ\ÜÏHœš]KX›Ş‚ˆ]ˆÛ\ÜÏHœš]K[X™[“š8nâÜxn©ÛˆÚ^xn¯Ûˆ™Ú8nâÏÙ]‚ˆ]ˆÛ\ÜÏHœš]K\›İÈÜ[ˆÛ\ÜÏHœš]KZÙ^H’8nãXÈ
+È°èH8n«\Û™ğèOÜÜ[Ü[ˆÛ\ÜÏHœš]K]˜[x $ÍŒ0îÜÜ[Ù]‚ˆ]ˆÛ\ÜÏHœš]K\›İÈÜ[ˆÛ\ÜÏHœš]KZÙ^HİxnäZHxn©ÛˆxnåÚHxnåZOÜÜ[Ü[ˆÛ\ÜÏHœš]K]˜[L8 $ÌLŒ0îÜÜ[Ù]‚ˆ]ˆÛ\ÜÏHœš]K\›İÈÜ[ˆÛ\ÜÏHœš]KZÙ^H“™Ûøn¨ZHÚ0ìØKİ8nàÈ[ÏÜÜ[Ü[ˆÛ\ÜÏHœš]K]˜[Œx $ÌˆxnåZKİxn©ÛÜÜ[Ù]‚ˆ]ˆÛ\ÜÏHœš]K]İ[•8nå[™È8 $ÌLÚxnçKİxn©ÛÙ]‚ˆÙ]‚ˆÙ]‚ˆÙ]‚ˆÙ]‚‚ˆKKHñ$KO‚ˆ]ˆÛ\ÜÏHœİYÙHÍ‚ˆ]ˆÛ\ÜÏHœİYÙKZXY\ˆ‚ˆ]ˆÛ\ÜÏHœİYÙK[[X™\ˆ’UÙ]‚ˆ]ˆÛ\ÜÏHœİYÙK[Y]H‚ˆ]ˆÛ\ÜÏHœİYÙKXYÙH‘ÚXZH1$[øn¨[ˆ0­È8 $ÌLxnåZOÙ]‚ˆ]ˆÛ\ÜÏHœİYÙK[˜[YH•1¬^H1$8næXÈ8n«\Ù]‚ˆ]ˆÛ\ÜÏHœİYÙK\XYÙ]‚ˆÜ[”XYÙ]Øˆ[È0èXÈønéH8nàÈÚXZH1$[øn¨[ˆİxnäZH8 %ÙÚXÈ¸nëÛ™Ë1¬^H¸nêİH1¬8nèÛ™È¸n«İ1$xn©İH¸n¨ŞHxn©ÛOÜÜ[‚ˆÜ[‘\šZÜÛÛØˆÚ^pê›ˆøn©ÛˆœÈ8nìHH8 %¸n¨Ûˆøn«ØÈğèHš0è›ˆ0ëš0èš“pëš0èZOÈpëšÚxnãÚHğëÈÜÜ[‚ˆÜ[ˆÛ\ÜÏH™Ú\›[›İH¸¦`°êHğèZNˆ0è\8nìXÈ¸nàH nh thá»ƒ xuáº¥t hiá»‡n sá»›m tá»« 7â€“8 tuá»•i - xÃ¢y dá»±ng body image tÃ­ch cá»±c lÃ  Æ°u tiÃªn hÃ ng Ä‘áº§u</span>
+        </div>
+      </div>
+    </div>
+    <div class="stage-body">
+      <div class="stage-col">
+        <div class="col-label">Äáº·c Ä‘iá»ƒm tÃ¢m sinh lÃ½</div>
+        <ul class="psych-list">
+          <li><b>TÆ° duy trá»«u tÆ°á»£ng náº£y máº§m:</b> cÃ³ thá»ƒ suy luáº­n vá» Ä‘iá»u chÆ°a tháº¥y</li>
+          <li><b>Báº¡n bÃ¨ lÃ  "tháº¿ giá»›i":</b> Ã¡p lá»±c Ä‘á»“ng trang lá»©a xuáº¥t hiá»‡n</li>
+          <li><b>Nháº­n thá»©c giá»›i tÃ­nh &amp; ngoáº¡i hÃ¬nh:</b> nháº£y cáº£m vá»›i lá»—i nháº­n xÃ©t</li>
+          <li><b>Cáº§n tá»± chá»§:</b> "Con muá»‘n tá»± quyáº¿t Ä‘á»‹nh" â€” trao quyá»n cÃ³ kiá»ƒm soÃ¡t</li>
+          <li><b>Báº¯t Ä‘áº§u nghÄ© vá» tÆ°Æ¡ng lai:</b> nuÃ´i dÆ°á»¡ng, khÃ´ng Ä‘á»‹nh hÆ°á»›ng sáºµn</li>
+          <li><b>Tranh luáº­n logic:</b> tÃ´n trá»ng láº­p luáº­n cá»§a con</li>
+        </ul>
+      </div>
+      <div class="stage-col">
+        <div class="col-label">Má»¥c tiÃªu 5 lÄ©nh vá»±c phÃ¡t triá»ƒn</div>
+        <div class="domain-rows">
+          <div class="domain-row"><div class="domain-icon-wrap">ğŸ§ </div><div class="domain-content"><div class="domain-name">Nháº­n thá»©c</div><div class="domain-goals">TÆ° duy phÃª phÃ¡n, toÃ¡n phÃ¢n sá»‘ Ä‘Æ¡n giáº£n, khoa há»c thá»±c nghiá»‡m, hiá»ƒu lá»‹ch sá»­â€“Ä‘á»‹a lÃ½ cÆ¡ báº£n</div></div></div>
+          <div class="domain-row"><div class="domain-icon-wrap">ğŸ¨</div><div class="domain-content"><div class="domain-name">Tháº©m má»¹</div><div class="domain-goals">PhÃ¡t triá»ƒn sá»Ÿ thÃ­ch nghá»‡ thuáº­t riÃªng, luyá»‰n nháº¡c cá»¥ kiÃªn Ä‘á»‹nh, Ä‘á»c sÃ¡ch 100â€“200 trang, viáº¿t nháº­t kÃ½</div></div></div>
+          <div class="domain-row"><div class="domain-icon-wrap">ğŸ’¬</div><div class="domain-content"><div class="domain-name">NgÃ´n ngá»¯</div><div class="domain-goals">Viáº¿t bÃ i vÄƒn cÃ³ luáº­n Ä‘iá»ƒm, Ä‘á»c Ä‘a thá»ƒ loáº¡i, tiáº¿ng Anh giao tiáº¿p A1, thuyáº¿t trÃ¬nh 3â€“5 phÃºt</div></div></div>
+          <div class="domain-row"><div class="domain-icon-wrap">ğŸƒ</div><div class="domain-content"><div class="domain-name">Thá»ƒ cháº¥t</div><div class="domain-goals">1 mÃ´n thá»ƒ thao chÃ­nh luyá»‰n Ä‘á»u, hiá»ƒu dinh dÆ°á»¡ng cÆ¡ báº£n, tá»± mÃ­t quan lÃ½ giáº¥c ngá»§</div></div></div>
+          <div class="domain-row"><div class="domain-icon-wrap">â¤ï¸</div><div class="domain-content"><div class="domain-name">TÃ¬nh cáº£m â€“ XÃ£ há»™i</div><div class="domain-goals">Äá»“ng cáº£m sÃ¢t sáº¯c, quáº£n lÃ½ Ã¡p lá»±c báº¡n bÃ¨, tá»± nháº­n biáº¿t Ä‘iá»ƒm máº¡ng/yáº¿u cá»§a báº£n thÃ¢n</div></div></div>
+        </div>
+      </div>
+      <div class="stage-col">
+        <div class="col-label">Ká»¹ nÄƒng sá»‘ng trá»ng tÃ¢m</div>
+        <div class="skill-chips">
+          <div class="skill-chip">â° Tá»± quáº£n lÃ½ thá»i gian: láº­p thá»i khÃ³a biá»ƒu cÃ¡ nhÃ¢n</div>
+          <div class="skill-chip">ğŸ” TÆ° duy Ä‘á»™c láº­p: phÃ¢n tÃ­ch trÆ°á»›c khi tin theo báº¡n bÃ¨</div>
+          <div class="skill-chip">ğŸ’° TÃ i chÃ­nh cÆ¡ báº£n: tiá»n tiÃªu váº·t, tiáº¿t kiá»‡m cho má»¥c tiÃªu nhá»</div>
+          <div class="skill-chip">ğŸ¯ Äáº·t má»¥c tiÃªu vÃ  theo dÃµi: con tá»± Ä‘áº·t má»¥c tiÃªu tuáº§n/thÃ¡ng</div>
+        </div>
+        <div class="rhythm-box">
+          <div class="rhythm-label">Nhá»‹p tuáº§n khuyáº¿n nghá»‹</div>
+          <div class="rhythm-row"><span class="rhythm-key">Tá»± há»c/ngÃ y</span><span class="rhythm-val">60â€“90 phÃºt</span></div>
+          <div class="rhythm-row"><span class="rhythm-key">Ngoáº¡i khÃ³a/thá»ƒ thao</span><span class="rhythm-val">2â€“3 buá»•i/tuáº§n</span></div>
+          <div class="rhythm-row"><span class="rhythm-key">ThÆ° giÃ£n cÃ³ cáº¥u trÃºc</span><span class="rhythm-val">Cuá»‘i tuáº§n</span></div>
+          <div class="rhythm-total">Tá»•ng ~12â€“15 giá»/tuáº§n</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRINCIPLES -->
+  <div class="principles">
+    <div class="principles-title">NguyÃªn táº¯c xuyÃªn sua»‘t â€” KhÃ´ng thay Ä‘á»•i theo giai Ä‘oáº¡n</div>
+    <div class="principles-grid">
+      <div class="pcard"><div class="pcard-title">Má»‘i quan há»‡ lÃ  ná»n táº£ng</div><div class="pcard-body">NÃ£o tráº» há»c tá»‘t nháº¥t khi cáº£m tháº¥y an toÃ n vÃ  Ä‘Æ°á»£c yÃªu thÆ°Æ¡ng. KhÃ´ng cÃ³ phÆ°Æ¡ng phÃ¡p nÃ o hiá»‡u quáº£ trong mÃ´i trÆ°á»ng cÄƒng tháº³ng.</div></div>
+      <div class="pcard"><div class="pcard-title">Láº·p láº¡i lÃ  há»c, khÃ´ng pháº£i lÆ°á»i biáº¿ng</div><div class="pcard-body">Tráº» cáº§n Ä‘á»c cÃ¹ng 1 cuá»‘n sÃ¡ch 10 láº§n. NÃ£o bá»™ ghi nhá»› qua láº·p láº¡i â€” Ä‘á»«ng vá»™i "nÃ¢ng cáº¥p".</div></div>
+      <div class="pcard"><div class="pcard-title">So sÃ¡nh con vá»›i chÃ­nh con ngÃ y hÃ´m qua</div><div class="pcard-body">"Tuáº§n trÆ°á»›c con chÆ°a lÃ m Ä‘Æ°á»£c, hÃ´m nay con lÃ m Ä‘Æ°á»£c rá»“i" â€” tá»‘t hÆ¡n má»i Ä‘iá»ƒm sá»‘ hay so sÃ¡nh vá»›i báº¡n bÃ¨.</div></div>
+      <div class="pcard"><div class="pcard-title">Tháº¥t báº¡i lÃ  bÃ i há»c</div><div class="pcard-body">Pháº£n á»©ng cá»§a máº¹ khi con sai quyáº¿t Ä‘á»‹nh con cÃ³ dÃ¡m thá»­ hay khÃ´ng. "Láº§n sau con sáº½ thá»­ cÃ¡ch nÃ o?"</div></div>
+      <div class="pcard"><div class="pcard-title">ChÆ¡i tá»± do khÃ´ng thá»ƒ thay tháº¿</div><div class="pcard-body">ChÆ¡i khÃ´ng cÃ³ má»¥c Ä‘Ã­ch lÃ  nÆ¡i tráº» há»c sÃ¡ng táº¡o, giáº£i quyáº¿t váº¥n Ä‘á» vÃ  Ä‘iá»u tiáº¿t cáº£m x..</div></div>
+      <div class="pcard"><div class="pcard-title">Meá¶© khÃ´ng cáº§n lÃ  giáº£o viÃªn hoÃ n háº£o </div><div class="pcard-body">"Máº© cÅ¥ng khÃ´ng biáº¿t, mÃ¬nh cÃ¹ng tÃ¬m hiá»ƒu nhÃ©" â€” dÃ¢y lÃ  bÃ i há»c tÆ° duy máº¡nh máº½ nháº¥t máº¹ cÃ³ thá»ƒ truyá»n.</div></div>
+    </div>
+  </div>
+</div>
+</body></html>
