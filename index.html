@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đồng Hành Cùng Chíp</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap">
+<style>
+  :root {
+    --green: #4A7C59;
+    --green-light: #6A9E78;
+    --orange: #E87D52;
+    --bg: #FDFAF6;
+    --surface: #FFFFFF;
+    --surface-2: #F4F0E8;
+    --text: #2C3A2D;
+    --text-muted: #6B7C6C;
+    --border: #D9E4DA;
+    --shadow: 0 2px 12px rgba(74,124,89,0.08);
+    --shadow-hover: 0 8px 32px rgba(74,124,89,0.16);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1A2A1E; --surface: #243028; --surface-2: #1E2822;
+      --text: #E4EDE5; --text-muted: #8FAF92; --border: #2E4233;
+      --shadow: 0 2px 12px rgba(0,0,0,0.3);
+      --shadow-hover: 0 8px 32px rgba(0,0,0,0.4);
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg); color: var(--text);
+    min-height: 100vh;
+    padding: 0 20px;
+  }
+  .header {
+    text-align: center;
+    padding: 56px 0 48px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 48px;
+  }
+  .header::before {
+    content: '';
+    display: block;
+    width: 48px; height: 3px;
+    background: var(--orange);
+    margin: 0 auto 28px;
+    border-radius: 2px;
+  }
+  .header-eyebrow {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--green); margin-bottom: 14px;
+  }
+  .header-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2rem, 6vw, 3rem);
+    font-weight: 700; line-height: 1.15;
+    text-wrap: balance; margin-bottom: 14px;
+  }
+  .header-title em { font-style: italic; color: var(--green); }
+  .header-subtitle {
+    font-size: 15px; color: var(--text-muted);
+    max-width: 420px; margin: 0 auto; line-height: 1.65;
+  }
+  .section-label {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--text-muted); margin-bottom: 20px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::after {
+    content: ''; flex: 1; height: 1px; background: var(--border);
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px; margin-bottom: 56px;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px; overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: box-shadow 0.2s, transform 0.2s;
+    display: flex; flex-direction: column;
+  }
+  .card:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
+  .card-banner { height: 6px; background: var(--green); }
+  .card:nth-child(2) .card-banner { background: var(--orange); }
+  .card-body { padding: 24px; flex: 1; display: flex; flex-direction: column; gap: 14px; }
+  .card-tag {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--green);
+    background: rgba(74,124,89,0.1);
+    padding: 4px 10px; border-radius: 20px; width: fit-content;
+  }
+  .card:nth-child(2) .card-tag { color: var(--orange); background: rgba(232,125,82,0.1); }
+  .card-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.2rem; font-weight: 600;
+    line-height: 1.3; text-wrap: balance;
+  }
+  .card-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.65; flex: 1; }
+  .card-meta {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    padding-top: 4px; border-top: 1px solid var(--border);
+  }
+  .meta-chip {
+    font-size: 11px; color: var(--text-muted);
+    background: var(--surface-2);
+    padding: 3px 9px; border-radius: 20px;
+  }
+  .card-link {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-size: 13px; font-weight: 600;
+    color: var(--green); text-decoration: none;
+    padding: 10px 18px;
+    border: 1.5px solid var(--green); border-radius: 8px;
+    transition: background 0.15s, color 0.15s;
+    width: fit-content; margin-top: 4px;
+  }
+  .card:nth-child(2) .card-link { color: var(--orange); border-color: var(--orange); }
+  .card-link:hover { background: var(--green); color: white; }
+  .card:nth-child(2) .card-link:hover { background: var(--orange); color: white; }
+  .coming-soon {
+    background: var(--surface-2);
+    border: 1.5px dashed var(--border);
+    border-radius: 12px; padding: 24px;
+    text-align: center; color: var(--text-muted);
+    font-size: 13px; margin-bottom: 48px;
+  }
+  .coming-soon-title { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+  .footer-note {
+    text-align: center;
+    padding: 28px 0 40px;
+    border-top: 1px solid var(--border);
+    font-size: 12px; color: var(--text-muted); line-height: 1.7;
+  }
+  .footer-note strong { color: var(--text); font-weight: 600; }
+  @media (max-width: 480px) {
+    .header { padding: 40px 0 36px; }
+    .cards { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<header class="header">
+  <p class="header-eyebrow">Tủ tài liệu · Hoa</p>
+  <h1 class="header-title">Đồng Hành Cùng <em>Chíp</em></h1>
+  <p class="header-subtitle">Bộ tài liệu nuôi dạy con từ 3–10 tuổi — định hướng phát triển toàn diện theo từng giai đoạn.</p>
+</header>
+
+<main style="max-width: 860px; margin: 0 auto;">
+  <p class="section-label">Tài liệu hiện có · 2 tài liệu</p>
+  <div class="cards">
+    <div class="card">
+      <div class="card-banner"></div>
+      <div class="card-body">
+        <span class="card-tag">📅 Giáo án tuần</span>
+        <h2 class="card-title">Giáo Án Tuần Chi Tiết — Giai Đoạn I</h2>
+        <p class="card-desc">Kế hoạch học tập theo ngày trong tuần dành cho trẻ 3–4 tuổi. Bao gồm 5 lĩnh vực phát triển: thể chất, nhận thức, ngôn ngữ, thẩm mỹ, xã hội.</p>
+        <div class="card-meta">
+          <span class="meta-chip">3–4 tuổi</span>
+          <span class="meta-chip">Giai đoạn I</span>
+          <span class="meta-chip">7 ngày / tuần</span>
+          <span class="meta-chip">5 lĩnh vực</span>
+        </div>
+        <a class="card-link" href="giao-an-tuan-gd1.html">Xem tài liệu →</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-banner"></div>
+      <div class="card-body">
+        <span class="card-tag">📚 Chương trình khung</span>
+        <h2 class="card-title">Hành Trình 3–10 Tuổi — 4 Giai Đoạn Phát Triển</h2>
+        <p class="card-desc">Tổng quan chương trình theo 4 giai đoạn phát triển. Dựa trên nền tảng Piaget, Erikson, Vygotsky — kết hợp Montessori và Reggio Emilia.</p>
+        <div class="card-meta">
+          <span class="meta-chip">3–10 tuổi</span>
+          <span class="meta-chip">4 giai đoạn</span>
+          <span class="meta-chip">Piaget · Erikson</span>
+          <span class="meta-chip">Montessori</span>
+        </div>
+        <a class="card-link" href="hanh-trinh-3-10-tuoi.html">Xem tài liệu →</a>
+      </div>
+    </div>
+  </div>
+
+  <p class="section-label">Sắp có</p>
+  <div class="coming-soon">
+    <p class="coming-soon-title">📋 Tài liệu đang xây dựng</p>
+    <p>Giáo án Giai đoạn II · III · IV — Bộ hoạt động theo chủ để — Sổ theo dõi phát triển</p>
+  </div>
+</main>
+
+<footer class="footer-note">
+  <strong>Đồng Hành Cùng Chíp</strong> · Cập nhật bởi Hoa<br>
+  Nhấn vào từng tài liệu để xem đầy đủ nội dung.
+</footer>
+</body>
+</html>
