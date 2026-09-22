@@ -1,0 +1,1118 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Giáo Án Tuần · Giai Đoạn I</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<style>
+:root {
+  --bg: #F0EDE5;
+  --card: #FAFAF7;
+  --card2: #FFFFFF;
+  --text: #1E2220;
+  --muted: #6A7A6E;
+  --border: #D8D3C8;
+  --radius: 12px;
+
+  /* Stage 1 accent */
+  --s1: #B56560;
+  --s1-bg: #F9EDEC;
+  --s1-soft: #F2D9D7;
+
+  /* Domain colors */
+  --nc: #2E7BC4; --nc-bg: #E8F0FA; --nc-soft: #BEDAEF;
+  --tm: #7C54BB; --tm-bg: #F0ECFA; --tm-soft: #D6CAEE;
+  --nn: #2A9668; --nn-bg: #E6F4EE; --nn-soft: #B8DFD0;
+  --tc: #C05530; --tc-bg: #FAF0EA; --tc-soft: #EDD0BF;
+  --xh: #B8356E; --xh-bg: #FAE8F2; --xh-soft: #EEBDD6;
+
+  font-family: 'Nunito', sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #191C1A; --card: #21261F; --card2: #2A302A;
+    --text: #DCE8DA; --muted: #7A9A82; --border: #2E3C30;
+    --s1-bg: #2C1918; --s1-soft: #3C2220;
+    --nc-bg: #141E2C; --nc-soft: #1C2E40;
+    --tm-bg: #1C1428; --tm-soft: #2C2040;
+    --nn-bg: #141E1A; --nn-soft: #1C2E24;
+    --tc-bg: #281810; --tc-soft: #3A2418;
+    --xh-bg: #28101C; --xh-soft: #3A1828;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #191C1A; --card: #21261F; --card2: #2A302A;
+  --text: #DCE8DA; --muted: #7A9A82; --border: #2E3C30;
+  --s1-bg: #2C1918; --s1-soft: #3C2220;
+  --nc-bg: #141E2C; --nc-soft: #1C2E40;
+  --tm-bg: #1C1428; --tm-soft: #2C2040;
+  --nn-bg: #141E1A; --nn-soft: #1C2E24;
+  --tc-bg: #281810; --tc-soft: #3A2418;
+  --xh-bg: #28101C; --xh-soft: #3A1828;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); padding-inline: 16px; padding-block: 24px; }
+.wrap { max-width: 860px; margin: 0 auto; }
+
+/* HEADER */
+.page-header {
+  background: var(--s1-bg);
+  border: 1px solid var(--s1-soft);
+  border-radius: var(--radius);
+  padding: 22px 26px 20px;
+  margin-bottom: 20px;
+}
+.stage-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--s1); color: #fff;
+  font-size: 11px; font-weight: 800; letter-spacing: .08em;
+  text-transform: uppercase; padding: 3px 10px; border-radius: 4px;
+  margin-bottom: 10px;
+}
+.page-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.5rem, 4vw, 2.1rem);
+  font-weight: 700; color: var(--s1); line-height: 1.2;
+  margin-bottom: 8px;
+}
+.page-meta {
+  display: flex; flex-wrap: wrap; gap: 16px;
+  font-size: 13px; color: var(--muted);
+}
+.page-meta span { display: flex; align-items: center; gap: 5px; }
+
+/* OVERVIEW TABLE */
+.overview-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+}
+.overview-title {
+  font-size: 11px; font-weight: 800; letter-spacing: .07em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 12px;
+}
+.overview-table {
+  width: 100%; border-collapse: collapse;
+  font-size: 12px; min-width: 520px;
+}
+.overview-table th {
+  padding: 6px 10px; text-align: left;
+  font-size: 11px; font-weight: 800;
+  letter-spacing: .05em; color: var(--muted);
+  border-bottom: 2px solid var(--border);
+}
+.overview-table td {
+  padding: 7px 10px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top; line-height: 1.4;
+}
+.overview-table tr:last-child td { border-bottom: none; }
+.overview-table .day-col { font-weight: 800; color: var(--s1); white-space: nowrap; }
+.ov-chip {
+  display: inline-block; font-size: 11px; font-weight: 700;
+  padding: 2px 7px; border-radius: 4px; margin: 2px 2px 2px 0;
+}
+.ov-nc { background: var(--nc-bg); color: var(--nc); }
+.ov-tm { background: var(--tm-bg); color: var(--tm); }
+.ov-nn { background: var(--nn-bg); color: var(--nn); }
+.ov-tc { background: var(--tc-bg); color: var(--tc); }
+.ov-xh { background: var(--xh-bg); color: var(--xh); }
+
+/* TABS */
+.tab-bar {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  margin-bottom: 18px;
+}
+.tab {
+  padding: 8px 16px; border-radius: 8px;
+  border: 1.5px solid var(--border);
+  background: var(--card); color: var(--muted);
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px; font-weight: 700;
+  cursor: pointer; transition: all .15s ease;
+  white-space: nowrap;
+}
+.tab:hover { border-color: var(--s1); color: var(--s1); }
+.tab.active {
+  background: var(--s1); color: #fff;
+  border-color: var(--s1);
+}
+
+/* DAY HEADER */
+.day-header {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--s1-soft);
+  border-radius: var(--radius) var(--radius) 0 0;
+  padding: 14px 20px;
+  margin-bottom: 0;
+  border: 1px solid var(--s1-soft);
+  border-bottom: none;
+}
+.day-name { font-size: 1.1rem; font-weight: 800; color: var(--s1); }
+.day-info { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+.day-time-badge {
+  margin-left: auto;
+  background: var(--s1); color: #fff;
+  font-size: 12px; font-weight: 800;
+  padding: 4px 12px; border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* ACTIVITY CARDS */
+.activities-wrap {
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 var(--radius) var(--radius);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.act-card {
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  padding: 18px 20px;
+}
+.act-card:last-child { border-bottom: none; }
+
+.act-top {
+  display: flex; align-items: flex-start; gap: 10px;
+  margin-bottom: 10px; flex-wrap: wrap;
+}
+.domain-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 11px; font-weight: 800; letter-spacing: .04em;
+  padding: 3px 9px; border-radius: 4px;
+  white-space: nowrap;
+}
+.d-nc { background: var(--nc-bg); color: var(--nc); }
+.d-tm { background: var(--tm-bg); color: var(--tm); }
+.d-nn { background: var(--nn-bg); color: var(--nn); }
+.d-tc { background: var(--tc-bg); color: var(--tc); }
+.d-xh { background: var(--xh-bg); color: var(--xh); }
+
+.time-badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 11.5px; font-weight: 700;
+  background: var(--card2); border: 1px solid var(--border);
+  padding: 3px 9px; border-radius: 4px; color: var(--muted);
+}
+
+.act-name {
+  font-size: 1rem; font-weight: 800; color: var(--text);
+  margin-bottom: 12px; line-height: 1.3;
+}
+.act-name em { font-style: normal; color: var(--muted); font-size: .85em; font-weight: 600; }
+
+.act-row {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 10px; margin-bottom: 12px;
+}
+.act-block {
+  padding: 10px 12px; border-radius: 8px;
+  background: var(--card2); border: 1px solid var(--border);
+}
+.act-block-label {
+  font-size: 10px; font-weight: 800; letter-spacing: .07em;
+  text-transform: uppercase; color: var(--muted);
+  margin-bottom: 5px;
+}
+.act-block-body { font-size: 12.5px; line-height: 1.5; color: var(--text); }
+
+.steps-label {
+  font-size: 10px; font-weight: 800; letter-spacing: .07em;
+  text-transform: uppercase; color: var(--muted);
+  margin-bottom: 8px;
+}
+.steps { list-style: none; display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
+.steps li {
+  display: flex; gap: 10px; align-items: flex-start;
+  font-size: 13px; line-height: 1.55;
+}
+.step-num {
+  flex-shrink: 0; width: 22px; height: 22px;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 800; color: #fff; margin-top: 1px;
+}
+.nc .step-num { background: var(--nc); }
+.tm .step-num { background: var(--tm); }
+.nn .step-num { background: var(--nn); }
+.tc .step-num { background: var(--tc); }
+.xh .step-num { background: var(--xh); }
+
+.tip-box {
+  display: flex; gap: 9px; align-items: flex-start;
+  padding: 10px 12px; border-radius: 8px;
+  margin-top: 4px;
+}
+.nc .tip-box { background: var(--nc-bg); }
+.tm .tip-box { background: var(--tm-bg); }
+.nn .tip-box { background: var(--nn-bg); }
+.tc .tip-box { background: var(--tc-bg); }
+.xh .tip-box { background: var(--xh-bg); }
+.tip-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+.tip-text { font-size: 12.5px; line-height: 1.55; }
+.nc .tip-text { color: var(--nc); }
+.tm .tip-text { color: var(--tm); }
+.nn .tip-text { color: var(--nn); }
+.tc .tip-text { color: var(--tc); }
+.xh .tip-text { color: var(--xh); }
+
+/* DOMAIN LEGEND */
+.legend {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-bottom: 20px;
+}
+.legend-item {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 12px; font-weight: 700;
+  padding: 4px 10px; border-radius: 6px;
+}
+
+/* FOOTER NOTE */
+.footer-note {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 16px 20px;
+  margin-top: 8px;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+.fn-item { font-size: 12.5px; line-height: 1.5; color: var(--muted); }
+.fn-item b { color: var(--text); display: block; margin-bottom: 2px; font-size: 12px; }
+
+@media (max-width: 600px) {
+  .act-row { grid-template-columns: 1fr; }
+  .day-header { flex-wrap: wrap; }
+  .day-time-badge { margin-left: 0; }
+}
+@media (max-width: 420px) {
+  body { padding-inline: 12px; }
+  .act-card { padding: 14px 14px; }
+}
+</style>
+
+<div class="wrap">
+
+  <!-- HEADER -->
+  <div class="page-header">
+    <div class="stage-chip">Giai Đoạn I · 3–4 Tuổi</div>
+    <div class="page-title">Giáo Án Tuần Chi Tiết</div>
+    <div class="page-meta">
+      <span>📅 7 ngày đầy đủ</span>
+      <span>⏱️ Tổng ~4–5 giờ/tuần</span>
+      <span>🌱 5 lĩnh vực phát triển</span>
+      <span>🏠 Học tại nhà cùng mẹ</span>
+    </div>
+  </div>
+
+  <!-- DOMAIN LEGEND -->
+  <div class="legend">
+    <span class="legend-item d-nc">🧠 Nhận thức</span>
+    <span class="legend-item d-tm">🎨 Thẩm mỹ</span>
+    <span class="legend-item d-nn">💬 Ngôn ngữ</span>
+    <span class="legend-item d-tc">🏃 Thể chất</span>
+    <span class="legend-item d-xh">❤️ Tình cảm – XH</span>
+  </div>
+
+  <!-- OVERVIEW TABLE -->
+  <div class="overview-card">
+    <div class="overview-title">Tổng quan 7 ngày — Hoạt động theo lĩnh vực</div>
+    <table class="overview-table">
+      <thead>
+        <tr>
+          <th>Ngày</th>
+          <th>🧠 Nhận thức</th>
+          <th>🎨 Thẩm mỹ</th>
+          <th>💬 Ngôn ngữ</th>
+          <th>🏃 Thể chất</th>
+          <th>❤️ Tình cảm</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="day-col">Thứ 2</td>
+          <td><span class="ov-chip ov-nc">Đếm Trong Bếp</span></td>
+          <td>—</td>
+          <td><span class="ov-chip ov-nn">Đọc Sách Cùng Mẹ</span></td>
+          <td>—</td>
+          <td><span class="ov-chip ov-xh">Trò Chơi Gương Mặt</span></td>
+        </tr>
+        <tr>
+          <td class="day-col">Thứ 3</td>
+          <td>—</td>
+          <td><span class="ov-chip ov-tm">Vẽ Tự Do</span></td>
+          <td>—</td>
+          <td><span class="ov-chip ov-tc">Đường Kỳ Diệu</span><span class="ov-chip ov-tc">Rửa Tay</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td class="day-col">Thứ 4</td>
+          <td><span class="ov-chip ov-nc">Thám Tử Màu Sắc</span></td>
+          <td>—</td>
+          <td><span class="ov-chip ov-nn">Nhật Ký Miệng</span></td>
+          <td>—</td>
+          <td><span class="ov-chip ov-xh">Con Giúp Mẹ</span></td>
+        </tr>
+        <tr>
+          <td class="day-col">Thứ 5</td>
+          <td><span class="ov-chip ov-nc">Hộp Phân Loại</span></td>
+          <td><span class="ov-chip ov-tm">Karaoke Nhỏ Xinh</span></td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td class="day-col">Thứ 6</td>
+          <td>—</td>
+          <td>—</td>
+          <td><span class="ov-chip ov-nn">Chữ Cái Hôm Nay</span></td>
+          <td><span class="ov-chip ov-tc">Luyện Tay Khéo</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td class="day-col">Thứ 7</td>
+          <td><span class="ov-chip ov-nc">Nhà KH Nhỏ</span></td>
+          <td><span class="ov-chip ov-tm">Nghệ Thuật Lá</span></td>
+          <td>—</td>
+          <td><span class="ov-chip ov-tc">Khám Phá Vườn</span></td>
+          <td><span class="ov-chip ov-xh">Cửa Hàng Tý Hon</span></td>
+        </tr>
+        <tr>
+          <td class="day-col">Chủ Nhật</td>
+          <td>—</td>
+          <td><span class="ov-chip ov-tm">Ôn Bài Hát</span></td>
+          <td><span class="ov-chip ov-nn">Con Kể Chuyện Tuần</span></td>
+          <td>—</td>
+          <td><span class="ov-chip ov-xh">Chơi Tự Do</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- TAB BAR -->
+  <div class="tab-bar">
+    <button class="tab active" onclick="switchDay('t2', this)">Thứ Hai</button>
+    <button class="tab" onclick="switchDay('t3', this)">Thứ Ba</button>
+    <button class="tab" onclick="switchDay('t4', this)">Thứ Tư</button>
+    <button class="tab" onclick="switchDay('t5', this)">Thứ Năm</button>
+    <button class="tab" onclick="switchDay('t6', this)">Thứ Sáu</button>
+    <button class="tab" onclick="switchDay('t7', this)">Thứ Bảy</button>
+    <button class="tab" onclick="switchDay('cn', this)">Chủ Nhật</button>
+  </div>
+
+  <!-- ══ THỨ HAI ══ -->
+  <div id="t2" class="day-section">
+    <div class="day-header">
+      <div>
+        <div class="day-name">Thứ Hai — Khởi Động Tuần</div>
+        <div class="day-info">Buổi tối · Nhận thức + Ngôn ngữ + Cảm xúc</div>
+      </div>
+      <div class="day-time-badge">⏱ 35 phút</div>
+    </div>
+    <div class="activities-wrap">
+
+      <!-- ACT 1 -->
+      <div class="act-card nc">
+        <div class="act-top">
+          <span class="domain-badge d-nc">🧠 Nhận thức</span>
+          <span class="time-badge">⏱ 10 phút</span>
+        </div>
+        <div class="act-name">Đếm Trong Bếp <em>— Toán học qua đồ vật thật</em></div>
+        <div class="act-row">
+          <div class="act-block">
+            <div class="act-block-label">🎯 Mục tiêu phát triển</div>
+            <div class="act-block-body">Đếm 1–5 (tiến tới 1–10), hiểu số gắn với số lượng thật, bước đầu nhận biết "nhiều hơn / ít hơn"</div>
+          </div>
+          <div class="act-block">
+            <div class="act-block-label">🧰 Chuẩn bị</div>
+            <div class="act-block-body">Thìa, bát, hộp, cốc có sẵn trong bếp — không cần mua thêm gì</div>
+          </div>
+        </div>
+        <div class="steps-label">📋 Các bước thực hiện</div>
+        <ol class="steps">
+          <li><span class="step-num">1</span><span>Cùng con vào bếp, nói: <b>"Hôm nay mình đếm đồ trong bếp nhé!"</b> — để con tự chọn đồ vật muốn đếm.</span></li>
+          <li><span class="step-num">2</span><span>Mẹ xếp 3 cái thìa ra, đếm to cùng con: <b>"1 cái thìa... 2 cái thìa... 3 cái thìa. Có 3 cái!"</b> Chỉ từng cái khi đếm.</span></li>
+          <li><span class="step-num">3</span><span>Hỏi con: <b>"Con xếp thêm 2 cái thìa nữa vào đây, rồi mình đếm lại xem có bao nhiêu cái nhé?"</b></span></li>
+          <li><span class="step-num">4</span><span>Đổi sang đếm thứ khác (bát, cốc). Hỏi: <b>"Cái nào nhiều hơn — bát hay thìa?"</b></span></li>
+          <li><span class="step-num">5</span><span>Kết thúc bằng đếm ngón tay cùng nhau — <b>"Bàn tay mình có mấy ngón?"</b></span></li>
+        </ol>
+        <div class="tip-box">
+          <span class="tip-icon">💡</span>
+          <div class="tip-text"><b>Mẹo khoa học:</b> Ở 3–4 tuổi, con đếm được nhưng chưa hiểu "3 là nhiều hơn 2". Điều quan trọng nhất là <b>chỉ vào từng vật khi đếm</b> — không đếm trong không khí. Não bé ghi nhớ qua cảm giác chạm + đếm đồng bộ.</div>
+        </div>
+      </div>
+
+      <!-- ACT 2 -->
+      <div class="act-card nn">
+        <div class="act-top">
+          <span class="domain-badge d-nn">💬 Ngôn ngữ</span>
+          <span class="time-badge">⏱ 15 phút</span>
+        </div>
+        <div class="act-name">Đọc Sách Cùng Mẹ <em>— Nghe hiểu + kể lại</em></div>
+        <div class="act-row">
+          <div class="act-block">
+            <div class="act-block-label">🎯 Mục tiêu phát triển</div>
+            <div class="act-block-body">Vốn từ tăng 3–5 từ/buổi đọc, tập kể lại chuyện 3–4 câu, đặt câu hỏi "Tại sao?"</div>
+          </div>
+          <div class="act-block">
+            <div class="act-block-label">🧰 Chuẩn bị</div>
+            <div class="act-block-body">1 cuốn sách tranh (có thể dùng lại nhiều lần). Nếu chưa có: in truyện tranh PDF từ mạng</div>
+          </div>
+        </div>
+        <div class="steps-label">📋 Các bước thực hiện</div>
+        <ol class="steps">
+          <li><span class="step-num">1</span><span><b>Trước khi đọc:</b> Xem bìa sách, hỏi: <b>"Con đoán câu chuyện này kể về ai?"</b> — Không cần đúng, chỉ cần con nói.</span></li>
+          <li><span class="step-num">2</span><span><b>Trong khi đọc:</b> Đọc chậm, dừng ở những trang có hình đẹp, hỏi: <b>"Con thấy gì trong hình này?"</b> Chỉ vào các chi tiết nhỏ.</span></li>
+          <li><span class="step-num">3</span><span><b>Từ mới:</b> Khi gặp từ khó, không bỏ qua. Giải thích ngắn: <b>"Khổng lồ — nghĩa là rất to, to hơn cả nhà mình nữa."</b></span></li>
+          <li><span class="step-num">4</span><span><b>Sau khi đọc:</b> Đóng sách lại, hỏi: <b>"Con kể cho mẹ nghe câu chuyện này có những ai? Rồi điều gì xảy ra?"</b></span></li>
+          <li><span class="step-num">5</span><span>Nếu con kể thiếu, mẹ gợi ý: <b>"Lúc đầu con thỏ làm gì nhỉ?"</b> — không kể thay, chỉ gợi ý.</span></li>
+        </ol>
+        <div class="tip-box">
+          <span class="tip-icon">💡</span>
+          <div class="tip-text"><b>Mẹo khoa học:</b> Đọc <b>cùng 1 cuốn sách 5–10 lần</b> thậm chí còn tốt hơn đọc nhiều cuốn khác nhau. Mỗi lần đọc lại, não bé học thêm từ mới và chi tiết mà lần trước bỏ qua. Đây là cách mà Piaget gọi là "assimilation" — tiêu hóa kiến thức qua lặp lại.</div>
+        </div>
+      </div>
+
+      <!-- ACT 3 -->
+      <div class="act-card xh">
+        <div class="act-top">
+          <span class="domain-badge d-xh">❤️ Tình cảm – Xã hội</span>
+          <span class="time-badge">⏱ 10 phút</span>
+        </div>
+        <div class="act-name">Trò Chơi Gương Mặt <em>— Nhận biết và đặt tên cảm xúc</em></div>
+        <div class="act-row">
+          <div class="act-block">
+            <div class="act-block-label">🎯 Mục tiêu phát triển</div>
+            <div class="act-block-body">Nhận biết 4 cảm xúc cơ bản: vui / buồn / tức / sợ; bắt đầu liên kết cảm xúc với tình huống thực</div>
+          </div>
+          <div class="act-block">
+            <div class="act-block-label">🧰 Chuẩn bị</div>
+            <div class="act-block-body">Không cần vật liệu — chỉ cần mặt mẹ và mặt con! Có thể dùng gương nếu thích</div>
+          </div>
+        </div>
+        <div class="steps-label">📋 Các bước thực hiện</div>
+        <ol class="steps">
+          <li><span class="step-num">1</span><span>Ngồi đối mặt với con. Mẹ làm mặt <b>vui</b> rõ ràng. Hỏi: <b>"Mẹ đang có cảm giác gì?"</b> Nếu con không biết, mẹ nói: <b>"Đây là mặt VUI!"</b></span></li>
+          <li><span class="step-num">2</span><span>Lần lượt thể hiện <b>buồn → tức → sợ</b>. Mỗi cái để con đoán trước.</span></li>
+          <li><span class="step-num">3</span><span>Đổi vai: <b>"Bây giờ đến lượt con làm nhé, mẹ đoán!"</b> — Cố tình đoán sai vài lần để con cười.</span></li>
+          <li><span class="step-num">4</span><span>Hỏi câu hỏi tình huống: <b>"Khi mẹ mua kem cho con thì con cảm thấy thế nào? Khi con bị té thì sao?"</b></span></li>
+          <li><span class="step-num">5</span><span>Kết thúc: Mẹ hỏi <b>"Hôm nay con cảm thấy thế nào nhỉ?"</b> và lắng nghe — không sửa câu trả lời của con.</span></li>
+        </ol>
+        <div class="tip-box">
+          <span class="tip-icon">💡</span>
+          <div class="tip-text"><b>Mẹo khoa học:</b> Trẻ 3–4 tuổi <b>chưa thể tự điều tiết cảm xúc</b> — con cần mẹ "đặt tên" cảm xúc cho con trước. Khi mẹ nói "Con đang tức rồi à?" — điều này giúp não bé kết nối trải nghiệm với từ ngữ, từ từ con sẽ tự làm được. Không bao giờ nói "Con không được tức" hay "Con buồn cười gì đâu".</div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- end t2 -->
+
+  <!-- ══ THỨ BA ══ -->
+  <div id="t3" class="day-section" hidden>
+    <div class="day-header">
+      <div>
+        <div class="day-name">Thứ Ba — Sáng Tạo và Vận Động</div>
+        <div class="day-info">Buổi tối · Thẩm mỹ + Thể chất</div>
+      </div>
+      <div class="day-time-badge">⏱ 30 phút</div>
+    </div>
+    <div class="activities-wrap">
+
+      <div class="act-card tm">
+        <div class="act-top">
+          <span class="domain-badge d-tm">🎨 Thẩm mỹ</span>
+          <span class="time-badge">⏱ 15 phút</span>
+        </div>
+        <div class="act-name">Vẽ Tự Do — Con Muốn Vẽ Gì? <em>— Phát triển sáng tạo và nét bút</em></div>
+        <div class="act-row">
+          <div class="act-block">
+            <div class="act-block-label">🎯 Mục tiêu phát triển</div>
+            <div class="act-block-body">Vẽ được nét thẳng, nét cong, nét tròn; tập cầm bút 3 ngón; phát triển tư duy sáng tạo tự do</div>
+          </div>
+          <div class="act-block">
+            <div class="act-block-label">🧰 Chuẩn bị</div>
+            <div class="act-block-body">Giấy A4 (nhiều tờ), bút màu sáp hoặc bút chì màu. Trải báo xuống bàn cho thoải mái</div>
+          </div>
+        </div>
+        <div class="steps-label">📋 Các bước thực hiện</div>
+        <ol class="steps">
+          <li><span class="step-num">1</span><span>Đặt giấy và bút trước mặt con. Nói: <b>"Hôm nay con vẽ gì con thích — không cần giống thật, con vẽ theo tưởng tượng nhé!"</b></span></li>
+          <li><span class="step-num">2</span><span>Mẹ cũng lấy giấy và vẽ bên cạnh con — <b>không vẽ "đẹp hơn"</b>, vẽ đơn giản tương đương. Con thích được vẽ cùng hơn là bị quan sát.</span></li>
+          <li><span class="step-num">3</span><span>Sau 10 phút con vẽ xong, hỏi: <b>"Tranh của con kể chuyện gì vậy? Đây là ai đây?"</b> — Nghe và gật đầu, đừng đoán thay.</span></li>
+          <li><span class="step-num">4</span><span>Nếu con muốn, mẹ có thể viết nhỏ ở góc tranh theo lời con kể: "Con voi đang tắm sông" — trẻ rất thích điều này.</span></li>
+          <li><span class="step-num">5</span><span>Dán tranh lên tường hoặc cất vào hộp tranh. <b>"Tranh con đẹp lắm, mình cất vào bộ sưu tập nhé!"</b></span></li>
+        </ol>
+        <div class="tip-box">
+          <span class="tip-icon">💡</span>
+          <div class="tip-text"><b>Tuyệt đối không làm:</b> Không sửa tranh của con, không vẽ thay, không nói "Con vẽ sai rồi, ô tô không có 6 bánh". Ở giai đoạn này, <b>quá trình quan trọng hơn kết quả</b>. Não bé đang tập kiểm soát cơ tay và biến ý tưởng thành hình — đây là kỳ tích.</div>
+        </div>
+      </div>
+
+      <div class="act-card tc">
+        <div class="act-top">
+          <span class="domain-badge d-tc">🏃 Thể chất</span>
+          <span class="time-badge">⏱ 10 phút</span>
+        </div>
+        <div class="act-name">Đường Kỳ Diệu <em>— Luyện thăng bằng và phối hợp vận động</em></div>
+        <div class="act-row">
+          <div class="act-block">
+            <div class="act-block-label">🎯 Mục tiêu phát triển</div>
+            <div class="act-block-body">Đi thăng bằng trên đường thẳng, phối hợp mắt-chân, kiểm soát cơ thể khi di chuyển</div>
+          </div>
+          <div class="act-block">
+            <div class="act-block-label">🧰 Chuẩn bị</div>
+            <div class="act-block-body">Băng keo (dán xuống sàn gạch tạo đường thẳng ~3m). Hoặc dùng hàng gạch lát sẵn</div>
+          </div>
+        </div>
+        <div class="steps-label">📋 Các bước thực hiện</div>
+        <ol class="steps">
+          <li><span class="step-num">1</span><span><b>Cấp độ 1:</b> Đi bình thường theo đường băng keo, 2 bàn chân sát đường. Con đi → mẹ đếm to.</span></li>
+          <li><span class="step-num">2</span><span><b>Cấp độ 2:</b> Đi với hai tay dang ngang — tưởng tượng như đang đi trên cầu cao. <b>"Không rơi xuống sông nhé!"</b></span></li>
+          <li><span class="step-num">3</span><span><b>Cấp độ 3:</b> Đi chậm chậm với cuốn sách nhỏ đặt trên đầu — con sẽ cười nhiều lắm.</span></li>
+          <li><span class="step-num">4</span><span><b>Cấp độ 4 (nâng cao):</b> Nhảy 2 chân qua các ô gạch, mẹ đặt mục tiêu: <b>"Nhảy 5 ô không dừng nhé!"</b></span></li>
+          <li><span class="step-num">5</span><span>Kết thúc: Mẹ thử đi, cố tình ngã hài hước — con sẽ rất vui và muốn tập thêm lần sau.</span></li>
+        </ol>
+        <div class="tip-box">
+          <span class="tip-icon">💡</span>
+          <div class="tip-text"><b>Mẹo khoa học:</b> Thăng bằng là kỹ năng phối hợp giữa tiểu não và hệ tiền đình — không thể "dạy" bằng lời mà phải <b>luyện qua cơ thể mỗi ngày</b>. Trẻ 3–4 tuổi bình thường ngã khá nhiều khi thử thách mới — đây là dấu hiệu não đang học, không phải vụng về.</div>
+        </div>
+      </div>
+
+      <div class="act-card tc">
+        <div class="act-top">
+          <span class="domain-badge d-tc">🏃 Thể chất</span>
+          <span class="time-badge">⏱ 5 phút</span>
+        </div>
+        <div class="act-name">Rửa Tay Đúng 6 Bước <em>— Kỹ năng tự chăm sóc bản thân</em></div>
+        <div class="act-row">
+          <div class="act-block">
+            <div class="act-block-label">🎯 Mục tiêu phát triển</div>
+            <div class="act-block-body">Nắm vững 6 bước rửa tay WHO (rút gọn cho bé), hình thành thói quen tự vệ sinh</div>
+          </div>
+          <div class="act-block">
+            <div class="act-block-label">🧰 Chuẩn bị</div>
+            <div class="act-block-body">Vòi nước, xà phòng, khăn lau. Bảng 6 bước (in hoặc vẽ tay dán cạnh bồn rửa)</div>
+          </div>
+        </div>
+        <div class="steps-label">📋 6 bước rửa tay theo nhịp bài hát</div>
+        <ol class="steps">
+          <li><span class="step-num">1</span><span><b>Ướt tay</b> dưới vòi — đếm 1, 2, 3</span></li>
+          <li><span class="step-num">2</span><span><b>Xà phòng</b> vào lòng bàn tay — chà tròn tròn</span></li>
+          <li><span class="step-num">3</span><span><b>Chà mu bàn tay</b> — tay này chà tay kia</span></li>
+          <li><span class="step-num">4</span><span><b>Chà kẽ ngón</b> — xen ngón tay vào nhau</span></li>
+          <li><span class="step-num">5</span><span><b>Chà cổ tay</b> — xoay tròn xoay tròn</span></li>
+          <li><span class="step-num">6</span><span><b>Xả nước, lau khô</b> bằng khăn sạch</span></li>
+        </ol>
+        <div class="tip-box">
+          <span class="tip-icon">💡</span>
+          <div class="tip-text"><b>Mẹo:</b> Biến thành bài hát ngắn theo nhịp quen thuộc. Sau 2 tuần lặp lại mỗi tối, con sẽ tự rửa tay mà không cần nhắc. Đây là <b>thói quen quan trọng nhất</b> trong tự chăm sóc của trẻ 3–4 tuổi.</div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- end t3 -->
+
+  <!-- ══ THỨ TƯ ══ -->
+  <div id="t4" class="day-section" hidden>
+    <div class="day-header">
+      <div>
+        <div class="day-name">Thứ Tư — Ngôn Ngữ và Quan Sát</div>
+        <div class="day-info">Buổi tối · Nhận thức + Ngôn ngữ + Tình cảm–Xã hội</div>
+      </div>
+      <div class="day-time-badge">⏱ 35 phút</div>
+    </div>
+    <div class="activities-wrap">
+
+      <div class="act-card nc">
+        <div class="act-top">
+          <span class="domain-badge d-nc">🧠 Nhận thức</span>
+          <span class="time-badge">⏱ 10 phút</span>
+        </div>
+        <div class="act-name">Thám Tử Màu Sắc <em>— Nhận biết và tìm màu trong không gian thật</em></div>
+        <div class="act-row">
+          <div class="act-block">
+            <div class="act-block-label">🎯 Mục tiêu phát triển</div>
+            <div class="act-block-body">Nhận biết 6–8 màu cơ bản, kết nối màu sắc với đồ vật thật, phát triển quan sát</div>
+          </div>
+          <div class="act-block">
+            <div class="act-block-label">🧰 Chuẩn bị</div>
+            <div class="act-block-body">Không cần vật liệu — dùng đồ vật trong nhà. Có thể chuẩn bị rổ nhỏ để con bỏ đồ vào</div>
+          </div>
+        </div>
+        <div class="steps-label">📋 Các bước thực hiện</div>
+        <ol class="steps">
+          <li><span class="step-num">1</span><span>Mẹ hỏi: <b>"Con ơi, tìm cho mẹ 3 thứ màu ĐỎ trong nhà mình nhé!"</b> Con chạy đi tìm.</span></li>
+          <li><span class="step-num">2</span><span>Con đem về, mẹ xác nhận từng cái: <b>"Đúng rồi! Cái này là màu đỏ! Còn cái này?"</b> — nhẹ nhàng nếu con nhầm.</span></li>
+          <li><span class="step-num">3</span><span>Tiếp tục với màu xanh, vàng, cam. Mỗi màu 1 lượt.</span></li>
+          <li><span class="step-num">4</span><span>Đổi vai: <b>"Bây giờ con hỏi mẹ tìm nhé!"</b> Con ra đề, mẹ chạy đi tìm — cố tình lấy sai vài lần.</span></li>
+          <li><span class="step-num">5</span><span>Thêm thử thách: <b>"Tìm thứ gì vừa màu đỏ vừa nhỏ nhỏ nhé!"</b> (2 tiêu chí — nâng cấp cho con nhanh nhẹn).</span></li>
+        </ol>
+        <div class="tip-box">
+          <span class="tip-icon">💡</span>
+          <div class="tip-text"><b>Mẹo khoa học:</b> Vận động + nhận thức kết hợp giúp não bé ghi nhớ tốt hơn gấp đôi so với chỉ ngồi học. Hoạt động "chạy đi tìm" kích hoạt cả vùng vận động lẫn vùng nhận thức trong não — đây là nguyên lý mà Montessori và Vygotsky đều đồng thuận.</div>
+        </div>
+      </div>
+
+      <div class="act-card nn">
+        <div class="act-top">
+          <span class="domain-badge d-nn">💬 Ngôn ngữ</span>
+          <span class="time-badge">⏱ 15 phút</span>
+        </div>
+        <div class="act-name">Nhật Ký Miệng <em>— Kể lại sự kiện, luyện câu dài</em></div>
+        <div class="act-row">
+          <div class="act-block">
+            <div class="act-block-label">🎯 Mục tiêu phát triển</div>
+            <div class="act-block-body">Nói câu 5–7 từ có đủ chủ-vị-bổ, kể lại sự kiện theo thứ tự thời gian, phát triển ký ức ngôn ngữ</div>
+          </div>
+          <div class="act-block">
+            <div class="act-block-label">🧰 Chuẩn bị</div>
+            <div class="act-block-body">Không cần gì — hoặc chuẩn bị cuốn sổ nhỏ để mẹ ghi nhanh những câu con nói hay</div>
+          </div>
+        </div>
+        <div class="steps-label">📋 Các bước thực hiện</div>
+        <ol class="steps">
+          <li><span class="step-num">1</span><span>Ngồi cùng con, hỏi nhẹ nhàng: <b>"Hôm nay con thích nhất điều gì?"</b> Không hỏi "Hôm nay con học gì?" — câu đó bé không biết trả lời.</span></li>
+          <li><span class="step-num">2</span><span>Nếu con nói câu ngắn ("Con chơi"), mẹ giúp mở rộng: <b>"Con chơi với ai? Ở đâu? Làm gì?"</b> — từng câu hỏi nhỏ.</span></li>
+          <li><span class="step-num">3</span><span>Mẹ lặp lại câu của con thành câu dài hơn: <b>"Ồ, vậy là hôm nay con chơi xếp hình với bạn Nam ở trường, rồi con xếp được tháp cao lắm phải không?"</b></span></li>
+          <li><span class="step-num">4</span><span>Hỏi về cảm xúc: <b>"Khi xếp được tháp cao, con cảm thấy thế nào?"</b></span></li>
+          <li><span class="step-num">5</span><span>Kết thúc bằng cách mẹ kể 1 điều mẹ thích hôm nay — làm gương cho con thấy người lớn cũng kể chuyện ngày của mình.</span></li>
+        </ol>
+        <div class="tip-box">
+          <span class="tip-icon">💡</span>
+          <div class="tip-text"><b>Mẹo khoa học:</b> Hoạt động kể lại ngày giúp con phát triển <b>ký ức tự truyện (autobiographical memory)</b> — nền tảng của bản sắc cá nhân và khả năng lập kế hoạch sau này. Trẻ 3–4 tuổi thường nhớ cảm xúc hơn sự kiện — hỏi về cảm xúc trước sẽ giúp con nhớ lại tốt hơn.</div>
+        </div>
+      </div>
+
+      <div class="act-card xh">
+        <div class="act-top">
+          <span class="domain-badge d-xh">❤️ Tình cảm – Xã hội</span>
+          <span class="time-badge">⏱ 10 phút</span>
+        </div>
+        <div class="act-name">Con Giúp Mẹ Dọn Bàn <em>— Trách nhiệm và kỹ năng hợp tác</em></div>
+        <div class="act-row">
+          <div class="act-block">
+            <div class="act-block-label">🎯 Mục tiêu phát triển</div>
+            <div class="act-block-body">Hiểu khái niệm "trách nhiệm nhỏ", làm theo hướng dẫn từng bước, cảm giác tự hào vì đóng góp</div>
+          </div>
+          <div class="act-block">
+            <div class="act-block-label">🧰 Chuẩn bị</div>
+            <div class="act-block-body">Bàn ăn sau bữa tối — dọn cùng nhau là cách tự nhiên nhất để dạy trách nhiệm</div>
+          </div>
+        </div>
+        <div class="steps-label">📋 Các bước thực hiện</div>
+        <ol class="steps">
+          <li><span class="step-num">1</span><span>Nói với con: <b>"Con ơi, mình là đội dọn bàn nhé! Con làm phần của con, mẹ làm phần của mẹ."</b></span></li>
+          <li><span class="step-num">2</span><span>Giao con nhiệm vụ vừa sức: <b>đem bát/thìa của con vào bồn rửa</b> (1–2 cái). Không giao quá nhiều.</span></li>
+          <li><span class="step-num">3</span><span>Khi con làm xong (dù có vụng về), mẹ khen cụ thể: <b>"Con đã đặt bát đúng vào bồn rồi, giỏi lắm! Đội dọn bàn của mình nhanh quá nhỉ!"</b></span></li>
+          <li><span class="step-num">4</span><span>Nếu con làm rơi hay đổ, không la mắng. Nói: <b>"Không sao, mình cùng lau lại nhé!"</b> — làm cùng con.</span></li>
+          <li><span class="step-num">5</span><span>Dần dần (sau 2–3 tuần), tăng nhiệm vụ thêm: thêm lau bàn bằng khăn ướt.</span></li>
+        </ol>
+        <div class="tip-box">
+          <span class="tip-icon">💡</span>
+          <div class="tip-text"><b>Mẹo khoa học:</b> Erikson nhấn mạnh: trẻ 3–6 tuổi cần được <b>thử và thành công</b> để hình thành sự tự chủ. Việc nhà nhỏ cho con làm là "thành công thực sự" đầu tiên — quan trọng hơn bất kỳ bài tập học thuật nào. Tránh làm thay con vì "làm lại nhanh hơn" — đó là lấy đi cơ hội phát triển của con.</div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- end t4 -->
+
+  <!-- ══ THỨ NĂM ══ -->
+  <div id="t5" class="day-section" hidden>
+    <div class="day-header">
+      <div>
+        <div class="day-name">Thứ Năm — Âm Nhạc và Phân Loại</div>
+        <div class="day-info">Buổi tối · Thẩm mỹ + Nhận thức</div>
+      </div>
+      <div class="day-time-badge">⏱ 30 phút</div>
+    </div>
+    <div class="activities-wrap">
+
+      <div class="act-card tm">
+        <div class="act-top">
+          <span class="domain-badge d-tm">🎨 Thẩm mỹ</span>
+          <span class="time-badge">⏱ 15 phút</span>
+        </div>
+        <div class="act-name">Karaoke Nhỏ Xinh <em>— Âm nhạc, vận động và niềm vui</em></div>
+        <div class="act-row">
+          <div class="act-block">
+            <div class="act-block-label">🎯 Mục tiêu phát triển</div>
+            <div class="act-block-body">Thuộc 2–3 bài hát thiếu nhi, phối hợp nhịp điệu cơ thể với âm nhạc, phát triển cảm xúc tích cực</div>
+          </div>
+          <div class="act-block">
+            <div class="act-block-label">🧰 Chuẩn bị</div>
+            <div class="act-block-body">Điện thoại phát nhạc. Bài hát gợi ý: <b>Chúc Mừng Sinh Nhật, Baby Shark, Con Chim Vành Khuyên, Đàn Vịt Con</b></div>
+          </div>
+        </div>
+        <div class="steps-label">📋 Các bước thực hiện</div>
+        <ol class="steps">
+          <li><span class="step-num">1</span><span>Dọn khoảng trống trong phòng. Bật nhạc <b>to vừa nghe rõ lời</b>. Mẹ bắt đầu nhảy trước — con sẽ tự theo.</span></li>
+          <li><span class="step-num">2</span><span>Hát to cùng nhau — không cần hát đúng nốt. Mẹ hát sai vài câu cho vui, con sẽ cười và sửa cho mẹ.</span></li>
+          <li><span class="step-num">3</span><span>Dạy con các động tác đơn giản theo lời bài hát: <b>Baby Shark → làm tay cá mập; Đàn Vịt Con → đi chân vịt khệnh khạng.</b></span></li>
+          <li><span class="step-num">4</span><span>Giữa bài, tạm dừng nhạc: <b>"Nhạc dừng thì mình đứng yên nhé!"</b> — đây là trò "Statue" giúp luyện tự kiểm soát cơ thể.</span></li>
+          <li><span class="step-num">5</span><span>Cuối buổi, hỏi con: <b>"Con thích bài hát nào nhất?"</b> Tuần sau mở lại bài đó đầu tiên.</span></li>
+        </ol>
+        <div class="tip-box">
+          <span class="tip-icon">💡</span>
+          <div class="tip-text"><b>Mẹo khoa học:</b> Âm nhạc kết hợp vận động kích hoạt nhiều vùng não cùng lúc hơn bất kỳ hoạt động nào khác. Trẻ học <b>ngôn ngữ, số, nhịp điệu và cảm xúc</b> đồng thời qua bài hát. Và quan trọng hơn: đây là <b>kỷ niệm hạnh phúc</b> — con sẽ nhớ "mẹ và con hay nhảy cùng nhau" cả đời.</div>
+        </div>
+      </div>
+
+      <div class="act-card nc">
+        <div class="act-top">
+          <span class="domain-badge d-nc">🧠 Nhận thức</span>
+          <span class="time-badge">⏱ 15 phút</span>
+        </div>
+        <div class="act-name">Hộp Phân Loại <em>— Tư duy phân loại theo tiêu chí</em></div>
+        <div class="act-row">
+          <div class="act-block">
+            <div class="act-block-label">🎯 Mục tiêu phát triển</div>
+            <div class="act-block-body">Phân loại theo 1 tiêu chí (màu / kích thước / loại đồ vật), hiểu khái niệm "nhóm", tư duy logic cơ bản</div>
+          </div>
+          <div class="act-block">
+            <div class="act-block-label">🧰 Chuẩn bị</div>
+            <div class="act-block-body">Đồ chơi lẫn lộn (xe, búp bê, xếp hình...) + 2–3 hộp hoặc rổ nhỏ để phân loại vào</div>
+          </div>
+        </div>
+        <div class="steps-label">📋 Các bước thực hiện</div>
+        <ol class="steps">
+          <li><span class="step-num">1</span><span>Đổ tất cả đồ chơi ra thảm. Đặt 2 hộp trước mặt con: <b>"Hộp này để xe, hộp kia để búp bê — mình sắp xếp nhé!"</b></span></li>
+          <li><span class="step-num">2</span><span>Mẹ nhặt 1 cái, hỏi con: <b>"Cái này là gì? Bỏ vào hộp nào?"</b> Để con quyết định.</span></li>
+          <li><span class="step-num">3</span><span>Sau khi xếp xong theo loại, thử tiêu chí khác: <b>"Bây giờ mình xếp theo màu nhé — đồ vật đỏ vào đây, đồ vật xanh vào đây."</b></span></li>
+          <li><span class="step-num">4</span><span>Nâng cấp: <b>"Còn cái này vừa xanh vừa nhỏ thì để đâu?"</b> — câu hỏi 2 tiêu chí cho con thử thách.</span></li>
+          <li><span class="step-num">5</span><span>Đếm xem hộp nào có nhiều hơn — kết nối với bài đếm đầu tuần.</span></li>
+        </ol>
+        <div class="tip-box">
+          <span class="tip-icon">💡</span>
+          <div class="tip-text"><b>Mẹo khoa học:</b> Phân loại là bước đầu tiên của <b>tư duy logic</b> — con học cách "đặt thứ vào đúng chỗ" trong não trước khi học cách đặt vào đúng chỗ trong toán học. Piaget gọi đây là "classification" — một trong những kỹ năng tư duy quan trọng nhất ở giai đoạn tiền thao tác.</div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- end t5 -->
+
+  <!-- ══ THỨ SÁU ══ -->
+  <div id="t6" class="day-section" hidden>
+    <div class="day-header">
+      <div>
+        <div class="day-name">Thứ Sáu — Chuẩn Bị Nền Học Thuật</div>
+        <div class="day-info">Buổi tối · Thể chất (tinh) + Ngôn ngữ</div>
+      </div>
+      <div class="day-time-badge">⏱ 30 phút</div>
+    </div>
+    <div class="activities-wrap">
+
+      <div class="act-card tc">
+        <div class="act-top">
+          <span class="domain-badge d-tc">🏃 Thể chất</span>
+          <span class="time-badge">⏱ 15 phút</span>
+        </div>
+        <div class="act-name">Luyện Tay Khéo <em>— Phát triển vận động tinh, chuẩn bị viết chữ</em></div>
+        <div class="act-row">
+          <div class="act-block">
+            <div class="act-block-label">🎯 Mục tiêu phát triển</div>
+            <div class="act-block-body">Cầm bút đúng 3 ngón, kiểm soát áp lực tay khi tô/vẽ, phối hợp mắt-tay chính xác hơn</div>
+          </div>
+          <div class="act-block">
+            <div class="act-block-label">🧰 Chuẩn bị</div>
+            <div class="act-block-body">Bút chì mềm (loại 2B), giấy có đường chấm mẫu (tự vẽ hoặc in), thước kẻ không cần thiết</div>
+          </div>
+        </div>
+        <div class="steps-label">📋 Các bước thực hiện — 4 cấp độ tăng dần</div>
+        <ol class="steps">
+          <li><span class="step-num">1</span><span><b>Khởi động tay:</b> Bóp tay vào nắm đấm và mở ra 10 lần, xoay cổ tay. <b>"Mình khởi động tay trước khi viết nhé!"</b></span></li>
+          <li><span class="step-num">2</span><span><b>Cấp 1 — Nét thẳng:</b> Tô theo đường chấm thẳng từ trái qua phải. Mẹ đặt ngón tay dẫn hướng trên giấy nếu cần.</span></li>
+          <li><span class="step-num">3</span><span><b>Cấp 2 — Nét cong:</b> Tô theo đường cong (như sóng biển). Không cần chính xác — miễn là bút đi theo hướng đúng.</span></li>
+          <li><span class="step-num">4</span><span><b>Cấp 3 — Vòng tròn:</b> Vẽ vòng tròn tự do (không theo đường chấm). Thử to → nhỏ dần.</span></li>
+          <li><span class="step-num">5</span><span><b>Tự do:</b> Con vẽ gì con thích bằng bút chì trong 3 phút — để tay con nghỉ ngơi theo cách con thích.</span></li>
+        </ol>
+        <div class="tip-box">
+          <span class="tip-icon">💡</span>
+          <div class="tip-text"><b>Quan trọng — Tư thế cầm bút:</b> Bút nằm giữa ngón cái và ngón trỏ, tựa vào ngón giữa. <b>Không ép con cầm đúng ngay từ đầu</b> — nhẹ nhàng điều chỉnh 1–2 lần/buổi. Ép quá sớm gây sợ viết. Mục tiêu: đến 5 tuổi cầm đúng là kịp.</div>
+        </div>
+      </div>
+
+      <div class="act-card nn">
+        <div class="act-top">
+          <span class="domain-badge d-nn">💬 Ngôn ngữ</span>
+          <span class="time-badge">⏱ 15 phút</span>
+        </div>
+        <div class="act-name">Chữ Cái Hôm Nay <em>— Làm quen chữ cái qua vật thật và hình ảnh</em></div>
+        <div class="act-row">
+          <div class="act-block">
+            <div class="act-block-label">🎯 Mục tiêu phát triển</div>
+            <div class="act-block-body">Nhận biết và gọi đúng tên 3–5 chữ cái, kết nối chữ cái với từ quen thuộc, bắt đầu hiểu "chữ viết ra là tiếng nói"</div>
+          </div>
+          <div class="act-block">
+            <div class="act-block-label">🧰 Chuẩn bị</div>
+            <div class="act-block-body">Viết to 3–5 chữ cái lên giấy A4 (mỗi chữ 1 tờ riêng). Tuần 1: A B C D Đ</div>
+          </div>
+        </div>
+        <div class="steps-label">📋 Các bước thực hiện</div>
+        <ol class="steps">
+          <li><span class="step-num">1</span><span>Đưa tờ giấy có chữ <b>A</b>: <b>"Đây là chữ A — đọc là /a/. Con biết từ nào có chữ A không?"</b> Gợi ý: <b>"Á-o, À-nh, A-nh"</b>.</span></li>
+          <li><span class="step-num">2</span><span>Dùng ngón tay mẹ vẽ chữ A lên lưng con, con đoán xem là chữ gì. Đổi vai — con vẽ lên lưng mẹ.</span></li>
+          <li><span class="step-num">3</span><span>Tìm chữ A trong sách: <b>"Con tìm xem trang này có chữ A không?"</b> Con chỉ, mẹ xác nhận.</span></li>
+          <li><span class="step-num">4</span><span>Làm tương tự với 2–3 chữ tiếp theo (B, C). <b>Không học hết bảng chữ cái trong 1 buổi</b> — mỗi tuần 3–5 chữ là đủ.</span></li>
+          <li><span class="step-num">5</span><span>Kết thúc: <b>"Tuần này mình học được chữ gì rồi nhỉ?"</b> Con nhắc lại — đây là ôn tập tự nhiên.</span></li>
+        </ol>
+        <div class="tip-box">
+          <span class="tip-icon">💡</span>
+          <div class="tip-text"><b>Mẹo khoa học:</b> Trẻ 3–4 tuổi học chữ theo nguyên lý <b>whole-language</b> — nhớ hình dáng chữ + âm + từ quen thuộc cùng lúc, không học từng chữ riêng lẻ. Học chữ A qua "Áo của con" thì con nhớ lâu hơn 5 lần so với nhìn bảng chữ cái. <b>Không cần viết chữ ở giai đoạn này</b> — chỉ cần nhận biết.</div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- end t6 -->
+
+  <!-- ══ THỨ BẢY ══ -->
+  <div id="t7" class="day-section" hidden>
+    <div class="day-header">
+      <div>
+        <div class="day-name">Thứ Bảy — Ngày Khám Phá Ngoài Trời</div>
+        <div class="day-info">Buổi sáng · Cả 5 lĩnh vực · Sân / vườn</div>
+      </div>
+      <div class="day-time-badge">⏱ 60–90 phút</div>
+    </div>
+    <div class="activities-wrap">
+
+      <div class="act-card tc">
+        <div class="act-top">
+          <span class="domain-badge d-tc">🏃 Thể chất</span>
+          <span class="time-badge">⏱ 20 phút</span>
+        </div>
+        <div class="act-name">Khám Phá Sân Vườn <em>— Vận động thô + thu thập tự nhiên</em></div>
+        <div class="act-row">
+          <div class="act-block">
+            <div class="act-block-label">🎯 Mục tiêu phát triển</div>
+            <div class="act-block-body">Chạy, nhảy, leo, bò — vận động toàn thân; phát triển cơ bắp lớn; dạn dĩ với môi trường tự nhiên</div>
+          </div>
+          <div class="act-block">
+            <div class="act-block-label">🧰 Chuẩn bị</div>
+            <div class="act-block-body">Túi vải nhỏ hoặc rổ nhỏ để con thu thập lá, đá, cành — sẽ dùng cho hoạt động sau</div>
+          </div>
+        </div>
+        <div class="steps-label">📋 Các bước thực hiện</div>
+        <ol class="steps">
+          <li><span class="step-num">1</span><span><b>Chạy tự do 5 phút:</b> <b>"Con chạy vòng quanh sân 3 vòng!"</b> Mẹ cũng chạy — thi đua vui vẻ.</span></li>
+          <li><span class="step-num">2</span><span><b>Nhảy:</b> Nhảy qua các ô gạch, nhảy qua que gỗ đặt dưới đất, nhảy lò cò thử 3–4 bước.</span></li>
+          <li><span class="step-num">3</span><span><b>Thu thập:</b> <b>"Con ơi, mình là nhà khoa học! Thu thập thật nhiều lá, đá, cành để nghiên cứu nhé!"</b> Con nhặt vào túi.</span></li>
+          <li><span class="step-num">4</span><span><b>Quan sát tự nhiên:</b> Dừng lại nhìn kiến, sâu, hoa. <b>"Con thấy gì? Con kiến này đang làm gì?"</b></span></li>
+          <li><span class="step-num">5</span><span>Sau 20 phút, mang "bộ sưu tập" vào, chuẩn bị cho hoạt động tiếp theo.</span></li>
+        </ol>
+        <div class="tip-box">
+          <span class="tip-icon">💡</span>
+          <div class="tip-text"><b>Mẹo:</b> Trẻ 3–4 tuổi cần <b>ít nhất 60 phút vận động thô mỗi ngày</b> (WHO 2019). Hoạt động ngoài trời không thể thay thế bằng vận động trong nhà — ánh sáng mặt trời + không gian rộng + bề mặt không bằng phẳng kích thích phát triển não theo cách riêng.</div>
+        </div>
+      </div>
+
+      <div class="act-card nc">
+        <div class="act-top">
+          <span class="domain-badge d-nc">🧠 Nhận thức</span>
+          <span class="time-badge">⏱ 20 phút</span>
+        </div>
+        <div class="act-name">Nhà Khoa Học Nhỏ <em>— Phân loại và so sánh từ vật thật</em></div>
+        <div class="act-row">
+          <div class="act-block">
+            <div class="act-block-label">🎯 Mục tiêu phát triển</div>
+            <div class="act-block-body">So sánh to-nhỏ, nặng-nhẹ, nhiều-ít; phân loại theo 2 tiêu chí; đặt câu hỏi khoa học đơn giản</div>
+          </div>
+          <div class="act-block">
+            <div class="act-block-label">🧰 Chuẩn bị</div>
+            <div class="act-block-body">Bộ sưu tập từ hoạt động trước (lá, đá, cành) + tờ giấy trắng để phân loại lên đó</div>
+          </div>
+        </div>
+        <div class="steps-label">📋 Các bước thực hiện</div>
+        <ol class="steps">
+          <li><span class="step-num">1</span><span>Trải tờ giấy ra, đổ bộ sưu tập lên. <b>"Nhà khoa học của mình nghiên cứu gì đây?"</b></span></li>
+          <li><span class="step-num">2</span><span><b>Phân loại theo loại:</b> <b>"Lá để đây, đá để đây, cành để đây."</b> Con làm, mẹ hỏi để con giải thích.</span></li>
+          <li><span class="step-num">3</span><span><b>So sánh kích thước:</b> <b>"Cái lá nào to nhất? Cái đá nào nhỏ nhất?"</b> Xếp theo thứ tự từ nhỏ đến to.</span></li>
+          <li><span class="step-num">4</span><span><b>Thí nghiệm nhỏ:</b> Thả lá và đá xuống nước (chậu hoặc xô nhỏ). <b>"Con đoán cái nào chìm?"</b></span></li>
+          <li><span class="step-num">5</span><span>Hỏi: <b>"Tại sao lá nổi còn đá thì chìm nhỉ?"</b> Không cần trả lời đúng — chỉ cần con suy nghĩ và đoán.</span></li>
+        </ol>
+        <div class="tip-box">
+          <span class="tip-icon">💡</span>
+          <div class="tip-text"><b>Mẹo khoa học:</b> Thí nghiệm "nổi-chìm" là thí nghiệm khoa học đầu tiên nhiều nhà khoa học thế giới nhớ từ hồi nhỏ. Ở độ tuổi này con không cần hiểu "lực đẩy Archimedes" — điều quan trọng là <b>tập đoán trước rồi quan sát</b>: đây là phương pháp khoa học căn bản nhất.</div>
+        </div>
+      </div>
+
+      <div class="act-card tm">
+        <div class="act-top">
+          <span class="domain-badge d-tm">🎨 Thẩm mỹ</span>
+          <span class="time-badge">⏱ 20 phút</span>
+        </div>
+        <div class="act-name">Nghệ Thuật Từ Lá Cây <em>— Sáng tạo với vật liệu tự nhiên</em></div>
+        <div class="act-row">
+          <div class="act-block">
+            <div class="act-block-label">🎯 Mục tiêu phát triển</div>
+            <div class="act-block-body">Phối hợp vận động tinh (sắp xếp, dán), tư duy sáng tạo, cảm nhận kết cấu và hình dạng tự nhiên</div>
+          </div>
+          <div class="act-block">
+            <div class="act-block-label">🧰 Chuẩn bị</div>
+            <div class="act-block-body">Lá cây từ bộ sưu tập + giấy A4 + hồ dán hoặc băng keo 2 mặt + bút màu (không bắt buộc)</div>
+          </div>
+        </div>
+        <div class="steps-label">📋 Các bước thực hiện</div>
+        <ol class="steps">
+          <li><span class="step-num">1</span><span><b>"Hôm nay mình làm tranh từ lá cây! Con sắp xếp lá lên giấy thành hình gì con thích."</b> Không gợi ý cụ thể — để con tự nghĩ.</span></li>
+          <li><span class="step-num">2</span><span>Khi con có hình thù sơ bộ, mẹ hỏi: <b>"Con đang làm gì vậy?"</b> Rồi giúp con dán lá xuống giấy.</span></li>
+          <li><span class="step-num">3</span><span>Mẹ cũng làm tranh riêng bên cạnh — ví dụ: xếp lá thành hình mặt người, hoa, con vật.</span></li>
+          <li><span class="step-num">4</span><span>Có thể dùng bút màu vẽ thêm vào tranh lá (không bắt buộc). <b>"Con muốn vẽ thêm gì vào tranh không?"</b></span></li>
+          <li><span class="step-num">5</span><span>Chụp ảnh tranh lá — lá sẽ héo sau 1–2 ngày, nhưng ảnh lưu được mãi. <b>"Mình chụp ảnh lưu vào điện thoại mẹ nhé!"</b></span></li>
+        </ol>
+        <div class="tip-box">
+          <span class="tip-icon">💡</span>
+          <div class="tip-text"><b>Mẹo:</b> Nghệ thuật từ vật liệu tự nhiên giúp con hiểu <b>vẻ đẹp không phải mua được</b> — đây là bài học thẩm mỹ sâu sắc nhất. Con cũng học được rằng "nguyên vật liệu có thể trở thành nghệ thuật" — tư duy này là nền của sáng tạo sau này.</div>
+        </div>
+      </div>
+
+      <div class="act-card xh">
+        <div class="act-top">
+          <span class="domain-badge d-xh">❤️ Tình cảm – Xã hội</span>
+          <span class="time-badge">⏱ 20 phút</span>
+        </div>
+        <div class="act-name">Cửa Hàng Tý Hon <em>— Đóng vai, tương tác xã hội và ngôn ngữ giao tiếp</em></div>
+        <div class="act-row">
+          <div class="act-block">
+            <div class="act-block-label">🎯 Mục tiêu phát triển</div>
+            <div class="act-block-body">Kỹ năng đối thoại xã hội (hỏi/trả lời), hiểu trao đổi và vai trò, dùng "xin", "cảm ơn", "bao nhiêu tiền"</div>
+          </div>
+          <div class="act-block">
+            <div class="act-block-label">🧰 Chuẩn bị</div>
+            <div class="act-block-body">Đồ vật giả làm hàng (lá, đá, hoa, đồ chơi nhỏ), "tiền" giả (giấy cắt hoặc nắp chai)</div>
+          </div>
+        </div>
+        <div class="steps-label">📋 Các bước thực hiện</div>
+        <ol class="steps">
+          <li><span class="step-num">1</span><span>Con làm chủ cửa hàng — bày "hàng hóa" ra (lá cây, đá, hoa nhỏ...). Mẹ làm khách hàng.</span></li>
+          <li><span class="step-num">2</span><span>Mẹ tiếp cận: <b>"Chào chủ tiệm, cho tôi xem cái lá xanh kia với!"</b> Con bắt đầu phản ứng tự nhiên.</span></li>
+          <li><span class="step-num">3</span><span>Mẹ hỏi: <b>"Cái này giá bao nhiêu?"</b> Giúp con nói giá: <b>"Con nói đi: 5 đồng nhé!"</b></span></li>
+          <li><span class="step-num">4</span><span>Đưa "tiền" cho con, nhận "hàng". <b>"Con nói 'cảm ơn khách hàng' nhé!"</b></span></li>
+          <li><span class="step-num">5</span><span>Sau 10 phút, đổi vai — con làm khách, mẹ bán hàng. Lần này con phải xếp hàng, đợi đến lượt.</span></li>
+        </ol>
+        <div class="tip-box">
+          <span class="tip-icon">💡</span>
+          <div class="tip-text"><b>Mẹo khoa học:</b> Trò chơi đóng vai là <b>phòng thí nghiệm xã hội</b> của trẻ mầm non. Con thực hành đối thoại, chờ đợi, trao đổi — những kỹ năng mà Vygotsky cho rằng phát triển chính qua tương tác có hướng dẫn. Mẹ đóng vai khách hàng = mẹ đang là "người hỗ trợ ZPD" — giúp con làm được điều con chưa làm được một mình.</div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- end t7 -->
+
+  <!-- ══ CHỦ NHẬT ══ -->
+  <div id="cn" class="day-section" hidden>
+    <div class="day-header">
+      <div>
+        <div class="day-name">Chủ Nhật — Ôn Tập và Chơi Tự Do</div>
+        <div class="day-info">Nhẹ nhàng · Không áp lực · Tinh thần nghỉ ngơi</div>
+      </div>
+      <div class="day-time-badge">⏱ 30 phút</div>
+    </div>
+    <div class="activities-wrap">
+
+      <div class="act-card tm">
+        <div class="act-top">
+          <span class="domain-badge d-tm">🎨 Thẩm mỹ</span>
+          <span class="time-badge">⏱ 10 phút</span>
+        </div>
+        <div class="act-name">Ôn Bài Hát Tuần Này <em>— Củng cố âm nhạc và ký ức vui</em></div>
+        <div class="act-row">
+          <div class="act-block">
+            <div class="act-block-label">🎯 Mục tiêu</div>
+            <div class="act-block-body">Thuộc 1–2 bài hát trọn vẹn, kết nối bài hát với hoạt động tuần qua</div>
+          </div>
+          <div class="act-block">
+            <div class="act-block-label">🧰 Chuẩn bị</div>
+            <div class="act-block-body">Điện thoại phát nhạc · Cùng ngồi thư giãn, không cần đứng dậy nhảy nếu không muốn</div>
+          </div>
+        </div>
+        <div class="steps-label">📋 Cách thực hiện</div>
+        <ol class="steps">
+          <li><span class="step-num">1</span><span>Hỏi con: <b>"Tuần này mình học bài hát nào rồi nhỉ? Hát lại cho mẹ nghe đi!"</b></span></li>
+          <li><span class="step-num">2</span><span>Hát cùng nhau — không cần hoàn hảo. Mẹ cũng quên lời cũng không sao.</span></li>
+          <li><span class="step-num">3</span><span>Chọn 1 bài yêu thích của con để thêm vào "playlist Chủ Nhật" — tạo cảm giác đặc biệt.</span></li>
+        </ol>
+        <div class="tip-box">
+          <span class="tip-icon">💡</span>
+          <div class="tip-text"><b>Lý do ôn Chủ Nhật:</b> Bộ nhớ dài hạn được củng cố qua ngủ (sleep consolidation). Ôn trước khi ngủ tối Chủ Nhật giúp não bé in sâu những gì học tuần này. Đây là lý do các trường mầm non tốt luôn ôn bài vào cuối tuần.</div>
+        </div>
+      </div>
+
+      <div class="act-card nn">
+        <div class="act-top">
+          <span class="domain-badge d-nn">💬 Ngôn ngữ</span>
+          <span class="time-badge">⏱ 10 phút</span>
+        </div>
+        <div class="act-name">Con Kể Chuyện Tuần <em>— Tổng kết + phát triển kể chuyện</em></div>
+        <div class="act-row">
+          <div class="act-block">
+            <div class="act-block-label">🎯 Mục tiêu</div>
+            <div class="act-block-body">Kể lại 3–4 sự kiện trong tuần theo thứ tự, dùng từ "trước tiên, rồi, sau đó, cuối cùng"</div>
+          </div>
+          <div class="act-block">
+            <div class="act-block-label">🧰 Chuẩn bị</div>
+            <div class="act-block-body">Không cần gì — ngồi thư giãn cùng nhau. Có thể cầm tranh con vẽ Thứ Ba để gợi ký ức</div>
+          </div>
+        </div>
+        <div class="steps-label">📋 Cách thực hiện</div>
+        <ol class="steps">
+          <li><span class="step-num">1</span><span>Hỏi: <b>"Tuần này con thích nhất điều gì? Kể cho mẹ nghe đi!"</b></span></li>
+          <li><span class="step-num">2</span><span>Nếu con kể một điều, gợi tiếp: <b>"Còn ở sân vườn hôm qua con làm gì nhỉ?"</b></span></li>
+          <li><span class="step-num">3</span><span>Mẹ giúp con tổng kết: <b>"Vậy là tuần này mình đã đếm đồ bếp, vẽ tranh, tìm màu sắc, và làm cửa hàng — con học được nhiều lắm!"</span></li>
+        </ol>
+        <div class="tip-box">
+          <span class="tip-icon">💡</span>
+          <div class="tip-text"><b>Mục đích sâu xa:</b> Mỗi tuần mẹ tổng kết với con không phải để kiểm tra — mà để con <b>thấy mình đang tiến bộ</b>. Câu "Con học được nhiều lắm!" là nhiên liệu tinh thần cho tuần sau. Tư duy "mình đang lớn lên và giỏi hơn mỗi ngày" bắt đầu từ những khoảnh khắc nhỏ như thế này.</div>
+        </div>
+      </div>
+
+      <div class="act-card xh">
+        <div class="act-top">
+          <span class="domain-badge d-xh">❤️ Tình cảm – Xã hội</span>
+          <span class="time-badge">⏱ 10+ phút</span>
+        </div>
+        <div class="act-name">Chơi Không Có Mục Tiêu <em>— Chơi tự do — quan trọng nhất trong tuần</em></div>
+        <div class="act-row">
+          <div class="act-block">
+            <div class="act-block-label">🎯 Mục tiêu</div>
+            <div class="act-block-body">Phát triển tư duy sáng tạo tự phát, điều tiết cảm xúc tự nhiên, xử lý trải nghiệm tuần qua qua trò chơi</div>
+          </div>
+          <div class="act-block">
+            <div class="act-block-label">🧰 Chuẩn bị</div>
+            <div class="act-block-body">Đồ chơi bình thường của con — <b>không cần chuẩn bị gì. Mẹ không tham gia trừ khi con mời.</b></div>
+          </div>
+        </div>
+        <div class="steps-label">📋 Hướng dẫn cho mẹ</div>
+        <ol class="steps">
+          <li><span class="step-num">1</span><span><b>Không làm gì cả.</b> Đưa đồ chơi cho con, lui ra để con chơi một mình.</span></li>
+          <li><span class="step-num">2</span><span>Quan sát từ xa (không can thiệp) — mẹ sẽ thấy con tự nghĩ ra trò chơi, câu chuyện và nhân vật.</span></li>
+          <li><span class="step-num">3</span><span>Chỉ tham gia khi con mời. Và khi tham gia, để <b>con dẫn dắt trò chơi</b> — không gợi ý hướng đi.</span></li>
+          <li><span class="step-num">4</span><span>Không nói "Con chơi thế không đúng" hay "Ô tô không đi được trên bầu trời". Trong trò chơi tự do, con là người ra luật.</span></li>
+        </ol>
+        <div class="tip-box">
+          <span class="tip-icon">💡</span>
+          <div class="tip-text"><b>Tại sao chơi tự do là quan trọng nhất:</b> Nghiên cứu của Harvard (2018) cho thấy trẻ chơi tự do nhiều hơn có <b>khả năng tự điều tiết, giải quyết vấn đề và sáng tạo cao hơn đáng kể</b>. Chơi tự do là lúc não bé "tiêu hóa" tất cả những gì đã học trong tuần — giống như giấc ngủ đối với bộ nhớ. Đừng lấp đầy khoảng trống này bằng bất cứ hoạt động có cấu trúc nào.</div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- end cn -->
+
+  <!-- FOOTER NOTES -->
+  <div class="footer-note">
+    <div class="fn-item"><b>📌 Linh hoạt là ưu tiên</b>Con mệt hoặc không hứng → dừng hoạt động, chuyển sang đọc sách hoặc chơi tự do. Không có ngày nào "bắt buộc".</div>
+    <div class="fn-item"><b>🔄 Lặp lại là học</b>Nếu con yêu thích 1 hoạt động → làm lại nhiều lần. Não 3–4 tuổi học qua lặp lại, không phải qua novelty.</div>
+    <div class="fn-item"><b>📸 Ghi lại tiến bộ</b>Chụp ảnh tranh con vẽ mỗi tuần. Sau 3 tháng xem lại — mẹ sẽ thấy sự tiến bộ rõ ràng đến ngạc nhiên.</div>
+    <div class="fn-item"><b>⚠️ Tránh so sánh</b>"Con bạn X đã biết viết" → không liên quan. Giáo án này theo nhịp phát triển của con, không theo nhịp của bạn.</div>
+  </div>
+
+</div>
+
+<script>
+function switchDay(id, btn) {
+  document.querySelectorAll('.day-section').forEach(el => el.hidden = true);
+  document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+  document.getElementById(id).hidden = false;
+  btn.classList.add('active');
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+</script>
+
+</body></html>
