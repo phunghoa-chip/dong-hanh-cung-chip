@@ -1,1 +1,929 @@
+<title>Đồng Hành Cùng Chíp</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Nunito:wght@400;500;600;700&display=swap');
 
+:root {
+  --bg:#F3F0F8; --surface:#FFFFFF; --surface2:#EDE9F5; --border:#DDD8EB;
+  --text:#2D2540; --text2:#7A6E8A; --text3:#B0A8C0;
+  --rose:#C2728A; --rose-lt:#F4E4EA;
+  --teal:#5B9EAD; --teal-lt:#E1F0F4;
+  --plum:#6B4B8A; --plum-lt:#EDE6F5;
+  --sage:#6B9E7A; --sage-lt:#E4F0E7;
+  --amber:#C49030; --amber-lt:#FAF0DC;
+  --nav-h:60px; --tab-h:56px;
+}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#1E1828;--surface:#2A2238;--surface2:#342C45;--border:#3E3558;
+  --text:#EDE8F8;--text2:#9B90B5;--text3:#5E5478;
+  --rose:#D4849A;--rose-lt:#3A2530;--teal:#72B3C2;--teal-lt:#1C3038;
+  --plum:#9B7AC2;--plum-lt:#2A2040;--sage:#82B48E;--sage-lt:#1E302A;
+  --amber:#D4A84A;--amber-lt:#302510;color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#1E1828;--surface:#2A2238;--surface2:#342C45;--border:#3E3558;
+  --text:#EDE8F8;--text2:#9B90B5;--text3:#5E5478;
+  --rose:#D4849A;--rose-lt:#3A2530;--teal:#72B3C2;--teal-lt:#1C3038;
+  --plum:#9B7AC2;--plum-lt:#2A2040;--sage:#82B48E;--sage-lt:#1E302A;
+  --amber:#D4A84A;--amber-lt:#302510;color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.6;padding:0 16px}
+
+/* ── TOP NAV ── */
+nav{position:sticky;top:env(safe-area-inset-top,0px);background:var(--surface);border-bottom:1px solid var(--border);z-index:100;margin:0 -16px;padding:0 20px;display:flex;align-items:center;gap:16px;height:var(--nav-h)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--plum);flex-shrink:0}
+.nav-logo span{color:var(--rose)}
+.desktop-tabs{display:flex;gap:2px;margin-left:auto}
+.desktop-tabs button{background:none;border:none;cursor:pointer;color:var(--text2);font:600 .82rem 'Nunito',sans-serif;padding:7px 14px;border-radius:20px;transition:.15s}
+.desktop-tabs button.active{background:var(--plum-lt);color:var(--plum)}
+.desktop-tabs button:hover:not(.active){background:var(--surface2)}
+@media(max-width:600px){.desktop-tabs{display:none}}
+
+/* ── PAGE WRAP ── */
+.page-wrap{max-width:840px;margin:0 auto;padding-bottom:calc(var(--tab-h) + env(safe-area-inset-bottom,0px) + 24px)}
+
+/* ── VIEWS ── */
+.view{display:none;padding-top:24px}
+.view.active{display:block}
+
+/* ── BOTTOM NAV (mobile) ── */
+.bottom-nav{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--surface);border-top:1px solid var(--border);z-index:100;padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(max-width:600px){.bottom-nav{display:block}}
+.bottom-nav-inner{display:flex}
+.bn-btn{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:10px 4px;background:none;border:none;cursor:pointer;color:var(--text3);font:600 .65rem 'Nunito',sans-serif;transition:.15s}
+.bn-btn.active{color:var(--plum)}
+.bn-icon{font-size:1.2rem;line-height:1}
+
+/* ── TYPOGRAPHY UTILS ── */
+.eyebrow{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:5px}
+.sec-title{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:var(--text);margin-bottom:4px;text-wrap:balance}
+.sec-sub{color:var(--text2);font-size:.85rem;margin-bottom:20px}
+
+/* ── TODAY VIEW ── */
+.today-hero{background:linear-gradient(135deg,var(--plum-lt) 0%,var(--rose-lt) 100%);border-radius:16px;padding:28px;margin-bottom:24px;position:relative;overflow:hidden}
+.today-hero::after{content:'🌸';position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:4rem;opacity:.25}
+.today-badge{display:inline-block;background:var(--plum);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:20px;margin-bottom:12px}
+.today-hero h2{font-family:'Playfair Display',serif;font-size:1.55rem;font-weight:700;color:var(--text);margin-bottom:6px;text-wrap:balance}
+.today-hero p{font-size:.88rem;color:var(--text2);max-width:380px}
+.today-grid{display:grid;gap:12px}
+.today-act{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 18px;display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;transition:.15s;cursor:pointer}
+.today-act:hover{border-color:var(--plum);box-shadow:0 2px 12px rgba(107,75,138,.1)}
+.ta-time{text-align:center;flex-shrink:0}
+.ta-dot{width:8px;height:8px;border-radius:50%;margin:0 auto 5px}
+.ta-time-txt{font-size:.7rem;font-weight:700;color:var(--text3)}
+.ta-title{font-weight:700;font-size:.9rem;margin-bottom:3px}
+.ta-tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:20px;background:var(--surface2);color:var(--text2)}
+.tag-teal{background:var(--teal-lt);color:var(--teal)}
+.tag-rose{background:var(--rose-lt);color:var(--rose)}
+.tag-amber{background:var(--amber-lt);color:var(--amber)}
+.tag-plum{background:var(--plum-lt);color:var(--plum)}
+.tag-sage{background:var(--sage-lt);color:var(--sage)}
+.ta-check{width:26px;height:26px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:.2s;background:var(--surface)}
+.ta-check.done{background:var(--sage);border-color:var(--sage);color:#fff;font-size:.85rem}
+
+.tip-box{background:var(--amber-lt);border:1px solid var(--amber);border-radius:12px;padding:16px 18px;margin-top:20px;display:flex;gap:12px}
+.tip-box-icon{font-size:1.3rem;flex-shrink:0}
+.tip-box-title{font-weight:700;font-size:.85rem;color:var(--amber);margin-bottom:3px}
+.tip-box-text{font-size:.82rem;color:var(--text2);line-height:1.55}
+
+/* ── WEEK VIEW ── */
+.week-header{background:var(--surface);border-radius:14px;border:1px solid var(--border);padding:20px;margin-bottom:18px;display:flex;align-items:center;gap:20px}
+.week-ring{flex-shrink:0}
+.week-ring svg{display:block}
+.week-info h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--text)}
+.week-info p{font-size:.82rem;color:var(--text2);margin-top:2px}
+.week-nav-btns{display:flex;gap:6px;margin-left:auto}
+.wn-btn{background:var(--surface2);border:none;border-radius:8px;width:32px;height:32px;cursor:pointer;color:var(--text2);font-size:.9rem;transition:.15s}
+.wn-btn:hover{background:var(--plum-lt);color:var(--plum)}
+
+.day-strip{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;margin-bottom:18px}
+.day-strip::-webkit-scrollbar{display:none}
+.day-pill{flex-shrink:0;display:flex;flex-direction:column;align-items:center;padding:8px 12px;border-radius:10px;cursor:pointer;border:1.5px solid var(--border);background:var(--surface);transition:.15s;min-width:52px}
+.day-pill.active{border-color:var(--plum);background:var(--plum-lt)}
+.dp-name{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text3)}
+.day-pill.active .dp-name{color:var(--plum)}
+.dp-num{font-size:1.05rem;font-weight:700;color:var(--text);font-variant-numeric:tabular-nums}
+.dp-dot{width:5px;height:5px;border-radius:50%;background:var(--sage);margin:3px auto 0;opacity:0}
+.day-pill.has-done .dp-dot{opacity:1}
+
+.week-act-list{display:grid;gap:10px}
+.week-act{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 16px;display:grid;grid-template-columns:36px 1fr auto;gap:12px;align-items:center;cursor:pointer;transition:.15s}
+.week-act:hover{border-color:var(--plum)}
+.wa-emoji{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.wa-title{font-weight:700;font-size:.88rem;margin-bottom:2px}
+.wa-meta{font-size:.75rem;color:var(--text2)}
+.wa-check{width:24px;height:24px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;background:var(--surface);transition:.2s}
+.wa-check.done{background:var(--sage);border-color:var(--sage);color:#fff;font-size:.75rem}
+
+/* ── LIBRARY VIEW ── */
+.filter-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.filter-btn{background:var(--surface);border:1.5px solid var(--border);border-radius:20px;padding:5px 14px;font:600 .78rem 'Nunito',sans-serif;color:var(--text2);cursor:pointer;transition:.15s}
+.filter-btn.active{border-color:var(--plum);background:var(--plum-lt);color:var(--plum)}
+.filter-divider{width:1px;background:var(--border);margin:0 4px;align-self:stretch}
+.lib-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.lib-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;cursor:pointer;transition:.15s}
+.lib-card:hover{border-color:var(--plum);box-shadow:0 3px 14px rgba(107,75,138,.1)}
+.lc-emoji{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.25rem;margin-bottom:10px}
+.lc-title{font-weight:700;font-size:.88rem;margin-bottom:3px;color:var(--text)}
+.lc-desc{font-size:.77rem;color:var(--text2);line-height:1.5;margin-bottom:10px}
+.lc-footer{display:flex;justify-content:space-between;align-items:center}
+.lc-time{font-size:.72rem;font-weight:700;color:var(--text3)}
+
+/* ── PROGRESS VIEW ── */
+.prog-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.ps-tile{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center}
+.ps-val{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--plum);font-variant-numeric:tabular-nums}
+.ps-label{font-size:.72rem;font-weight:700;color:var(--text3);margin-top:2px;text-transform:uppercase;letter-spacing:.06em}
+.domain-prog{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px;margin-bottom:10px}
+.dp-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.dp-name{font-weight:700;font-size:.88rem}
+.dp-pct{font-size:.95rem;font-weight:700;font-variant-numeric:tabular-nums}
+.dp-bar{height:7px;background:var(--surface2);border-radius:4px;overflow:hidden;margin-bottom:6px}
+.dp-fill{height:100%;border-radius:4px;transition:width .5s ease}
+.dp-detail{font-size:.75rem;color:var(--text3)}
+.milestone-list{margin-top:24px}
+.milestone{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--border)}
+.milestone:last-child{border-bottom:none}
+.ms-icon{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;flex-shrink:0;background:var(--surface2);border:1.5px solid var(--border)}
+.ms-icon.done{background:var(--sage-lt);border-color:var(--sage);color:var(--sage)}
+.ms-text{font-size:.85rem;font-weight:600;color:var(--text)}
+.ms-sub{font-size:.75rem;color:var(--text2);margin-top:1px}
+
+/* ── MODAL ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:200;display:flex;align-items:flex-end;justify-content:center;padding:0}
+.modal-sheet{background:var(--surface);border-radius:20px 20px 0 0;width:100%;max-width:600px;max-height:90vh;overflow-y:auto;padding:0 0 env(safe-area-inset-bottom,16px)}
+.modal-handle{width:40px;height:4px;background:var(--border);border-radius:2px;margin:12px auto 0}
+.modal-header{padding:20px 24px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:14px}
+.modal-emoji{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
+.modal-titles h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--text)}
+.modal-titles p{font-size:.8rem;color:var(--text2);margin-top:2px}
+.modal-close{margin-left:auto;background:none;border:none;font-size:1.3rem;cursor:pointer;color:var(--text3);padding:4px;line-height:1}
+.modal-body{padding:20px 24px}
+.modal-section{margin-bottom:20px}
+.modal-section-label{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:8px}
+.goal-box{background:var(--teal-lt);border-left:3px solid var(--teal);border-radius:0 8px 8px 0;padding:10px 14px;font-size:.85rem;color:var(--text)}
+.materials-list{display:flex;flex-wrap:wrap;gap:6px}
+.mat-chip{background:var(--surface2);border-radius:20px;padding:4px 12px;font-size:.78rem;font-weight:600;color:var(--text2)}
+.steps-list{display:grid;gap:10px;counter-reset:steps}
+.step{display:flex;gap:12px;align-items:flex-start}
+.step-num{width:26px;height:26px;border-radius:50%;background:var(--plum);color:#fff;font-size:.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.step-text{font-size:.85rem;color:var(--text);line-height:1.55}
+.science-tip{background:var(--amber-lt);border-radius:10px;padding:12px 14px;font-size:.82rem;color:var(--text2);line-height:1.55}
+.science-tip strong{color:var(--amber);display:block;margin-bottom:4px;font-size:.75rem;text-transform:uppercase;letter-spacing:.08em}
+.skills-chips{display:flex;flex-wrap:wrap;gap:6px}
+.skill-chip{background:var(--plum-lt);border-radius:20px;padding:4px 12px;font-size:.75rem;font-weight:700;color:var(--plum)}
+.modal-done-btn{display:block;width:100%;background:var(--plum);color:#fff;border:none;border-radius:10px;padding:13px;font:700 .9rem 'Nunito',sans-serif;cursor:pointer;transition:.15s;margin-top:8px}
+.modal-done-btn.done{background:var(--sage)}
+.modal-done-btn:hover{opacity:.9}
+</style>
+
+<!-- TOP NAV -->
+<nav>
+  <div class="nav-logo">Đồng Hành<span> Cùng Chíp</span></div>
+  <div class="desktop-tabs">
+    <button class="active" onclick="switchView('today',this)">📅 Hôm nay</button>
+    <button onclick="switchView('week',this)">📆 Tuần này</button>
+    <button onclick="switchView('library',this)">📚 Thư viện</button>
+    <button onclick="switchView('progress',this)">🌱 Tiến độ</button>
+  </div>
+</nav>
+
+<div class="page-wrap">
+
+  <!-- TODAY VIEW -->
+  <div class="view active" id="view-today">
+    <div class="today-hero">
+      <div class="today-badge">Giai Đoạn I · 3–4 Tuổi</div>
+      <h2>Giáo án Tuần này</h2>
+      <p>Hôm nay có <span id="today-count">3</span> hoạt động — ~35 phút, buổi tối cùng bé</p>
+    </div>
+    <div class="eyebrow">Hoạt động hôm nay</div>
+    <div class="today-grid" id="today-acts"></div>
+    <div class="tip-box" style="margin-top:24px">
+      <div class="tip-box-icon">📌</div>
+      <div>
+        <div class="tip-box-title">Linh hoạt là ưu tiên</div>
+        <div class="tip-box-text">Con mệt hoặc không hứng → dừng hoạt động, chuyển sang đọc sách hoặc chơi tự do. Không có ngày nào "bắt buộc". Não 3–4 tuổi học qua lặp lại — nếu con yêu thích 1 hoạt động, hãy làm lại nhiều lần.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WEEK VIEW -->
+  <div class="view" id="view-week">
+    <div class="week-header">
+      <div class="week-ring">
+        <svg width="64" height="64" viewBox="0 0 64 64">
+          <circle cx="32" cy="32" r="26" fill="none" stroke="var(--border)" stroke-width="6"/>
+          <circle id="ring-fill" cx="32" cy="32" r="26" fill="none" stroke="var(--plum)" stroke-width="6"
+            stroke-dasharray="163.4" stroke-dashoffset="163.4" stroke-linecap="round"
+            transform="rotate(-90 32 32)" style="transition:stroke-dashoffset .6s ease"/>
+          <text x="32" y="37" text-anchor="middle" font-family="Nunito" font-size="13" font-weight="700" fill="var(--text)" id="ring-pct">0%</text>
+        </svg>
+      </div>
+      <div class="week-info">
+        <h3>Tuần 1 — Thế Giới Quanh Bé</h3>
+        <p id="week-summary">Chọn ngày để xem hoạt động</p>
+      </div>
+      <div class="week-nav-btns">
+        <button class="wn-btn" onclick="changeWeek(-1)">‹</button>
+        <button class="wn-btn" onclick="changeWeek(1)">›</button>
+      </div>
+    </div>
+    <div class="day-strip" id="day-strip"></div>
+    <div class="week-act-list" id="week-acts"></div>
+  </div>
+
+  <!-- LIBRARY VIEW -->
+  <div class="view" id="view-library">
+    <div class="eyebrow">Thư Viện Hoạt Động</div>
+    <div class="sec-title">15 hoạt động · Giai Đoạn I</div>
+    <p class="sec-sub">Tất cả hoạt động trong tuần — chọn lĩnh vực để lọc</p>
+    <div class="filter-row">
+      <button class="filter-btn active" onclick="filterLib('all',this)">Tất cả</button>
+      <div class="filter-divider"></div>
+      <button class="filter-btn" onclick="filterLib('nhan-thuc',this)">🧠 Nhận thức</button>
+      <button class="filter-btn" onclick="filterLib('ngon-ngu',this)">💬 Ngôn ngữ</button>
+      <button class="filter-btn" onclick="filterLib('tham-my',this)">🎨 Thẩm mỹ</button>
+      <button class="filter-btn" onclick="filterLib('the-chat',this)">🏃 Thể chất</button>
+      <button class="filter-btn" onclick="filterLib('tinh-cam',this)">❤️ Cảm xúc</button>
+    </div>
+    <div class="lib-grid" id="lib-grid"></div>
+  </div>
+
+  <!-- PROGRESS VIEW -->
+  <div class="view" id="view-progress">
+    <div class="eyebrow">Theo Dõi Tiến Độ</div>
+    <div class="sec-title">Tuần 1 · Bé đang học tốt!</div>
+    <p class="sec-sub">Cập nhật tự động khi mẹ tick hoạt động đã xong</p>
+    <div class="prog-summary">
+      <div class="ps-tile"><div class="ps-val" id="p-done">0</div><div class="ps-label">Đã hoàn thành</div></div>
+      <div class="ps-tile"><div class="ps-val" id="p-total">15</div><div class="ps-label">Tổng hoạt động</div></div>
+      <div class="ps-tile"><div class="ps-val" id="p-days">7</div><div class="ps-label">Ngày trong tuần</div></div>
+    </div>
+    <div id="domain-progs"></div>
+    <div class="milestone-list" id="milestones">
+      <div class="eyebrow" style="margin-bottom:12px">Cột Mốc Tuần Này</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- BOTTOM NAV (mobile) -->
+<div class="bottom-nav">
+  <div class="bottom-nav-inner">
+    <button class="bn-btn active" onclick="switchView('today',this)" data-bn>
+      <div class="bn-icon">📅</div>Hôm nay
+    </button>
+    <button class="bn-btn" onclick="switchView('week',this)" data-bn>
+      <div class="bn-icon">📆</div>Tuần này
+    </button>
+    <button class="bn-btn" onclick="switchView('library',this)" data-bn>
+      <div class="bn-icon">📚</div>Thư viện
+    </button>
+    <button class="bn-btn" onclick="switchView('progress',this)" data-bn>
+      <div class="bn-icon">🌱</div>Tiến độ
+    </button>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" hidden onclick="closeModal(event)">
+  <div class="modal-sheet" onclick="event.stopPropagation()">
+    <div class="modal-handle"></div>
+    <div class="modal-header">
+      <div class="modal-emoji" id="m-emoji"></div>
+      <div class="modal-titles">
+        <h3 id="m-title"></h3>
+        <p id="m-meta"></p>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="m-body"></div>
+  </div>
+</div>
+
+<script>
+// ── DATA ──────────────────────────────────────────────
+const DOMAIN = {
+  'nhan-thuc': {label:'🧠 Nhận thức', color:'var(--teal)', lt:'var(--teal-lt)', cls:'tag-teal'},
+  'ngon-ngu':  {label:'💬 Ngôn ngữ',  color:'var(--plum)', lt:'var(--plum-lt)', cls:'tag-plum'},
+  'tham-my':   {label:'🎨 Thẩm mỹ',  color:'var(--rose)', lt:'var(--rose-lt)', cls:'tag-rose'},
+  'the-chat':  {label:'🏃 Thể chất',  color:'var(--sage)', lt:'var(--sage-lt)', cls:'tag-sage'},
+  'tinh-cam':  {label:'❤️ Cảm xúc',  color:'var(--amber)',lt:'var(--amber-lt)',cls:'tag-amber'},
+};
+
+const ACTS = {
+  'dem-bep': {
+    emoji:'🥄', bg:'var(--teal-lt)', title:'Đếm Trong Bếp',
+    subtitle:'Toán học qua đồ vật thật · 10 phút',
+    domain:'nhan-thuc', time:10, day:1,
+    goal:'Đếm 1–5 (tiến tới 1–10), hiểu số gắn với số lượng thật, bước đầu nhận biết "nhiều hơn / ít hơn".',
+    materials:['Thìa','Bát','Hộp','Cốc — có sẵn trong bếp'],
+    steps:[
+      'Cùng con vào bếp, nói: "Hôm nay mình đếm đồ trong bếp nhé!" — để con tự chọn đồ vật muốn đếm.',
+      'Mẹ xếp 3 cái thìa ra, đếm to cùng con: "1 cái thìa… 2 cái thìa… 3 cái thìa. Có 3 cái!" Chỉ từng cái khi đếm.',
+      'Hỏi con: "Con xếp thêm 2 cái thìa nữa vào đây, rồi mình đếm lại xem có bao nhiêu cái nhé?"',
+      'Đổi sang đếm thứ khác (bát, cốc). Hỏi: "Cái nào nhiều hơn — bát hay thìa?"',
+      'Kết thúc bằng đếm ngón tay cùng nhau — "Bàn tay mình có mấy ngón?"',
+    ],
+    tip:'Ở 3–4 tuổi, con đếm được nhưng chưa hiểu "3 là nhiều hơn 2". Điều quan trọng nhất là chỉ vào từng vật khi đếm — không đếm trong không khí. Não bé ghi nhớ qua cảm giác chạm + đếm đồng bộ.',
+    skills:['Số học cơ bản','Quan sát','Ngôn ngữ toán học'],
+  },
+  'doc-sach': {
+    emoji:'📖', bg:'var(--plum-lt)', title:'Đọc Sách Cùng Mẹ',
+    subtitle:'Nghe hiểu + kể lại · 15 phút',
+    domain:'ngon-ngu', time:15, day:1,
+    goal:'Vốn từ tăng 3–5 từ/buổi đọc, tập kể lại chuyện 3–4 câu, đặt câu hỏi "Tại sao?".',
+    materials:['1 cuốn sách tranh (dùng lại nhiều lần được)','Nếu chưa có: in truyện tranh PDF từ mạng'],
+    steps:[
+      'Trước khi đọc: Xem bìa sách, hỏi: "Con đoán câu chuyện này kể về ai?" — Không cần đúng, chỉ cần con nói.',
+      'Trong khi đọc: Đọc chậm, dừng ở những trang có hình đẹp, hỏi: "Con thấy gì trong hình này?"',
+      'Từ mới: Khi gặp từ khó, không bỏ qua. Giải thích ngắn: "Khổng lồ — nghĩa là rất to, to hơn cả nhà mình nữa."',
+      'Sau khi đọc: Đóng sách lại, hỏi: "Con kể cho mẹ nghe câu chuyện này có những ai? Rồi điều gì xảy ra?"',
+      'Nếu con kể thiếu, mẹ gợi ý: "Lúc đầu con thỏ làm gì nhỉ?" — không kể thay, chỉ gợi ý.',
+    ],
+    tip:'Đọc cùng 1 cuốn sách 5–10 lần thậm chí còn tốt hơn đọc nhiều cuốn khác nhau. Mỗi lần đọc lại, não bé học thêm từ mới và chi tiết mà lần trước bỏ qua. Đây là cách Piaget gọi là "assimilation" — tiêu hóa kiến thức qua lặp lại.',
+    skills:['Vốn từ','Kể chuyện','Hiểu ngôn ngữ'],
+  },
+  'guong-mat': {
+    emoji:'😄', bg:'var(--amber-lt)', title:'Trò Chơi Gương Mặt',
+    subtitle:'Nhận biết và đặt tên cảm xúc · 10 phút',
+    domain:'tinh-cam', time:10, day:1,
+    goal:'Nhận biết 4 cảm xúc cơ bản: vui / buồn / tức / sợ; bắt đầu liên kết cảm xúc với tình huống thực.',
+    materials:['Không cần vật liệu — chỉ cần mặt mẹ và mặt con!','Có thể dùng gương nếu thích'],
+    steps:[
+      'Ngồi đối mặt với con. Mẹ làm mặt vui rõ ràng. Hỏi: "Mẹ đang có cảm giác gì?" Nếu con không biết, mẹ nói: "Đây là mặt VUI!"',
+      'Lần lượt thể hiện buồn → tức → sợ. Mỗi cái để con đoán trước.',
+      'Đổi vai: "Bây giờ đến lượt con làm nhé, mẹ đoán!" — Cố tình đoán sai vài lần để con cười.',
+      'Hỏi câu hỏi tình huống: "Khi mẹ mua kem cho con thì con cảm thấy thế nào? Khi con bị té thì sao?"',
+      'Kết thúc: Mẹ hỏi "Hôm nay con cảm thấy thế nào nhỉ?" và lắng nghe — không sửa câu trả lời của con.',
+    ],
+    tip:'Trẻ 3–4 tuổi chưa thể tự điều tiết cảm xúc — con cần mẹ "đặt tên" cảm xúc cho con trước. Khi mẹ nói "Con đang tức rồi à?" — điều này giúp não bé kết nối trải nghiệm với từ ngữ. Không bao giờ nói "Con không được tức" hay "Con buồn cười gì đâu".',
+    skills:['Nhận biết cảm xúc','Tự nhận thức','Giao tiếp phi ngôn ngữ'],
+  },
+  've-tu-do': {
+    emoji:'🎨', bg:'var(--rose-lt)', title:'Vẽ Tự Do',
+    subtitle:'Sáng tạo không giới hạn · 20 phút',
+    domain:'tham-my', time:20, day:2,
+    goal:'Phát triển tư duy sáng tạo, phối hợp tay-mắt, tự do biểu đạt cảm xúc qua tranh.',
+    materials:['Giấy trắng (nhiều tờ)','Bút màu hoặc bút chì màu','Không cần chủ đề — để con tự vẽ'],
+    steps:[
+      'Trải giấy và bút màu ra bàn. Nói: "Hôm nay mình vẽ gì con thích nhé!" — không gợi ý trước.',
+      'Ngồi cạnh con, mẹ cũng vẽ (vẽ gì cũng được). Đừng nhìn vào tờ của con quá nhiều.',
+      'Khi con vẽ xong, hỏi: "Con vẽ gì vậy?" và lắng nghe — không đoán, không sửa.',
+      'Khen quá trình, không kết quả: "Mẹ thấy con dùng nhiều màu đẹp quá!" thay vì "Ừ vẽ đẹp!"',
+      'Chụp ảnh tranh của con — sau 3 tháng xem lại sẽ thấy sự tiến bộ rõ ràng.',
+    ],
+    tip:'Không bao giờ sửa tranh của con hoặc nói "con vẽ sai". Ở tuổi này, vẽ là ngôn ngữ thứ hai của bé — bé đang kể câu chuyện bằng hình. Mẹ hỏi "con vẽ gì?" quan trọng hơn vẽ có đẹp không.',
+    skills:['Sáng tạo','Vận động tinh','Biểu đạt cảm xúc'],
+  },
+  'duong-ky-dieu': {
+    emoji:'🦶', bg:'var(--sage-lt)', title:'Đường Kỳ Diệu',
+    subtitle:'Vận động thô · cân bằng · 15 phút',
+    domain:'the-chat', time:15, day:2,
+    goal:'Phát triển cân bằng, phối hợp vận động, tăng cường cơ chân.',
+    materials:['Băng keo hoặc dây thừng','Sàn nhà (phòng khách hoặc hành lang)'],
+    steps:[
+      'Dán băng keo thành đường thẳng dài 2–3m trên sàn. Đây là "đường kỳ diệu".',
+      'Con đi dọc theo đường, hai tay dang ra hai bên để giữ thăng bằng.',
+      'Tăng độ khó: đi lùi, đi bằng gót chân, đi bằng mũi chân.',
+      'Thêm trò: đặt gối hoặc hộp thành "đảo" — bé nhảy từ đảo này sang đảo kia.',
+      'Thi đua: ai đi được đến cuối mà không bước ra ngoài thắng!',
+    ],
+    tip:'Vận động thô là nền tảng cho mọi học tập. Trẻ 3–4 tuổi đang phát triển vỏ não vận động — các bài tập cân bằng và phối hợp giúp tăng kết nối thần kinh, hỗ trợ khả năng tập trung sau này.',
+    skills:['Cân bằng','Vận động thô','Tự tin thân thể'],
+  },
+  'rua-tay': {
+    emoji:'🤲', bg:'var(--teal-lt)', title:'Rửa Tay Đúng Cách',
+    subtitle:'Thói quen vệ sinh · 5 phút',
+    domain:'the-chat', time:5, day:2,
+    goal:'Hình thành thói quen rửa tay 6 bước, hiểu tại sao cần rửa tay.',
+    materials:['Xà phòng rửa tay','Vòi nước','Khăn lau tay'],
+    steps:[
+      'Kể chuyện: "Trên tay mình có những bạn vi khuẩn rất nhỏ, mắt thường không thấy được. Mình cần tắm cho chúng đi!"',
+      'Cùng rửa tay theo 6 bước: ướt tay → xà phòng → kỳ mu bàn tay → kỳ giữa ngón → kỳ lòng bàn tay → rửa sạch.',
+      'Đếm 20 giây trong lúc kỳ — có thể hát bài hát yêu thích.',
+      'Cho con tự lau tay và kiểm tra xem còn bọt không.',
+      'Khen: "Con rửa sạch rồi, bây giờ các bạn vi khuẩn đi rồi nhé!"',
+    ],
+    tip:'Trẻ học thói quen qua lặp lại và cảm xúc tích cực, không phải qua ép buộc. Biến rửa tay thành "trò chơi" sẽ duy trì thói quen tốt hơn "bắt buộc" nhiều lần.',
+    skills:['Tự chăm sóc bản thân','Thói quen vệ sinh','Hiểu cơ thể'],
+  },
+  'tham-tu-mau': {
+    emoji:'🔍', bg:'var(--teal-lt)', title:'Thám Tử Màu Sắc',
+    subtitle:'Phân loại màu · quan sát · 10 phút',
+    domain:'nhan-thuc', time:10, day:3,
+    goal:'Nhận biết và phân biệt 5+ màu cơ bản, phát triển tư duy phân loại và quan sát.',
+    materials:['Đồ vật trong nhà có màu sắc khác nhau','Không cần mua thêm gì'],
+    steps:[
+      'Mẹ chọn 1 màu bí mật, ví dụ màu đỏ. Nói: "Mẹ đang nghĩ đến 1 màu. Con có thể đoán không?"',
+      'Sau khi tiết lộ màu đỏ, nói: "Bây giờ hai mẹ con mình tìm tất cả đồ vật màu đỏ trong nhà nhé!"',
+      'Cùng nhau đi khắp nhà, mỗi người tìm và chỉ vào đồ vật đúng màu.',
+      'Đặt tất cả đồ vật tìm được vào một chỗ và đếm — xem màu nào có nhiều đồ vật nhất.',
+      'Đổi sang màu khác. Cho con chọn màu và mẹ đoán.',
+    ],
+    tip:'Phân loại màu là bài tập tư duy logic đầu tiên của trẻ. Khi con phân loại, não bé đang tập nhận đạng thuộc tính và tạo nhòm —kỹ năng nền tảng cho toán và khoa học.',
+    skills:['Phân loại','Nhận biết màu','Tư duy logic'],
+  },
+  'nhat-ky-mieng': {
+    emoji:'🗣️', bg:'var(--plum-lt)', title:'Nhật KÝ Miệng',
+    subtitle:'Kể chuyện ngày của bé · 10 phút',
+    domain:'ngon-ngu', time:10, day:3,
+    goal:'Phát triển khả năng kể chuyện theo trình tự, mở rộng vốn từ diễn đạt.',
+    materials:['Không cần gì — chỉ cần thời gian và sự kiên nhẫn của mẹ'],
+    steps:[
+      'Buổi tối trước khi ngủ, hỏi: "Hôm nay con làm gì vui nhất kể cho mẹ nghe nhé?"',
+      'Lắng nghe hoàn toàn — không cắt ngang, không sửa câu.',
+      'Sau khi con kể, hỏi thêm: "Rồi sau đó điều gì xảy ra?" để con kể tiếp.',
+      'Ghi chú (hoặc nhớ) 1–2 câu con nói hay nhất và đọc lại cho con nghe: "Hồi nãy con nói... hay quá!"',
+      'Kết thúc: "Ngày mai mình lại kể tiếp nhé?"',
+    ],
+    tip:'Trẻ học ngôn ngữ tốt nhất qua cuộc trò chuyện thật, không phải qua bài học. Mỗi "nhật ký miệng" ngắn 10 phút tương đương 1 giờ luyện nói qua sách vở.',
+    skills:['Kể chuyện','Trình tự','Tự nhận thức'],
+  },
+  'con-giup-me': {
+    emoji:'🧹', bg:'var(--amber-lt)', title:'Con Giúp Mẹ',
+    subtitle:'Kỹ năng tự lập · hợp tác · 15 phút',
+    domain:'tinh-cam', time:15, day:3,
+    goal:'Hình thành tinh thần trách nhiệm, tăng sự tự tin và cảm giác có ích.',
+    materials:['Công việc nhà đơn giản phù hợp: gấp khăn, sắp xếp giày dép, lau bàn'],
+    steps:[
+      'Chọn 1 việc nhà đơn giản phù hợp độ tuổi: gấp khăn, lau bàn bằng khăn ướt, bỏ rác vào thùng.',
+      'Nói: "Hôm nay con là trợ lý của mẹ nhé! Nhiệm vụ của con là..."',
+      'Hướng dẫn lần đầu, sau đó để con tự làm. Không làm thay.',
+      'Khi con làm xong, hỏi: "Con thấy thế nào? Con giúp mẹ nhiều lắm đó!"',
+      'Giao thêm 1 nhiệm vụ nhỏ mỗi tuần — tăng dần khi con đã quen.',
+    ],
+    tip:'Trẻ cần cảm giác "có ích" để hình thành sự tự tin. Làm việc cùng mẹ dạy con trách nhiệm hiệu quả hơn nhiều so với quy tắc và hình phạt.',
+    skills:['Trách nhiệm','Tự lập','Hợp tác'],
+  },
+  'hop-phan-loai': {
+    emoji:'📦', bg:'var(--teal-lt)', title:'Hộp Phân Loại',
+    subtitle:'Phân loại · so sánh · 15 phút',
+    domain:'nhan-thuc', time:15, day:4,
+    goal:'Tập phân loại theo thuộc tính (màu, hình dạng, kích thước), phát triển tư duy trừu tượng.',
+    materials:['Hộp/rổ nhỏ (2–3 cái)','Đồ vật nhỏ trong nhà: nút áo, tăm bông, bông cotton, nắp chai'],
+    steps:[
+      'Đổ đồ vật ra bàn, trộn lẫn nhau. Đặt 2–3 hộp rỗng cạnh đó.',
+      'Hỏi: "Mình phân loại theo màu nhé! Màu đỏ vào hộp này, màu xanh vào hộp kia..."',
+      'Để con tự phân loại, mẹ chỉ quan sát và hỏi khi con phân vân.',
+      'Khi xong màu, thử lại với hình dạng hoặc kích thước.',
+      'Hỏi: "Theo con, mình còn có thể phân loại theo cách nào nữa không?"',
+    ],
+    tip:'Phân loại là cơ sở của tư duy khoa học. Khi trẻ 3–4 tuổi phân loại đồ vật, não bé đang xây dựng "schema" — hệ thống sắp xếp thông tin sẽ dùng suốt đời.',
+    skills:['Phân loại','So sánh','Tư duy trừu tượng'],
+  },
+  'karaoke': {
+    emoji:'🎤', bg:'var(--rose-lt)', title:'Karaoke Nhỏ Xinh',
+    subtitle:'Âm nhạc · biểu diễn · 15 phút',
+    domain:'tham-my', time:15, day:4,
+    goal:'Phát triển khả năng âm nhạc, tự tin biểu diễn, ghi nhớ lời bài hát.',
+    materials:['Không cần gì — hoặc có thể dùng điện thoại để hát theo nhạc'],
+    steps:[
+      'Chọn 1–2 bài hát thiếu nhi mà con đã biết. Bật nhạc hoặc mẹ hát trước.',
+      '"Bây giờ đến lượt con hát nhé, mẹ làm khán giả cổ vũ!" — mẹ ngồi xuống và vỗ tay.',
+      'Con hát xong, mẹ vỗ tay to và hỏi: "Con muốn hát bài gì tiếp theo?"',
+      'Đổi vai: mẹ hát, con cổ vũ — con được "chỉ đạo" mẹ hát đúng hay chưa.',
+      'Kết thúc bằng 1 bài hát cùng nhau.',
+    ],
+    tip:'Âm nhạc giúp phát triển trí nhớ, ngôn ngữ và cảm xúc đồng thời. Khi con hát, não bé kích hoạt nhiều vùng cùng lúc — đây là bài tập trí não toàn diện nhất cho trẻ nhỏ.',
+    skills:['Âm nhạc','Tự tin','Ghi nhớ'],
+  },
+  'chu-cai': {
+    emoji:'🔤', bg:'var(--plum-lt)', title:'Chữ Cái Hôm Nay',
+    subtitle:'Nhận biết mặt chữ · 10 phút',
+    domain:'ngon-ngu', time:10, day:5,
+    goal:'Làm quen với 1 chữ cái mỗi ngày, liên kết mặt chữ với âm và vật thật.',
+    materials:['Giấy trắng và bút','Sách/đồ vật có in chữ'],
+    steps:[
+      'Chọn 1 chữ, ví dụ chữ B. Viết to lên giấy, đọc cho con nghe: "Đây là chữ B, đọc là /bờ/".',
+      'Hỏi: "Con nghĩ chữ B này giống hình gì nhỉ?" — để con tưởng tượng tự do.',
+      'Cùng nhau tìm 3–5 thứ bắt đầu bằng âm B: bàn, bánh, bút, bóng...',
+      'Vẽ chữ B to trên giấy, con tô màu hoặc trang trí.',
+      'Trước khi ngủ, hỏi: "Hôm nay mình học chữ gì?"',
+    ],
+    tip:'Không cần con thuộc hết bảng chữ cái ngay. Mỗi ngày 1 chữ và liên kết với vật thật hiệu quả hơn học thuộc lòng nhiều lần. Não bé ghi nhớ bằng liên kết, không phải lặp lại cơ học.',
+    skills:['Nhận biết chữ','Âm vị học','Vốn từ'],
+  },
+  'luyen-tay': {
+    emoji:'✂️', bg:'var(--sage-lt)', title:'Luyện Tay Khéo',
+    subtitle:'Vận động tinh · 15 phút',
+    domain:'the-chat', time:15, day:5,
+    goal:'Phát triển vận động tinh, phối hợp tay-mắt, chuẩn bị cho việc viết sau này.',
+    materials:['Giấy cũ','Kéo (loại an toàn cho trẻ em)','Hạt/nút áo và dây'],
+    steps:[
+      'Hoạt động 1 — Cắt giấy: mẹ vẽ đường thẳng trên giấy, con cắt theo. Bắt đầu bằng đường thẳng trước.',
+      'Hoạt động 2 — Xâu hạt: xâu nút áo hoặc hạt vào dây. Bắt đầu bằng hạt to.',
+      'Hoạt động 3 — Gấp giấy: gấp tờ giấy làm đôi, rồi làm tư.',
+      'Xen kẽ các hoạt động để tay không mỏi.',
+      'Khen từng động tác cụ thể: "Con cầm kéo đúng rồi đó!"',
+    ],
+    tip:'Cơ ngón tay và bàn tay ở trẻ 3–4 tuổi chưa đủ mạnh để viết — cần 1–2 năm luyện vận động tinh mới sẵn sàng. Cắt, xâu hạt và gấp giấy là những bài tập tốt nhất.',
+    skills:['Vận động tinh','Phối hợp tay-mắt','Chuẩn bị viết'],
+  },
+  'nha-kh': {
+    emoji:'🔬', bg:'var(--teal-lt)', title:'Nhà Khoa Học Nhỏ',
+    subtitle:'Khám phá khoa học đơn giản · 20 phút',
+    domain:'nhan-thuc', time:20, day:6,
+    goal:'Kích thích tư duy khoa học, biết đặt câu hỏi và quan sát kết quả.',
+    materials:['Nước, muối, đường','Cốc, thìa','Đồ vật nhỏ: nút, lá, đá sỏi'],
+    steps:[
+      'Hỏi: "Con nghĩ nếu bỏ muối vào nước thì chuyện gì xảy ra?" — ghi nhận câu trả lời.',
+      'Cùng làm thí nghiệm: bỏ muối vào nước, khuấy và quan sát.',
+      'Hỏi: "Muối đâu rồi? Tại sao con không thấy nữa?"',
+      'Thử với đường, sau đó với sỏi hoặc lá — cái nào tan, cái nào không?',
+      'Nói: "Con vừa làm được thí nghiệm thật rồi đó! Con là nhà khoa học nhỏ!"',
+    ],
+    tip:'Đặt câu hỏi trước rồi quan sát (không phải quan sát rồi mới hỏi) là cách dạy tư duy khoa học đúng hướng. Não bé học tốt nhất khi có sự tò mò trước — tò mò mở ra vùng tiếp nhận thông tin.',
+    skills:['Tư duy khoa học','Quan sát','Đặt câu hỏi'],
+  },
+  'nghe-thuat-la': {
+    emoji:'🍃', bg:'var(--sage-lt)', title:'Nghệ Thuật Lá',
+    subtitle:'Nghệ thuật từ thiên nhiên · 20 phút',
+    domain:'tham-my', time:20, day:6,
+    goal:'Phát triển sáng tạo, cảm nhận thiên nhiên, vận động tinh qua dán và cắt.',
+    materials:['Lá cây (nhặt trong sân, công viên)','Giấy trắng','Hồ dán','Bút vẽ'],
+    steps:[
+      'Cùng ra vườn hoặc công viên nhặt lá — nhiều hình dạng và màu khác nhau.',
+      'Về nhà, trải lá ra bàn. Hỏi: "Con thấy chiếc lá này giống hình gì?"',
+      'Con dán lá lên giấy theo bố cục tự do — vẽ thêm chi tiết để tạo thành tranh.',
+      'Mẹ hỏi: "Con đang vẽ câu chuyện gì đây?"',
+      'Đặt tranh lên bàn hoặc dán lên tường — đây là "phòng tranh" của bé.',
+    ],
+    tip:'Nghệ thuật từ thiên nhiên kết hợp cảm giác chạm (vận động tinh) và quan sát (nhận thức) với sáng tạo — kích hoạt 3 vùng não cùng lúc, hiệu quả hơn bất kỳ bài học nào.',
+    skills:['Sáng tạo','Cảm nhận thiên nhiên','Vận động tinh'],
+  },
+  'vuon': {
+    emoji:'🌿', bg:'var(--sage-lt)', title:'Khám Phá Vườn',
+    subtitle:'Vận động ngoài trời · quan sát · 20 phút',
+    domain:'the-chat', time:20, day:6,
+    goal:'Tăng cường vận động thô, kết nối với thiên nhiên, phát triển các giác quan.',
+    materials:['Khu vườn, sân chơi hoặc công viên gần nhà','Kính lúp (nếu có)'],
+    steps:[
+      'Ra ngoài vườn/sân chơi. Nói: "Hôm nay mình là nhà thám hiểm nhé!"',
+      'Đặt thử thách: "Con tìm 5 thứ có màu xanh trong vườn nhé!"',
+      'Dùng kính lúp (nếu có) xem kiến, lá, đất — xem thứ gì thật sự nhỏ thành to.',
+      'Tập chạy nhảy: nhảy qua vạch kẻ, chạy đến cây rồi chạy về, leo lên ghế đá.',
+      'Trước khi vào nhà: "Con thấy điều gì thú vị nhất hôm nay?"',
+    ],
+    tip:'Trẻ em cần ít nhất 60 phút vận động ngoài trời mỗi ngày. Thiên nhiên giúp giảm stress, tăng tập trung và kích thích não bộ hiệu quả hơn môi trường trong nhà.',
+    skills:['Vận động thô','Quan sát','Tư duy khám phá'],
+  },
+  'cua-hang': {
+    emoji:'🏪', bg:'var(--amber-lt)', title:'Cửa Hàng Tý Hon',
+    subtitle:'Đóng vai · xã hội · 15 phút',
+    domain:'tinh-cam', time:15, day:6,
+    goal:'Phát triển kỹ năng xã hội, ngôn ngữ giao tiếp, tư duy số học qua đóng vai.',
+    materials:['Đồ vật trong nhà làm "hàng hóa"','Giấy làm "tiền"','Túi hoặc rổ nhỏ'],
+    steps:[
+      'Sắp xếp đồ vật thành "cửa hàng". Con là người bán, mẹ là khách hàng (hoặc đổi vai).',
+      'Mẹ vào mua: "Xin chào, bạn có cái... này không? Bao nhiêu tiền?"',
+      'Con "thu tiền" và "thối lại" — không cần đúng số, quan trọng là con hiểu khái niệm.',
+      'Đổi vai: con làm khách hàng, mẹ làm người bán. Con tự nghĩ ra muốn mua gì.',
+      'Kết thúc: "Cửa hàng của con hôm nay bán được nhiều không?"',
+    ],
+    tip:'Đóng vai là cách trẻ luyện tập cuộc sống thật trong môi trường an toàn. Khi con "bán hàng", bé đang tập giao tiếp, thương lượng và hiểu mối quan hệ xã hội — phức tạp hơn bất kỳ bài học nào.',
+    skills:['Giao tiếp xã hội','Đóng vai','Số học cơ bản'],
+  },
+  'on-bai-hat': {
+    emoji:'🎵', bg:'var(--rose-lt)', title:'Ôn Bài Hát',
+    subtitle:'Ôn tập âm nhạc tuần · 10 phút',
+    domain:'tham-my', time:10, day:7,
+    goal:'Củng cố trí nhớ, phát triển khả năng âm nhạc và ghi nhớ lời.',
+    materials:['Không cần gì'],
+    steps:[
+      'Hỏi: "Con nhớ tuần này mình hát bài gì không?" và chờ con nhớ lại.',
+      'Cùng nhau hát lại bài đó — to nhất có thể!',
+      'Nếu con thích, thêm động tác tay theo lời bài hát.',
+      'Cho con "biểu diễn" cho bố hoặc ông bà xem qua video call.',
+      'Hỏi: "Tuần tới mình muốn học bài gì?"',
+    ],
+    tip:'Hát giúp trẻ ghi nhớ ngôn ngữ nhanh hơn đọc hoặc nghe thông thường. Nhịp điệu và giai điệu tạo ra "móc neo" trong não — đó là lý do con thuộc lời bài hát nhanh hơn thuộc thơ.',
+    skills:['Trí nhớ âm nhạc','Nhịp điệu','Biểu diễn'],
+  },
+  'ke-chuyen': {
+    emoji:'📝', bg:'var(--plum-lt)', title:'Con Kể Chuyện Tuần',
+    subtitle:'Ôn tập + kể lại · 15 phút',
+    domain:'ngon-ngu', time:15, day:7,
+    goal:'Tổng hợp và kể lại những điều đã học trong tuần, phát triển kỹ năng kể chuyện có cấu trúc.',
+    materials:['Không cần gì — hoặc vẽ tranh kể chuyện nếu muốn'],
+    steps:[
+      'Hỏi: "Tuần này con làm được những gì rồi?" và lắng nghe.',
+      'Gợi ý từng ngày: "Thứ Hai mình làm gì nhỉ? Thứ Ba thì sao?"',
+      'Khuyến khích con kể theo trình tự: "Đầu tiên... rồi sau đó... cuối cùng..."',
+      'Mẹ có thể vẽ tranh đơn giản theo lời con kể — con xem và chỉnh sửa.',
+      'Kết thúc: "Tuần sau mình muốn học gì nữa nhé?"',
+    ],
+    tip:'Tổng kết cuối tuần là kỹ thuật "spaced repetition" — ghi nhớ phân tán. Khi con kể lại những gì đã làm, não bé đang "lưu trữ" thông tin vào bộ nhớ dài hạn hiệu quả hơn ôn ngay lập tức.',
+    skills:['Kể chuyện','Trí nhớ','Cấu trúc ngôn ngữ'],
+  },
+  'choi-tu-do': {
+    emoji:'🌈', bg:'var(--rose-lt)', title:'Chơi Tự Do',
+    subtitle:'Thời gian của bé · 30 phút',
+    domain:'tinh-cam', time:30, day:7,
+    goal:'Tái tạo năng lượng, phát triển trí tưởng tượng tự nhiên, học cách tự giải trí.',
+    materials:['Đồ chơi yêu thích của con','Hoặc không cần gì cả'],
+    steps:[
+      'Nói với con: "Bây giờ là thời gian của con — con muốn chơi gì thì chơi!"',
+      'Mẹ không gợi ý, không hướng dẫn, không can thiệp (trừ khi mất an toàn).',
+      'Quan sát từ xa — xem con tự nghĩ ra trò chơi gì.',
+      'Nếu con rủ mẹ chơi cùng, mẹ tham gia theo luật của con.',
+      'Không giới hạn thời gian — khi con tự bỏ cuộc là xong.',
+    ],
+    tip:'Chơi tự do là "lao động" của trẻ nhỏ. Nghiên cứu cho thấy trẻ được chơi tự do nhiều có EQ cao hơn, sáng tạo hơn v�  ít lo âu hơn. Mẹ không làm gì trong giờ này cũng là đang dạy con.',
+    skills:['Tự chủ','Tưởng tượng','Tự giải trí'],
+  },
+};
+
+// Week schedule: 7 days, each with activity IDs + time-of-day label
+const WEEK = [
+  {day:'Hai',  num:22, label:'Buổi tối · 35 phút', acts:['dem-bep','doc-sach','guong-mat']},
+  {day:'Ba',   num:23, label:'Buổi chiều · 40 phút', acts:['ve-tu-do','duong-ky-dieu','rua-tay']},
+  {day:'Tư',   num:24, label:'Buổi tối · 35 phút', acts:['tham-tu-mau','nhat-ky-mieng','con-giup-me']},
+  {day:'Năm',  num:25, label:'Buổi chiều · 30 phút', acts:['hop-phan-loai','karaoke']},
+  {day:'Sáu',  num:26, label:'Buổi tối · 25 phút', acts:['chu-cai','luyen-tay']},
+  {day:'Bảy',  num:27, label:'Cả ngày · 75 phút', acts:['nha-kh','nghe-thuat-la','vuon','cua-hang']},
+  {day:'CN',   num:28, label:'Buổi sáng · 55 phút', acts:['on-bai-hat','ke-chuyen','choi-tu-do']},
+];
+
+const MILESTONES = [
+  {text:'Bé đếm được 1–5 đồ vật', sub:'Hoạt động: Đếm Trong Bếp', done:false},
+  {text:'Bé kể lại chuyện 3–4 câu', sub:'Hoạt động: Đọc Sách Cùng Mẹ', done:false},
+  {text:'Bé nhận biết 4 cảm xúc cơ bản', sub:'Hoạt động: Trò Chơi Gương Mặt', done:false},
+  {text:'Bé cắt giấy theo đường thẳng', sub:'Hoạt động: Luyện Tay Khéo', done:false},
+  {text:'Bé tự làm 1 việc nhà đơn giản', sub:'Hoạt động: Con Giúp Mẹ', done:false},
+];
+
+// ── STATE ──────────────────────────────────────────────
+let done = {};
+let activeDay = 0;
+let currentModal = null;
+
+try { done = JSON.parse(localStorage.getItem('chip-done') || '{}'); } catch(e){}
+
+function saveDone(){ try { localStorage.setItem('chip-done', JSON.stringify(done)); } catch(e){} }
+
+// ── VIEWS ──────────────────────────────────────────────
+function switchView(v, btn) {
+  document.querySelectorAll('.view').forEach(el => el.classList.remove('active'));
+  document.getElementById('view-' + v).classList.add('active');
+  document.querySelectorAll('.desktop-tabs button').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.bn-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  if (v === 'week') renderWeek();
+  if (v === 'library') renderLib();
+  if (v === 'progress') renderProgress();
+}
+
+// ── TODAY ──────────────────────────────────────────────
+function renderToday() {
+  const todayIdx = 0; // Thứ Hai as "today" (can be made dynamic)
+  const day = WEEK[todayIdx];
+  document.getElementById('today-count').textContent = day.acts.length;
+  const container = document.getElementById('today-acts');
+  container.innerHTML = '';
+  const times = ['Sáng','Chiều','Tối','Khuya'];
+  day.acts.forEach((id, i) => {
+    const a = ACTS[id];
+    const d = DOMAIN[a.domain];
+    const isDone = !!done[id];
+    const el = document.createElement('div');
+    el.className = 'today-act';
+    el.innerHTML = `
+      <div class="ta-time">
+        <div class="ta-dot" style="background:${d.color}"></div>
+        <div class="ta-time-txt">${a.time}ph</div>
+      </div>
+      <div>
+        <div class="ta-title">${a.title}</div>
+        <div class="ta-tags">
+          <span class="tag ${d.cls}">${d.label}</span>
+        </div>
+      </div>
+      <div class="ta-check ${isDone?'done':''}" data-id="${id}">${isDone?'✓':''}</div>`;
+    el.addEventListener('click', (e) => {
+      if (!e.target.closest('.ta-check')) openModal(id);
+    });
+    el.querySelector('.ta-check').addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleDone(id, e.currentTarget);
+    });
+    container.appendChild(el);
+  });
+}
+
+function toggleDone(id, el) {
+  done[id] = !done[id];
+  saveDone();
+  el.classList.toggle('done', done[id]);
+  el.textContent = done[id] ? '✓' : '';
+  updateProgress();
+}
+
+// ── WEEK ──────────────────────────────────────────────
+function renderWeek() {
+  renderDayStrip();
+  renderDayActs();
+  updateRing();
+}
+
+function renderDayStrip() {
+  const strip = document.getElementById('day-strip');
+  strip.innerHTML = '';
+  WEEK.forEach((d, i) => {
+    const hasDone = d.acts.some(id => done[id]);
+    const el = document.createElement('div');
+    el.className = `day-pill${i===activeDay?' active':''}${hasDone?' has-done':''}`;
+    el.innerHTML = `<div class="dp-name">${d.day}</div><div class="dp-num">${d.num}</div><div class="dp-dot"></div>`;
+    el.addEventListener('click', () => { activeDay = i; renderWeek(); });
+    strip.appendChild(el);
+  });
+}
+
+function renderDayActs() {
+  const day = WEEK[activeDay];
+  document.getElementById('week-summary').textContent = `${day.label}`;
+  const list = document.getElementById('week-acts');
+  list.innerHTML = '';
+  day.acts.forEach(id => {
+    const a = ACTS[id];
+    const d = DOMAIN[a.domain];
+    const isDone = !!done[id];
+    const el = document.createElement('div');
+    el.className = 'week-act';
+    el.innerHTML = `
+      <div class="wa-emoji" style="background:${d.lt}">${a.emoji}</div>
+      <div>
+        <div class="wa-title">${a.title}</div>
+        <div class="wa-meta">${d.label} · ${a.time} phút</div>
+      </div>
+      <div class="wa-check ${isDone?'done':''}" data-id="${id}">${isDone?'✓':''}</div>`;
+    el.addEventListener('click', (e) => {
+      if (!e.target.closest('.wa-check')) openModal(id);
+    });
+    el.querySelector('.wa-check').addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleDone(id, e.currentTarget);
+      updateRing();
+    });
+    list.appendChild(el);
+  });
+}
+
+function updateRing() {
+  const total = WEEK.reduce((s,d) => s + d.acts.length, 0);
+  const doneCount = Object.values(done).filter(Boolean).length;
+  const pct = total ? Math.round(doneCount / total * 100) : 0;
+  const circ = 2 * Math.PI * 26;
+  const offset = circ * (1 - pct / 100);
+  document.getElementById('ring-fill').setAttribute('stroke-dashoffset', offset);
+  document.getElementById('ring-pct').textContent = pct + '%';
+}
+
+function changeWeek(dir) { /* placeholder for multi-week */ }
+
+// ── LIBRARY ──────────────────────────────────────────────
+let libFilter = 'all';
+function filterLib(f, btn) {
+  libFilter = f;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderLib();
+}
+
+function renderLib() {
+  const grid = document.getElementById('lib-grid');
+  grid.innerHTML = '';
+  Object.entries(ACTS).forEach(([id, a]) => {
+    if (libFilter !== 'all' && a.domain !== libFilter) return;
+    const d = DOMAIN[a.domain];
+    const el = document.createElement('div');
+    el.className = 'lib-card';
+    el.innerHTML = `
+      <div class="lc-emoji" style="background:${d.lt}">${a.emoji}</div>
+      <div class="lc-title">${a.title}</div>
+      <div class="lc-desc">${a.steps[0].substring(0,80)}…</div>
+      <div class="lc-footer">
+        <span class="tag ${d.cls}" style="font-size:.68rem">${d.label}</span>
+        <span class="lc-time">⏱ ${a.time} phút</span>
+      </div>`;
+    el.addEventListener('click', () => openModal(id));
+    grid.appendChild(el);
+  });
+}
+
+// ── PROGRESS ──────────────────────────────────────────────
+function renderProgress() {
+  const total = Object.keys(ACTS).length;
+  const doneCount = Object.values(done).filter(Boolean).length;
+  document.getElementById('p-done').textContent = doneCount;
+  document.getElementById('p-total').textContent = total;
+
+  // Per-domain
+  const container = document.getElementById('domain-progs');
+  container.innerHTML = '';
+  Object.entries(DOMAIN).forEach(([key, d]) => {
+    const all = Object.entries(ACTS).filter(([,a]) => a.domain === key);
+    const doneD = all.filter(([id]) => done[id]).length;
+    const pct = all.length ? Math.round(doneD / all.length * 100) : 0;
+    container.innerHTML += `
+      <div class="domain-prog">
+        <div class="dp-header">
+          <div class="dp-name">${d.label}</div>
+          <div class="dp-pct" style="color:${d.color}">${pct}%</div>
+        </div>
+        <div class="dp-bar"><div class="dp-fill" style="width:${pct}%;background:${d.color}"></div></div>
+        <div class="dp-detail">${doneD} / ${all.length} hoạt động hoàn thành</div>
+      </div>`;
+  });
+
+  // Milestones
+  const ml = document.getElementById('milestones');
+  ml.querySelectorAll('.milestone').forEach(e => e.remove());
+  MILESTONES.forEach(m => {
+    const el = document.createElement('div');
+    el.className = 'milestone';
+    el.innerHTML = `
+      <div class="ms-icon ${m.done?'done':''}">${m.done?'✓':'○'}</div>
+      <div><div class="ms-text">${m.text}</div><div class="ms-sub">${m.sub}</div></div>`;
+    ml.appendChild(el);
+  });
+}
+
+function updateProgress() {
+  if (document.getElementById('view-progress').classList.contains('active')) renderProgress();
+}
+
+// ── MODAL ──────────────────────────────────────────────
+function openModal(id) {
+  const a = ACTS[id];
+  const d = DOMAIN[a.domain];
+  currentModal = id;
+
+  document.getElementById('m-emoji').textContent = a.emoji;
+  document.getElementById('m-emoji').style.background = d.lt;
+  document.getElementById('m-title').textContent = a.title;
+  document.getElementById('m-meta').textContent = a.subtitle;
+
+  const isDone = !!done[id];
+  document.getElementById('m-body').innerHTML = `
+    <div class="modal-section">
+      <div class="modal-section-label">Mục tiêu phát triển</div>
+      <div class="goal-box">${a.goal}</div>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-label">Chuẩn bị</div>
+      <div class="materials-list">${a.materials.map(m=>`<span class="mat-chip">${m}</span>`).join('')}</div>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-label">Các bước thực hiện</div>
+      <div class="steps-list">${a.steps.map((s,i)=>`<div class="step"><div class="step-num">${i+1}</div><div class="step-text">${s}</div></div>`).join('')}</div>
+    </div>
+    <div class="modal-section">
+      <div class="science-tip"><strong>💡 Mẹo khoa học</strong>${a.tip}</div>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-label">Kỹ năng phát triển</div>
+      <div class="skills-chips">${a.skills.map(s=>`<span class="skill-chip">${s}</span>`).join('')}</div>
+    </div>
+    <button class="modal-done-btn ${isDone?'done':''}" onclick="toggleModalDone()">
+      ${isDone ? '✓ Đã hoàn thành rồi!' : '✓ Đánh dấu đã xong'}
+    </button>`;
+
+  document.getElementById('modal').hidden = false;
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(e) {
+  if (!e || e.target === document.getElementById('modal')) {
+    document.getElementById('modal').hidden = true;
+    document.body.style.overflow = '';
+    currentModal = null;
+  }
+}
+
+function toggleModalDone() {
+  if (!currentModal) return;
+  done[currentModal] = !done[currentModal];
+  saveDone();
+  const btn = document.querySelector('.modal-done-btn');
+  const isDone = done[currentModal];
+  btn.className = `modal-done-btn ${isDone?'done':''}`;
+  btn.textContent = isDone ? '✓ Đã hoàn thành rồi!' : '✓ Đánh dấu đã xong';
+  // sync checkboxes in lists
+  document.querySelectorAll(`[data-id="${currentModal}"]`).forEach(el => {
+    el.classList.toggle('done', isDone);
+    el.textContent = isDone ? '✓' : '';
+  });
+  updateRing();
+  updateProgress();
+}
+
+// ── INIT ──────────────────────────────────────────────
+renderToday();
+renderWeek();
+renderLib();
+renderProgress();
+</script>
